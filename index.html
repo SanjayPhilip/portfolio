@@ -79,7 +79,7 @@
     color: var(--accent);
     letter-spacing: 0.05em;
   }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
   .nav-links a {
     color: var(--muted);
     text-decoration: none;
@@ -512,6 +512,12 @@
     font-size: 1.5rem;
     margin-bottom: 0.3rem;
   }
+  .cert-year {
+    font-size: 0.75rem;
+    color: rgba(200,169,110,0.6);
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+  }
 
   /* Contact */
   #contact {
@@ -550,6 +556,34 @@
     font-family: 'DM Mono', monospace;
   }
   .contact-link:hover { color: var(--accent); }
+  
+  /* Resume buttons */
+  .nav-resume {
+    background: var(--accent);
+    color: #0a0a0f !important;
+    padding: 0.45rem 1.1rem;
+    border-radius: 4px;
+    font-weight: 500 !important;
+    transition: background 0.3s, transform 0.2s !important;
+  }
+  .nav-resume:hover { background: var(--white) !important; color: #0a0a0f !important; transform: translateY(-1px); }
+  
+  .contact-resume {
+    background: var(--accent);
+    color: #0a0a0f;
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+  .contact-resume:hover { background: var(--white); transform: translateY(-2px); }
 
   /* Footer */
   footer {
@@ -605,6 +639,7 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="resume.pdf" download class="nav-resume">Resume</a></li>
   </ul>
 </nav>
 
@@ -638,9 +673,9 @@
   <h2 class="section-title">Who I <em>Am</em></h2>
   <div class="about-grid">
     <div class="about-text reveal">
-      <p>I'm a <strong>final-year Integrated MCA student</strong> at Saintgits College of Engineering, specialising in full-stack web development. I enjoy turning complex problems into clean, intuitive digital experiences.</p>
-      <p>Over the past year, I completed internships at <strong>Tisser Technologies</strong> (React.js &amp; Node.js) and <strong>Spectrum Soft Tech Solutions</strong> (Python), gaining real-world exposure to agile development, API integration, and automation.</p>
-      <p>Outside of coursework, I build projects that challenge me technically — from relational database design to responsive UI engineering. I believe good code is <strong>readable, maintainable, and purposeful</strong>.</p>
+      <p>I'm a <strong>final-year Integrated MCA student</strong> at Saintgits College of Engineering, specialising in full-stack web development and automation. I enjoy turning complex problems into clean, intuitive digital experiences.</p>
+      <p>Over the past year, I completed internships at <strong>Tisser Technologies</strong> (React.js &amp; Node.js), <strong>Spectrum Soft Tech Solutions</strong> (Python), and <strong>NextgenPro</strong> (ML &amp; AI), gaining real-world exposure to agile development, API integration, automation, and deep learning applications.</p>
+      <p>I've built and am developing projects spanning full-stack web applications, task management systems, and Python automation toolkits. I believe good code is <strong>readable, maintainable, and purposeful</strong>.</p>
     </div>
     <div class="about-stats reveal">
       <div class="stat-card">
@@ -648,7 +683,7 @@
         <div class="stat-label">CGPA — KTU</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">2</div>
+        <div class="stat-number">3</div>
         <div class="stat-label">Internships Completed</div>
       </div>
       <div class="stat-card">
@@ -705,6 +740,15 @@
       </div>
     </div>
     <div class="skill-category reveal">
+      <div class="skill-cat-title">ML &amp; AI</div>
+      <div class="skill-tags">
+        <span class="skill-tag">YOLO</span>
+        <span class="skill-tag">Object Detection</span>
+        <span class="skill-tag">NLP</span>
+        <span class="skill-tag">Neural Networks</span>
+      </div>
+    </div>
+    <div class="skill-category reveal">
       <div class="skill-cat-title">Tools</div>
       <div class="skill-tags">
         <span class="skill-tag">Git</span>
@@ -730,6 +774,18 @@
   <div class="section-label">03 — Experience</div>
   <h2 class="section-title">Where I've <em>Worked</em></h2>
   <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">May 25 – Jun 5 2026</div>
+      <div class="timeline-role">ML &amp; AI Intern</div>
+      <div class="timeline-company">NextgenPro</div>
+      <ul class="timeline-points">
+        <li>Implemented YOLO-based object detection models for real-time image &amp; video analysis</li>
+        <li>Developed conversational AI chatbot with NLP integration &amp; context retention</li>
+        <li>Optimized model inference pipeline, reducing latency by ~25%</li>
+        <li>Fine-tuned pre-trained models on custom datasets for domain-specific detection</li>
+      </ul>
+    </div>
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-date">Jun 2025</div>
@@ -778,6 +834,55 @@
         <li>Role-based auth across 2 access levels</li>
         <li>100% cross-device responsive UI</li>
       </ul>
+      <div style="margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid rgba(200,169,110,0.2);">
+        <a href="https://github.com/SanjayPhilip/eBloodConnect" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.08em; transition: color 0.3s; display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'DM Mono', monospace;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View Repository
+        </a>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-num">02</div>
+      <div class="project-title">React Task Manager</div>
+      <div class="project-desc">A responsive task management application focused on modern React state management and component architecture with a drag-and-drop kanban interface.</div>
+      <div class="project-stack">
+        <span class="stack-tag">React.js</span>
+        <span class="stack-tag">Node.js</span>
+        <span class="stack-tag">REST API</span>
+        <span class="stack-tag">CSS3</span>
+      </div>
+      <ul class="project-highlights">
+        <li>Drag-and-drop kanban board with status columns</li>
+        <li>Priority tagging &amp; deadline tracking</li>
+        <li>REST API backend integration</li>
+        <li>Mobile-first responsive design</li>
+      </ul>
+      <div style="margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid rgba(200,169,110,0.2); display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;">Developed</span>
+        <a href="https://github.com/SanjayPhilip/task-manager" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.08em; transition: color 0.3s; display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'DM Mono', monospace;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View Repo
+        </a>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-num">03</div>
+      <div class="project-title">Python Automation Toolkit</div>
+      <div class="project-desc">A collection of reusable Python scripts automating data-processing workflows, file operations, and report generation — built from real internship project experience.</div>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">OOP</span>
+        <span class="stack-tag">Automation</span>
+      </div>
+      <ul class="project-highlights">
+        <li>Modular, reusable script architecture</li>
+        <li>~40% reduction in manual data-processing effort</li>
+        <li>Comprehensive error logging &amp; exception handling</li>
+        <li>Documented with usage examples</li>
+      </ul>
+      <div style="margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid rgba(200,169,110,0.2); text-align: center;">
+        <span style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;">Coming Soon</span>
+      </div>
     </div>
   </div>
 </section>
@@ -788,24 +893,52 @@
   <h2 class="section-title">What I've <em>Learned</em></h2>
   <div class="certs-grid">
     <div class="cert-card reveal">
-      <div class="cert-icon">🎓</div>
-      <div class="cert-issuer">IIT Bombay — Spoken Tutorial</div>
-      <div class="cert-name">Bootstrap</div>
+      <div class="cert-icon">🤖</div>
+      <div class="cert-issuer">Coursera</div>
+      <div class="cert-name">Introduction to Robotic Process Automation</div>
+      <div class="cert-year">2024</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon">👁️</div>
+      <div class="cert-issuer">Coursera</div>
+      <div class="cert-name">Computer Vision 101</div>
+      <div class="cert-year">2024</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon">🧠</div>
+      <div class="cert-issuer">Coursera</div>
+      <div class="cert-name">Introduction to Deep Learning</div>
+      <div class="cert-year">2024</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon">💬</div>
+      <div class="cert-issuer">Coursera</div>
+      <div class="cert-name">Natural Language Processing (NLP)</div>
+      <div class="cert-year">2024</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon">⚡</div>
+      <div class="cert-issuer">Coursera</div>
+      <div class="cert-name">Introduction to Artificial Intelligence</div>
+      <div class="cert-year">2024</div>
     </div>
     <div class="cert-card reveal">
       <div class="cert-icon">📊</div>
       <div class="cert-issuer">Coursera</div>
-      <div class="cert-name">Natural Language Processing (NLP)</div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">🔬</div>
-      <div class="cert-issuer">Coursera</div>
       <div class="cert-name">Introduction to Data Science</div>
+      <div class="cert-year">2024</div>
     </div>
     <div class="cert-card reveal">
       <div class="cert-icon">🌐</div>
       <div class="cert-issuer">Coursera</div>
       <div class="cert-name">Building Web Applications in PHP</div>
+      <div class="cert-year">2023</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon">🎓</div>
+      <div class="cert-issuer">IIT Bombay — Spoken Tutorial</div>
+      <div class="cert-name">Bootstrap</div>
+      <div class="cert-year">2023</div>
     </div>
   </div>
 </section>
@@ -824,7 +957,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
       </a>
-      <a href="https://github.com/sanjayphilip832" target="_blank" class="contact-link">
+      <a href="https://github.com/SanjayPhilip" target="_blank" class="contact-link">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
         GitHub
       </a>
@@ -833,6 +966,10 @@
         +91 81293 94899
       </a>
     </div>
+    <a href="resume.pdf" download class="contact-resume">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Resume
+    </a>
   </div>
 </section>
 
@@ -885,7 +1022,7 @@
 
   // Active nav highlight
   const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
+  const navLinks = document.querySelectorAll('.nav-links a:not(.nav-resume)');
   window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(s => {
