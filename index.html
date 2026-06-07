@@ -19,9 +19,7 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--bg);
     color: var(--text);
@@ -31,7 +29,6 @@
     cursor: none;
   }
 
-  /* Custom cursor */
   .cursor {
     width: 10px; height: 10px;
     background: var(--accent);
@@ -54,7 +51,6 @@
   }
   body:hover .cursor { transform: scale(1); }
 
-  /* Noise overlay */
   body::before {
     content: '';
     position: fixed; inset: 0;
@@ -64,7 +60,6 @@
     opacity: 0.4;
   }
 
-  /* Nav */
   nav {
     position: fixed; top: 0; left: 0; right: 0;
     z-index: 100;
@@ -91,7 +86,6 @@
   }
   .nav-links a:hover { color: var(--accent); }
 
-  /* Hero */
   #hero {
     min-height: 100vh;
     display: flex; align-items: center;
@@ -99,14 +93,12 @@
     position: relative;
     overflow: hidden;
   }
-
   .hero-bg {
     position: absolute; inset: 0;
     background:
       radial-gradient(ellipse 60% 50% at 80% 50%, rgba(200,169,110,0.06) 0%, transparent 60%),
       radial-gradient(ellipse 40% 40% at 20% 80%, rgba(124,158,201,0.05) 0%, transparent 50%);
   }
-
   .hero-grid {
     position: absolute; inset: 0;
     background-image:
@@ -115,9 +107,7 @@
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
   }
-
   .hero-content { position: relative; z-index: 2; max-width: 800px; }
-
   .hero-tag {
     display: inline-flex; align-items: center; gap: 0.6rem;
     background: rgba(200,169,110,0.08);
@@ -138,12 +128,10 @@
     border-radius: 50%;
     animation: pulse 2s infinite;
   }
-
   @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.4; transform: scale(0.8); }
   }
-
   .hero-name {
     font-family: 'Playfair Display', serif;
     font-size: clamp(3.5rem, 8vw, 7rem);
@@ -153,7 +141,6 @@
     animation: fadeUp 0.8s 0.1s ease both;
   }
   .hero-name span { color: var(--accent); font-style: italic; }
-
   .hero-title {
     font-size: clamp(1rem, 2vw, 1.3rem);
     color: var(--muted);
@@ -163,7 +150,6 @@
     animation: fadeUp 0.8s 0.2s ease both;
   }
   .hero-title strong { color: var(--accent2); font-weight: 400; }
-
   .hero-desc {
     max-width: 520px;
     font-size: 0.95rem;
@@ -172,12 +158,10 @@
     margin-bottom: 3rem;
     animation: fadeUp 0.8s 0.3s ease both;
   }
-
   .hero-actions {
     display: flex; gap: 1rem; flex-wrap: wrap;
     animation: fadeUp 0.8s 0.4s ease both;
   }
-
   .btn-primary {
     background: var(--accent);
     color: #0a0a0f;
@@ -191,7 +175,6 @@
     display: inline-flex; align-items: center; gap: 0.5rem;
   }
   .btn-primary:hover { background: var(--white); transform: translateY(-2px); }
-
   .btn-outline {
     border: 1px solid var(--border);
     color: var(--text);
@@ -204,7 +187,6 @@
     display: inline-flex; align-items: center; gap: 0.5rem;
   }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-
   .hero-scroll {
     position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
@@ -223,9 +205,7 @@
     100% { transform: scaleY(0); transform-origin: bottom; }
   }
 
-  /* Sections */
   section { padding: 7rem 4rem; }
-
   .section-label {
     font-size: 0.75rem;
     letter-spacing: 0.2em;
@@ -241,7 +221,6 @@
     background: var(--accent);
     opacity: 0.4;
   }
-
   .section-title {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2rem, 4vw, 3rem);
@@ -252,7 +231,6 @@
   }
   .section-title em { color: var(--accent); font-style: italic; }
 
-  /* About */
   #about { background: var(--surface); }
   .about-grid {
     display: grid;
@@ -267,7 +245,6 @@
     margin-bottom: 1.5rem;
   }
   .about-text p strong { color: var(--text); font-weight: 500; }
-
   .about-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -291,7 +268,6 @@
   }
   .stat-label { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; }
 
-  /* Skills */
   #skills { background: var(--bg); }
   .skills-grid {
     display: grid;
@@ -317,7 +293,6 @@
   }
   .skill-category:hover { border-color: rgba(200,169,110,0.3); transform: translateY(-4px); }
   .skill-category:hover::before { opacity: 1; }
-
   .skill-cat-title {
     font-size: 0.75rem;
     letter-spacing: 0.15em;
@@ -339,7 +314,6 @@
   }
   .skill-tag:hover { background: rgba(200,169,110,0.1); border-color: var(--accent); color: var(--accent); }
 
-  /* Experience */
   #experience { background: var(--surface); }
   .timeline { position: relative; }
   .timeline::before {
@@ -398,7 +372,6 @@
     font-size: 0.75rem;
   }
 
-  /* Projects */
   #projects { background: var(--bg); }
   .projects-grid {
     display: grid;
@@ -410,7 +383,6 @@
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 2.5rem;
-    transition: all 0.3s;
     position: relative;
     overflow: hidden;
     opacity: 0;
@@ -430,7 +402,6 @@
     transition: opacity 0.3s;
   }
   .project-card:hover::after { opacity: 1; }
-
   .project-num {
     font-family: 'Playfair Display', serif;
     font-size: 3.5rem;
@@ -441,7 +412,6 @@
     transition: color 0.3s;
   }
   .project-card:hover .project-num { color: rgba(200,169,110,0.2); }
-
   .project-title {
     font-size: 1.15rem;
     font-weight: 500;
@@ -478,8 +448,27 @@
     color: var(--accent);
     font-size: 0.7rem;
   }
+  .project-footer {
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(200,169,110,0.2);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .project-repo-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    transition: color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'DM Mono', monospace;
+  }
+  .project-repo-link:hover { color: var(--white); }
 
-  /* Certifications */
   #certifications { background: var(--surface); }
   .certs-grid {
     display: grid;
@@ -508,10 +497,7 @@
     color: var(--white);
     line-height: 1.4;
   }
-  .cert-icon {
-    font-size: 1.5rem;
-    margin-bottom: 0.3rem;
-  }
+  .cert-icon { font-size: 1.5rem; margin-bottom: 0.3rem; }
   .cert-year {
     font-size: 0.75rem;
     color: rgba(200,169,110,0.6);
@@ -519,7 +505,6 @@
     margin-top: 0.5rem;
   }
 
-  /* Contact */
   #contact {
     background: var(--bg);
     text-align: center;
@@ -556,8 +541,6 @@
     font-family: 'DM Mono', monospace;
   }
   .contact-link:hover { color: var(--accent); }
-  
-  /* Resume buttons */
   .nav-resume {
     background: var(--accent);
     color: #0a0a0f !important;
@@ -567,7 +550,6 @@
     transition: background 0.3s, transform 0.2s !important;
   }
   .nav-resume:hover { background: var(--white) !important; color: #0a0a0f !important; transform: translateY(-1px); }
-  
   .contact-resume {
     background: var(--accent);
     color: #0a0a0f;
@@ -585,7 +567,6 @@
   }
   .contact-resume:hover { background: var(--white); transform: translateY(-2px); }
 
-  /* Footer */
   footer {
     background: var(--surface);
     padding: 2rem 4rem;
@@ -595,7 +576,6 @@
   footer p { font-size: 0.8rem; color: var(--muted); }
   .footer-accent { color: var(--accent); }
 
-  /* Animations */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -604,8 +584,6 @@
     from { opacity: 0; }
     to { opacity: 1; }
   }
-
-  /* Reveal on scroll */
   .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -613,7 +591,6 @@
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* Responsive */
   @media (max-width: 768px) {
     nav { padding: 1.2rem 1.5rem; }
     .nav-links { display: none; }
@@ -638,6 +615,7 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certifications</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="resume.pdf" download class="nav-resume">Resume</a></li>
   </ul>
@@ -654,7 +632,7 @@
       <strong>Full Stack Web Developer</strong> &nbsp;·&nbsp; React.js &nbsp;·&nbsp; Node.js &nbsp;·&nbsp; PHP &nbsp;·&nbsp; Python
     </p>
     <p class="hero-desc">
-      Integrated MCA student at Saintgits College of Engineering with a CGPA of 8.69, 2 internships, and a passion for building clean, efficient web applications.
+      Integrated MCA student at Saintgits College of Engineering with a CGPA of 8.69, 3 internships, and a passion for building clean, efficient web applications.
     </p>
     <div class="hero-actions">
       <a href="#projects" class="btn-primary">View Projects ↓</a>
@@ -675,7 +653,7 @@
     <div class="about-text reveal">
       <p>I'm a <strong>final-year Integrated MCA student</strong> at Saintgits College of Engineering, specialising in full-stack web development and automation. I enjoy turning complex problems into clean, intuitive digital experiences.</p>
       <p>Over the past year, I completed internships at <strong>Tisser Technologies</strong> (React.js &amp; Node.js), <strong>Spectrum Soft Tech Solutions</strong> (Python), and <strong>NextgenPro</strong> (ML &amp; AI), gaining real-world exposure to agile development, API integration, automation, and deep learning applications.</p>
-      <p>I've built and am developing projects spanning full-stack web applications, task management systems, and Python automation toolkits. I believe good code is <strong>readable, maintainable, and purposeful</strong>.</p>
+      <p>I've built projects spanning full-stack web applications, AI-powered platforms, task management systems, and Python automation toolkits. I believe good code is <strong>readable, maintainable, and purposeful</strong>.</p>
     </div>
     <div class="about-stats reveal">
       <div class="stat-card">
@@ -691,7 +669,7 @@
         <div class="stat-label">Technologies Known</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">4</div>
+        <div class="stat-number">8</div>
         <div class="stat-label">Certifications Earned</div>
       </div>
     </div>
@@ -809,6 +787,7 @@
         <li>Resolved 10+ bugs in peer reviews; completed all sprints on schedule</li>
       </ul>
     </div>
+
   </div>
 </section>
 
@@ -817,9 +796,10 @@
   <div class="section-label">04 — Projects</div>
   <h2 class="section-title">Things I've <em>Built</em></h2>
   <div class="projects-grid">
+
     <div class="project-card">
       <div class="project-num">01</div>
-      <div class="project-title">Blood Bank Management System</div>
+      <div class="project-title">E Blood Connect</div>
       <div class="project-desc">A full-stack web application for digitising blood bank operations — from donor registration to real-time inventory tracking with role-based access control.</div>
       <div class="project-stack">
         <span class="stack-tag">HTML5</span>
@@ -834,15 +814,40 @@
         <li>Role-based auth across 2 access levels</li>
         <li>100% cross-device responsive UI</li>
       </ul>
-      <div style="margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid rgba(200,169,110,0.2);">
-        <a href="https://github.com/SanjayPhilip/eBloodConnect" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.08em; transition: color 0.3s; display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'DM Mono', monospace;">
+      <div class="project-footer">
+        <a href="https://github.com/SanjayPhilip/Blood-Bank-Management-System" target="_blank" class="project-repo-link">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           View Repository
         </a>
       </div>
     </div>
+
     <div class="project-card">
       <div class="project-num">02</div>
+      <div class="project-title">SoundMind</div>
+      <div class="project-desc">An AI-powered music discovery platform that intelligently recommends and surfaces music tailored to user preferences using machine learning algorithms.</div>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">Flask</span>
+        <span class="stack-tag">AI/ML</span>
+        <span class="stack-tag">JavaScript</span>
+      </div>
+      <ul class="project-highlights">
+        <li>AI-driven personalised music recommendations</li>
+        <li>User preference learning and profiling</li>
+        <li>Clean and responsive discovery interface</li>
+        <li>RESTful API backend with Flask</li>
+      </ul>
+      <div class="project-footer">
+        <a href="https://github.com/SanjayPhilip/SoundMind" target="_blank" class="project-repo-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View Repository
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">03</div>
       <div class="project-title">React Task Manager</div>
       <div class="project-desc">A responsive task management application focused on modern React state management and component architecture with a drag-and-drop kanban interface.</div>
       <div class="project-stack">
@@ -857,16 +862,16 @@
         <li>REST API backend integration</li>
         <li>Mobile-first responsive design</li>
       </ul>
-      <div style="margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid rgba(200,169,110,0.2); display: flex; justify-content: space-between; align-items: center;">
-        <span style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;">Developed</span>
-        <a href="https://github.com/SanjayPhilip/task-manager" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.08em; transition: color 0.3s; display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'DM Mono', monospace;">
+      <div class="project-footer">
+        <a href="https://github.com/SanjayPhilip/task-manager" target="_blank" class="project-repo-link">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          View Repo
+          View Repository
         </a>
       </div>
     </div>
+
     <div class="project-card">
-      <div class="project-num">03</div>
+      <div class="project-num">04</div>
       <div class="project-title">Python Automation Toolkit</div>
       <div class="project-desc">A collection of reusable Python scripts automating data-processing workflows, file operations, and report generation — built from real internship project experience.</div>
       <div class="project-stack">
@@ -880,10 +885,14 @@
         <li>Comprehensive error logging &amp; exception handling</li>
         <li>Documented with usage examples</li>
       </ul>
-      <div style="margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid rgba(200,169,110,0.2); text-align: center;">
-        <span style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;">Coming Soon</span>
+      <div class="project-footer">
+        <a href="https://github.com/SanjayPhilip/python-automation-toolkit" target="_blank" class="project-repo-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View Repository
+        </a>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -976,11 +985,10 @@
 <!-- FOOTER -->
 <footer>
   <p>© 2026 <span class="footer-accent">Sanjay Philip</span>. Kottayam, Kerala.</p>
-  <p>Integrated MCA — Saintgits College of Engineering</p>
+  <p>Integrated MCA (2022–2027) — Saintgits College of Engineering</p>
 </footer>
 
 <script>
-  // Custom cursor
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
@@ -1009,7 +1017,6 @@
     });
   });
 
-  // Scroll reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
@@ -1020,7 +1027,6 @@
 
   document.querySelectorAll('.reveal, .timeline-item, .project-card').forEach(el => observer.observe(el));
 
-  // Active nav highlight
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a:not(.nav-resume)');
   window.addEventListener('scroll', () => {
