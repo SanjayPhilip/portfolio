@@ -124,7 +124,7 @@ body{font-family:'Inter',sans-serif;background:#FAF9F6;color:#1a1a1a;overflow-x:
 }
 
 [data-theme="dark"] .cert-card p {
-    color: #c0b090;
+    color: #e8d8b0;
 }
 
 [data-theme="dark"] .cert-card .text-gray-400 {
@@ -132,7 +132,8 @@ body{font-family:'Inter',sans-serif;background:#FAF9F6;color:#1a1a1a;overflow-x:
 }
 
 [data-theme="dark"] .timeline-line {
-    background: linear-gradient(180deg, var(--gold-primary), rgba(212,175,55,0.5), transparent);
+    background: linear-gradient(180deg, #FFD700, rgba(255,200,0,0.6), transparent);
+    box-shadow: 0 0 10px rgba(255, 200, 0, 0.3);
 }
 
 [data-theme="dark"] .timeline-dot {
@@ -152,7 +153,8 @@ body{font-family:'Inter',sans-serif;background:#FAF9F6;color:#1a1a1a;overflow-x:
 }
 
 [data-theme="dark"] .glass-card strong {
-    color: #F4E4BC;
+    color: #FFE066;
+    text-shadow: 0 0 8px rgba(255, 200, 0, 0.5);
 }
 
 [data-theme="dark"] .glass-card .text-yellow-700 {
@@ -224,9 +226,7 @@ body{font-family:'Inter',sans-serif;background:#FAF9F6;color:#1a1a1a;overflow-x:
     color: #f5f5f5;
 }
 
-[data-theme="dark"] .gold-text {
-    filter: brightness(1.1);
-}
+
 
 [data-theme="dark"] footer {
     border-color: rgba(212, 175, 55, 0.1);
@@ -244,16 +244,7 @@ body{font-family:'Inter',sans-serif;background:#FAF9F6;color:#1a1a1a;overflow-x:
     color: #d8d8e8;
 }
 
-[data-theme="dark"] .tag {
-    background: rgba(212, 175, 55, 0.1);
-    border-color: rgba(212, 175, 55, 0.3);
-    color: #F4E4BC;
-}
 
-[data-theme="dark"] .tag:hover {
-    background: rgba(212, 175, 55, 0.25);
-    color: #fff;
-}
 
 [data-theme="dark"] .deco-circle {
     border-color: rgba(212, 175, 55, 0.08);
@@ -279,7 +270,7 @@ body{font-family:'Inter',sans-serif;background:#FAF9F6;color:#1a1a1a;overflow-x:
 }
 
 [data-theme="dark"] .cert-card p {
-    color: #c0b090;
+    color: #e8d8b0;
 }
 
 [data-theme="dark"] .form-input {
@@ -716,6 +707,223 @@ body, .glass-card, .cert-card, .nav-scrolled, .form-input, .mobile-menu, .tag {
     align-items: center;
     gap: 4px;
 }
+
+
+
+/* === DARK MODE CONTRAST FIXES === */
+[data-theme="dark"] .glass-card,
+[data-theme="dark"] .glass-card:nth-child(even),
+[data-theme="dark"] .glass-card:nth-child(3n) {
+    background: rgba(20, 20, 35, 0.95);
+    border-color: rgba(212, 175, 55, 0.35);
+}
+[data-theme="dark"] .glass-card:hover {
+    background: rgba(25, 25, 40, 0.98);
+    border-color: rgba(212, 175, 55, 0.5);
+}
+[data-theme="dark"] .cert-card {
+    background: rgba(20, 20, 35, 0.95);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+[data-theme="dark"] .cert-card:hover {
+    background: rgba(25, 25, 40, 0.98);
+    border-color: rgba(212, 175, 55, 0.5);
+}
+[data-theme="dark"] .glass-card .text-yellow-700,
+[data-theme="dark"] .glass-card .text-yellow-600,
+[data-theme="dark"] .glass-card .text-yellow-500,
+
+[data-theme="dark"] .glass-card strong,
+[data-theme="dark"] .glass-card .bg-yellow-50 {
+    color: #FFD700 !important;
+    text-shadow: 0 0 6px rgba(255, 215, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .section-title::after {
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+}
+[data-theme="dark"] .project-num {
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+[data-theme="dark"] .timeline-dot {
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.5), 0 0 10px rgba(212, 175, 55, 0.3);
+}
+[data-theme="dark"] .btn-gold {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+[data-theme="dark"] .btn-gold:hover {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+}
+[data-theme="dark"] .nav-link.active {
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+}
+[data-theme="dark"] .social-icon:hover {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+[data-theme="dark"] .cert-card:hover .cert-icon {
+    filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4));
+}
+[data-theme="dark"] .form-input:focus {
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25), 0 0 15px rgba(212, 175, 55, 0.1);
+}
+[data-theme="dark"] .glass-card p,
+[data-theme="dark"] .glass-card li,
+[data-theme="dark"] .glass-card span.text-gray-600,
+[data-theme="dark"] .glass-card span.text-gray-500 {
+    color: #d0d0e0;
+}
+[data-theme="dark"] .cert-card p {
+    color: #d0c0a0;
+}
+
+/* === REAL GLOW FIX === */
+/* In dark mode, use solid bright gold with text-shadow instead of gradient */
+
+[data-theme="dark"] .section-title::after {
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700) !important;
+    box-shadow: 0 0 10px rgba(255, 200, 0, 0.4) !important;
+}
+
+
+[data-theme="dark"] .glass-card .text-yellow-700,
+[data-theme="dark"] .glass-card .text-yellow-600,
+[data-theme="dark"] .glass-card .text-yellow-500 {
+    color: #FFE066 !important;
+    text-shadow: 0 0 8px rgba(255, 200, 0, 0.6) !important;
+}
+[data-theme="dark"] .glass-card strong {
+    color: #FFE066 !important;
+    text-shadow: 0 0 8px rgba(255, 200, 0, 0.5) !important;
+}
+[data-theme="dark"] .project-num {
+    color: #FFD700 !important;
+    text-shadow: 0 0 15px rgba(255, 200, 0, 0.6) !important;
+}
+[data-theme="dark"] .btn-gold {
+    box-shadow: 0 0 20px rgba(255, 200, 0, 0.3) !important;
+}
+[data-theme="dark"] .btn-gold:hover {
+    box-shadow: 0 0 30px rgba(255, 200, 0, 0.5) !important;
+}
+[data-theme="dark"] .timeline-dot {
+    background: #FFD700 !important;
+    box-shadow: 0 0 0 4px rgba(255, 200, 0, 0.4), 0 0 15px rgba(255, 200, 0, 0.5) !important;
+}
+[data-theme="dark"] .timeline-line {
+    background: linear-gradient(180deg, #FFD700, rgba(255,200,0,0.5), transparent) !important;
+}
+[data-theme="dark"] .nav-link.active {
+    color: #FFD700 !important;
+    text-shadow: 0 0 10px rgba(255, 200, 0, 0.5) !important;
+}
+[data-theme="dark"] .nav-link.active::after {
+    background: #FFD700 !important;
+    box-shadow: 0 0 8px rgba(255, 200, 0, 0.5) !important;
+}
+[data-theme="dark"] .social-icon:hover {
+    background: #FFD700 !important;
+    border-color: #FFD700 !important;
+    box-shadow: 0 0 15px rgba(255, 200, 0, 0.4) !important;
+}
+[data-theme="dark"] .cert-card:hover .cert-icon {
+    color: #FFD700 !important;
+    text-shadow: 0 0 10px rgba(255, 200, 0, 0.5) !important;
+}
+[data-theme="dark"] .active-dot {
+    background: #FFD700 !important;
+    box-shadow: 0 0 8px rgba(255, 200, 0, 0.5) !important;
+}
+
+/* === FINAL DARK MODE GLOW === */
+[data-theme="dark"] .gold-text {
+    background: none !important;
+    -webkit-text-fill-color: #FFD700 !important;
+    background-clip: unset !important;
+    -webkit-background-clip: unset !important;
+    color: #FFD700 !important;
+    text-shadow: 0 0 10px rgba(255, 200, 0, 0.8), 0 0 20px rgba(255, 200, 0, 0.5), 0 0 40px rgba(255, 200, 0, 0.3) !important;
+}
+[data-theme="dark"] .tag {
+    background: rgba(255, 200, 0, 0.15) !important;
+    border-color: rgba(255, 200, 0, 0.5) !important;
+    color: #FFE066 !important;
+    text-shadow: 0 0 8px rgba(255, 200, 0, 0.6), 0 0 16px rgba(255, 200, 0, 0.3) !important;
+    font-weight: 700 !important;
+}
+[data-theme="dark"] .tag:hover {
+    background: rgba(255, 200, 0, 0.3) !important;
+    color: #FFF !important;
+    text-shadow: 0 0 12px rgba(255, 200, 0, 0.8) !important;
+}
+[data-theme="dark"] .glass-card .text-yellow-700,
+[data-theme="dark"] .glass-card .text-yellow-600,
+[data-theme="dark"] .glass-card .text-yellow-500 {
+    color: #FFE066 !important;
+    text-shadow: 0 0 8px rgba(255, 200, 0, 0.6) !important;
+}
+[data-theme="dark"] .glass-card strong {
+    color: #FFE066 !important;
+    text-shadow: 0 0 8px rgba(255, 200, 0, 0.5) !important;
+}
+[data-theme="dark"] .project-num {
+    color: #FFD700 !important;
+    text-shadow: 0 0 15px rgba(255, 200, 0, 0.6) !important;
+}
+[data-theme="dark"] .section-title::after {
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700) !important;
+    box-shadow: 0 0 10px rgba(255, 200, 0, 0.4) !important;
+}
+[data-theme="dark"] .btn-gold {
+    box-shadow: 0 0 20px rgba(255, 200, 0, 0.3) !important;
+}
+[data-theme="dark"] .btn-gold:hover {
+    box-shadow: 0 0 30px rgba(255, 200, 0, 0.5) !important;
+}
+[data-theme="dark"] .timeline-dot {
+    background: #FFD700 !important;
+    box-shadow: 0 0 0 4px rgba(255, 200, 0, 0.4), 0 0 15px rgba(255, 200, 0, 0.5) !important;
+}
+[data-theme="dark"] .timeline-line {
+    background: linear-gradient(180deg, #FFD700, rgba(255,200,0,0.5), transparent) !important;
+}
+[data-theme="dark"] .nav-link.active {
+    color: #FFD700 !important;
+    text-shadow: 0 0 10px rgba(255, 200, 0, 0.5) !important;
+}
+[data-theme="dark"] .nav-link.active::after {
+    background: #FFD700 !important;
+    box-shadow: 0 0 8px rgba(255, 200, 0, 0.5) !important;
+}
+[data-theme="dark"] .social-icon:hover {
+    background: #FFD700 !important;
+    border-color: #FFD700 !important;
+    box-shadow: 0 0 15px rgba(255, 200, 0, 0.4) !important;
+}
+[data-theme="dark"] .cert-card:hover .cert-icon {
+    color: #FFD700 !important;
+    text-shadow: 0 0 10px rgba(255, 200, 0, 0.5) !important;
+}
+[data-theme="dark"] .active-dot {
+    background: #FFD700 !important;
+    box-shadow: 0 0 8px rgba(255, 200, 0, 0.5) !important;
+}
+
+/* === HANDWRITTEN TEXT DARK MODE FIX === */
+[data-theme="dark"] .handwritten,
+[data-theme="dark"] .handwritten-right {
+    color: #FFD700 !important;
+    text-shadow: 0 0 8px rgba(255, 200, 0, 0.5), 0 0 16px rgba(255, 200, 0, 0.3) !important;
+    opacity: 1 !important;
+}
+[data-theme="dark"] .opacity-60 {
+    opacity: 0.85 !important;
+}
+
+html:not([data-theme="dark"]) .handwritten,
+html:not([data-theme="dark"]) .handwritten-right {
+    color: #8B6914 !important;
+    opacity: 0.9 !important;
+}
 </style>
 <base target="_blank">
 <base target="_blank">
@@ -790,12 +998,12 @@ Resume
 </a>
 </div>
 <div class="flex flex-wrap gap-3 pt-4">
-<span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="tech-icon" loading="lazy">React</span>
-<span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="tech-icon" loading="lazy">Python</span>
-<span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="tech-icon" loading="lazy">Docker</span>
-<span class="tag"><img src="https://cdn.simpleicons.org/fastapi/D4AF37" alt="FastAPI" class="tech-icon" loading="lazy">FastAPI</span>
-<span class="tag"><img src="https://cdn.simpleicons.org/openai/D4AF37" alt="AI / ML" class="tech-icon" loading="lazy">AI / ML</span>
-<span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="tech-icon" loading="lazy">Node.js</span>
+<span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><g fill="#61DAFB"><circle cx="64" cy="64" r="11.4"/><ellipse cx="64" cy="64" rx="60" ry="22" fill="none" stroke="#61DAFB" stroke-width="5"/><ellipse cx="64" cy="64" rx="22" ry="60" transform="rotate(60 64 64)" fill="none" stroke="#61DAFB" stroke-width="5"/><ellipse cx="64" cy="64" rx="22" ry="60" transform="rotate(120 64 64)" fill="none" stroke="#61DAFB" stroke-width="5"/></g></svg>React</span>
+<span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="url(#pygrad)" d="M63.6,11.4c-26.7,0-25.1,11.6-25.1,11.6l.1,12h25.6v3.6H25.6S11.4,39.2,11.4,64s14.2,25.4,14.2,25.4h8.5V77.2s-.5-14.2,14-14.2h25.4s13.5.2,13.5-13V24.9S89.4,11.4,63.6,11.4ZM50.9,19.6a4.5,4.5,0,1,1,4.5,4.5A4.5,4.5,0,0,1,50.9,19.6Z"/><path fill="url(#pygrad2)" d="M64.4,116.6c26.7,0,25.1-11.6,25.1-11.6l-.1-12H63.8V89.4h38.6s14.2.6,14.2-24.4S97.8,39.6,97.8,39.6H89.3V50.8s.5,14.2-14,14.2H49.9S36.4,65.2,36.4,78.2v13.5S39.4,116.6,64.4,116.6ZM77.1,108.4a4.5,4.5,0,1,1-4.5-4.5A4.5,4.5,0,0,1,77.1,108.4Z"/><defs><linearGradient id="pygrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#387EB8"/><stop offset="100%" stop-color="#366994"/></linearGradient><linearGradient id="pygrad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFE052"/><stop offset="100%" stop-color="#FFC331"/></linearGradient></defs></svg>Python</span>
+<span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#2496ED" d="M124.8,52.1c-4.1-2.7-10.3-3.6-15.8-2.3c-1.1-7.8-5.8-14.6-14.3-20.6l-3.3-2.2l-2.2,3.3c-2.8,4.4-4.3,9.8-3.9,15.2c0.2,2.1,0.8,5.3,2.8,8.3c-1.9,1.1-5.6,2.5-10.5,2.5H6.2h-0.6C2.3,57.3,0,60.7,0,64.5c0,0.3,0,0.6,0,0.9c0,5.9,2.3,11.3,6.4,15.3c4.9,4.8,11.9,6.9,20.2,6.1c1.5-0.2,3-0.4,4.5-0.7c9.2-1.8,17.1-6.8,22.4-13.9c3.2,2.9,8,6.4,14.3,6.4h2.5c1.1,0,2.2-0.2,3.3-0.5c6.3-1.8,9.5-7.2,10.9-11.1c3.1-0.9,7.1-2.5,10.2-5.6C128.2,63.2,128.2,56.2,124.8,52.1zM28.6,62.9H16.2v12.4h12.4V62.9zM28.6,47.8H16.2v12.4h12.4V47.8zM43.7,62.9H31.3v12.4h12.4V62.9zM43.7,47.8H31.3v12.4h12.4V47.8zM43.7,32.7H31.3v12.4h12.4V32.7zM58.8,62.9H46.4v12.4h12.4V62.9zM58.8,47.8H46.4v12.4h12.4V47.8zM58.8,32.7H46.4v12.4h12.4V32.7zM73.9,62.9H61.5v12.4h12.4V62.9zM73.9,47.8H61.5v12.4h12.4V47.8z"/></svg>Docker</span>
+<span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#009688" d="M64,8L8,40v48l56,32,56-32V40L64,8zm0,16l40,23-40,23L24,47l40-23zM24,56l32,18v36L24,92V56zm80,0v36L72,110V74l32-18z"/></svg>FastAPI</span>
+<span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="16" fill="#1a1a2e"/><circle cx="40" cy="40" r="16" fill="#00d4ff"/><circle cx="88" cy="40" r="16" fill="#00d4ff"/><circle cx="40" cy="88" r="16" fill="#00d4ff"/><circle cx="88" cy="88" r="16" fill="#00d4ff"/><line x1="40" y1="40" x2="88" y2="40" stroke="#00d4ff" stroke-width="3"/><line x1="40" y1="88" x2="88" y2="88" stroke="#00d4ff" stroke-width="3"/><line x1="40" y1="40" x2="40" y2="88" stroke="#00d4ff" stroke-width="3"/><line x1="88" y1="40" x2="88" y2="88" stroke="#00d4ff" stroke-width="3"/><line x1="40" y1="40" x2="88" y2="88" stroke="#00d4ff" stroke-width="2"/><line x1="88" y1="40" x2="40" y2="88" stroke="#00d4ff" stroke-width="2"/></svg>AI / ML</span>
+<span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#83CD29" d="M64,0L11.8,30.2v67.5L64,128l52.2-30.2V30.2L64,0zM99.6,87.5L64,108.1L28.4,87.5V46.5L64,25.9l35.6,20.6V87.5z"/><path fill="#83CD29" d="M64,36.5L41.2,49.6v26.3L64,89l22.8-13.1V49.6L64,36.5zM64,82.5L47.6,73V54.3L64,44.8l16.4,9.5V73L64,82.5z"/></svg>Node.js</span>
 </div>
 <div class="flex gap-4 pt-2">
 <a href="https://linkedin.com/in/sanjayphilip" target="_blank" class="social-icon" title="LinkedIn">
@@ -910,42 +1118,42 @@ Resume
 <div class="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center"><svg class="w-5 h-5 text-yellow-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div>
 <h3 class="font-semibold text-gray-900">Languages</h3>
 </div>
-<div class="flex flex-wrap gap-2"><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="tech-icon" loading="lazy">Python</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="tech-icon" loading="lazy">JavaScript</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="tech-icon" loading="lazy">TypeScript</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="tech-icon" loading="lazy">PHP</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="tech-icon" loading="lazy">Java</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C / C++" class="tech-icon" loading="lazy">C / C++</span></div>
+<div class="flex flex-wrap gap-2"><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="url(#pygrad)" d="M63.6,11.4c-26.7,0-25.1,11.6-25.1,11.6l.1,12h25.6v3.6H25.6S11.4,39.2,11.4,64s14.2,25.4,14.2,25.4h8.5V77.2s-.5-14.2,14-14.2h25.4s13.5.2,13.5-13V24.9S89.4,11.4,63.6,11.4ZM50.9,19.6a4.5,4.5,0,1,1,4.5,4.5A4.5,4.5,0,0,1,50.9,19.6Z"/><path fill="url(#pygrad2)" d="M64.4,116.6c26.7,0,25.1-11.6,25.1-11.6l-.1-12H63.8V89.4h38.6s14.2.6,14.2-24.4S97.8,39.6,97.8,39.6H89.3V50.8s.5,14.2-14,14.2H49.9S36.4,65.2,36.4,78.2v13.5S39.4,116.6,64.4,116.6ZM77.1,108.4a4.5,4.5,0,1,1-4.5-4.5A4.5,4.5,0,0,1,77.1,108.4Z"/><defs><linearGradient id="pygrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#387EB8"/><stop offset="100%" stop-color="#366994"/></linearGradient><linearGradient id="pygrad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFE052"/><stop offset="100%" stop-color="#FFC331"/></linearGradient></defs></svg>Python</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" fill="#F7DF1E" rx="4"/><path fill="#323330" d="M18.8,96.4l7.6-4.6c1.5,2.6,2.8,4.8,6.1,4.8c3.1,0,5.1-1.2,5.1-6V56.8h9.3v34.1c0,9.6-5.6,13.9-13.8,13.9C24.9,104.8,20.8,101.6,18.8,96.4zM55.8,95.4l7.6-4.4c2,3.3,4.6,5.7,9.2,5.7c3.9,0,6.3-1.9,6.3-4.6c0-3.2-2.6-4.4-6.9-6.2l-2.4-1c-6.8-2.9-11.3-6.5-11.3-14.2c0-7.1,5.4-12.5,13.8-12.5c6,0,10.3,2.1,13.4,7.6l-7.3,4.7c-1.6-2.9-3.4-4-6.1-4c-2.8,0-4.5,1.8-4.5,4c0,2.8,1.8,3.9,5.9,5.6l2.4,1c8,3.4,12.5,6.8,12.5,14.6c0,8.5-6.7,13.2-15.7,13.2C63.8,104.8,58.4,101.1,55.8,95.4z"/></svg>JavaScript</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" fill="#3178C6" rx="4"/><path fill="#FFF" d="M18.8,96.4l7.6-4.6c1.5,2.6,2.8,4.8,6.1,4.8c3.1,0,5.1-1.2,5.1-6V56.8h9.3v34.1c0,9.6-5.6,13.9-13.8,13.9C24.9,104.8,20.8,101.6,18.8,96.4zM55.8,95.4l7.6-4.4c2,3.3,4.6,5.7,9.2,5.7c3.9,0,6.3-1.9,6.3-4.6c0-3.2-2.6-4.4-6.9-6.2l-2.4-1c-6.8-2.9-11.3-6.5-11.3-14.2c0-7.1,5.4-12.5,13.8-12.5c6,0,10.3,2.1,13.4,7.6l-7.3,4.7c-1.6-2.9-3.4-4-6.1-4c-2.8,0-4.5,1.8-4.5,4c0,2.8,1.8,3.9,5.9,5.6l2.4,1c8,3.4,12.5,6.8,12.5,14.6c0,8.5-6.7,13.2-15.7,13.2C63.8,104.8,58.4,101.1,55.8,95.4z"/></svg>TypeScript</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><ellipse cx="64" cy="64" rx="60" ry="32" fill="#777BB4"/><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="28" fill="#FFF">php</text></svg>PHP</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#E76F00" d="M47.6,89.5c0,0-6.4,3.7,4.5,5c13.1,1.6,19.8,1.4,34.2-1.5c0,0,3.8,2.4,9.1,4.5C76.6,104.2,34.3,100.9,47.6,89.5zM45.1,78.9c0,0-7.2,5.3,3.8,6.4c14.2,1.5,25.5,1.6,45.1-2.2c0,0,2.6,2.7,6.7,4.2C79.6,93.5,30.8,90.8,45.1,78.9z"/><path fill="#5382A1" d="M69.4,51.1c8.2,9.4-2.2,17.9-2.2,17.9s20.8-10.7,11.2-24.1C68.8,32.3,61.1,27.5,94.3,9.8C94.3,9.8,52.3,22.5,69.4,51.1zM81.3,111.1c0,0,4.3,3.5-4.7,6.2c-17.3,5.2-71.8,6.8-86.9,0.2c-5.4-2.4,4.7-5.7,7.9-6.4c3.3-0.7,5.2-0.6,5.2-0.6c-6-4.2-38.7,8.3-16.6,11.9C56.1,135.4,103.7,123.2,81.3,111.1zM54.9,64.1c0,0-27.2,6.5-9.6,8.8c7.4,1,22.2,0.5,36-1.5c11.3-1.6,22.6-5,22.6-5s-4,1.7-6.9,3.7C77.3,79.2,38.8,81.3,22.3,77.3C7.2,73.8,17.5,68.4,54.9,64.1zM88.1,38.2c0.9-2,1.5-3.3,1.5-3.3s-2.5,0.4-5.6,1.1c-3.1,0.7-6.5,1.6-6.5,1.6s1.1-0.9,2.8-2.1c4.3-3.1,11.7-6.6,11.7-6.6S86.5,34.2,88.1,38.2z"/></svg>Java</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#00599C" d="M64,0L11.8,30.2v67.5L64,128l52.2-30.2V30.2L64,0zM103.4,82.5L64,105.3L24.6,82.5V36.8L64,14l39.4,22.8V82.5z"/><text x="64" y="78" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="36" fill="#FFF">C++</text></svg>C / C++</span></div>
 </div>
 <div class="glass-card p-6 reveal">
 <div class="flex items-center gap-3 mb-4">
 <div class="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center"><svg class="w-5 h-5 text-yellow-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
 <h3 class="font-semibold text-gray-900">Frontend</h3>
 </div>
-<div class="flex flex-wrap gap-2"><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React.js" class="tech-icon" loading="lazy">React.js</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="tech-icon" loading="lazy">HTML5</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="tech-icon" loading="lazy">CSS3</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" class="tech-icon" loading="lazy">Tailwind</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="tech-icon" loading="lazy">Bootstrap</span></div>
+<div class="flex flex-wrap gap-2"><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><g fill="#61DAFB"><circle cx="64" cy="64" r="11.4"/><ellipse cx="64" cy="64" rx="60" ry="22" fill="none" stroke="#61DAFB" stroke-width="5"/><ellipse cx="64" cy="64" rx="22" ry="60" transform="rotate(60 64 64)" fill="none" stroke="#61DAFB" stroke-width="5"/><ellipse cx="64" cy="64" rx="22" ry="60" transform="rotate(120 64 64)" fill="none" stroke="#61DAFB" stroke-width="5"/></g></svg>React.js</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#E44D26" d="M19.6,0l9.1,102.6l39.3,11l39.3-11L116.4,0H19.6zM96.8,91.4L64,100.8L31.2,91.4L24,16.6h80L96.8,91.4z"/><path fill="#F16529" d="M64,21.4h32.8l-2.7,30.4H64V21.4zM64,93.8V58.2h15.2l-1.1,12.4L64,75.6V93.8zM64,58.2V21.4H31.2l2.7,30.4H64zM64,75.6l-14.1-4.1l-0.9,10.3L64,93.8V75.6z"/></svg>HTML5</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#1572B6" d="M19.6,0l9.1,102.6l39.3,11l39.3-11L116.4,0H19.6zM96.8,91.4L64,100.8L31.2,91.4L24,16.6h80L96.8,91.4z"/><path fill="#33A9DC" d="M64,21.4h32.8l-2.7,30.4H64V21.4zM64,93.8V58.2h15.2l-1.1,12.4L64,75.6V93.8zM64,58.2V21.4H31.2l2.7,30.4H64zM64,75.6l-14.1-4.1l-0.9,10.3L64,93.8V75.6z"/></svg>CSS3</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#38BDF8" d="M64,0c-17.7,0-28.8,8.8-33.3,26.4c6.6-8.8,14.3-12.1,23.1-9.9c5,1.3,8.6,4.8,12.6,8.7c6.5,6.4,14,13.8,30.4,13.8c17.7,0,28.8-8.8,33.3-26.4c-6.6,8.8-14.3,12.1-23.1,9.9c-5-1.3-8.6-4.8-12.6-8.7C111.1,7.5,103.6,0,87.2,0H64zM30.4,48C12.7,48,1.6,56.8-2.9,74.4c6.6-8.8,14.3-12.1,23.1-9.9c5,1.3,8.6,4.8,12.6,8.7c6.5,6.4,14,13.8,30.4,13.8c17.7,0,28.8-8.8,33.3-26.4c-6.6,8.8-14.3,12.1-23.1,9.9c-5-1.3-8.6-4.8-12.6-8.7C77.5,55.5,70,48,53.6,48H30.4z" transform="translate(2.9, 0)"/></svg>Tailwind</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" fill="#7952B3" rx="24"/><path fill="#FFF" d="M34.5,28.5h27.8c13.8,0,23.8,6.7,23.8,19.3c0,8.5-5.7,14.8-13.5,16.7v0.3c9.8,1.5,16.8,8,16.8,18.1c0,13.5-10.8,21.1-24.3,21.1H34.5V28.5zM59.3,60.8c9.3,0,14.3-4.3,14.3-11.5c0-7.5-5.3-10.8-14.3-10.8H47.8v22.3H59.3zM60.3,98.5c10,0,15.8-4.3,15.8-12.5c0-8-5.5-11.8-15.8-11.8H47.8v24.3H60.3z"/></svg>Bootstrap</span></div>
 </div>
 <div class="glass-card p-6 reveal">
 <div class="flex items-center gap-3 mb-4">
 <div class="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center"><svg class="w-5 h-5 text-yellow-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg></div>
 <h3 class="font-semibold text-gray-900">Backend</h3>
 </div>
-<div class="flex flex-wrap gap-2"><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="tech-icon" loading="lazy">Node.js</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express.js" class="tech-icon" loading="lazy">Express.js</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" class="tech-icon" loading="lazy">Flask</span><span class="tag"><img src="https://cdn.simpleicons.org/fastapi/D4AF37" alt="FastAPI" class="tech-icon" loading="lazy">FastAPI</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="tech-icon" loading="lazy">PHP</span></div>
+<div class="flex flex-wrap gap-2"><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#83CD29" d="M64,0L11.8,30.2v67.5L64,128l52.2-30.2V30.2L64,0zM99.6,87.5L64,108.1L28.4,87.5V46.5L64,25.9l35.6,20.6V87.5z"/><path fill="#83CD29" d="M64,36.5L41.2,49.6v26.3L64,89l22.8-13.1V49.6L64,36.5zM64,82.5L47.6,73V54.3L64,44.8l16.4,9.5V73L64,82.5z"/></svg>Node.js</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><text x="64" y="78" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="22" fill="#FFF">Express</text><rect width="128" height="128" fill="#333" rx="8"/></svg>Express.js</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#000" d="M64,0C28.7,0,0,28.7,0,64s28.7,64,64,64s64-28.7,64-64S99.3,0,64,0zM64,120c-30.9,0-56-25.1-56-56S33.1,8,64,8s56,25.1,56,56S94.9,120,64,120z"/><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="24" fill="#FFF">Flask</text></svg>Flask</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#009688" d="M64,8L8,40v48l56,32,56-32V40L64,8zm0,16l40,23-40,23L24,47l40-23zM24,56l32,18v36L24,92V56zm80,0v36L72,110V74l32-18z"/></svg>FastAPI</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><ellipse cx="64" cy="64" rx="60" ry="32" fill="#777BB4"/><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="28" fill="#FFF">php</text></svg>PHP</span></div>
 </div>
 <div class="glass-card p-6 reveal">
 <div class="flex items-center gap-3 mb-4">
 <div class="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center"><svg class="w-5 h-5 text-yellow-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg></div>
 <h3 class="font-semibold text-gray-900">Database</h3>
 </div>
-<div class="flex flex-wrap gap-2"><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="tech-icon" loading="lazy">MySQL</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="tech-icon" loading="lazy">MongoDB</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="tech-icon" loading="lazy">PostgreSQL</span><span class="tag"><img src="https://cdn.simpleicons.org/sqlalchemy/D4AF37" alt="SQLAlchemy" class="tech-icon" loading="lazy">SQLAlchemy</span></div>
+<div class="flex flex-wrap gap-2"><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#00758F" d="M64,0C28.7,0,0,28.7,0,64s28.7,64,64,64s64-28.7,64-64S99.3,0,64,0zM64,120c-30.9,0-56-25.1-56-56S33.1,8,64,8s56,25.1,56,56S94.9,120,64,120z"/><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="#FFF">MySQL</text></svg>MySQL</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#47A248" d="M64,0c0,0-9.8,4.5-16.5,18.5C40.8,32.5,42,52,48,68c3,8,8,16,16,24c0-8,0-16,0-24c0-16,8-32,16-48C80,20,80,12,80,12L64,0zM64,128c0,0,0-8,0-16c0-8,0-16,0-24c0-16,8-32,16-48c0,0,0,8,0,16C80,80,72,96,64,128z"/></svg>MongoDB</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#336791" d="M64,0C28.7,0,0,28.7,0,64s28.7,64,64,64s64-28.7,64-64S99.3,0,64,0zM64,120c-30.9,0-56-25.1-56-56S33.1,8,64,8s56,25.1,56,56S94.9,120,64,120z"/><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="18" fill="#FFF">PostgreSQL</text></svg>PostgreSQL</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#333"/><text x="64" y="50" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="14" fill="#FFF">SQL</text><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="14" fill="#D4AF37">Alchemy</text></svg>SQLAlchemy</span></div>
 </div>
 <div class="glass-card p-6 reveal">
 <div class="flex items-center gap-3 mb-4">
 <div class="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center"><svg class="w-5 h-5 text-yellow-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
 <h3 class="font-semibold text-gray-900">AI / ML</h3>
 </div>
-<div class="flex flex-wrap gap-2"><span class="tag"><img src="https://cdn.simpleicons.org/yolo/D4AF37" alt="YOLO" class="tech-icon" loading="lazy">YOLO</span><span class="tag"><img src="https://cdn.simpleicons.org/spacy/D4AF37" alt="NLP" class="tech-icon" loading="lazy">NLP</span><span class="tag"><img src="https://cdn.simpleicons.org/pytorch/D4AF37" alt="Neural Networks" class="tech-icon" loading="lazy">Neural Networks</span><span class="tag"><img src="https://cdn.simpleicons.org/opencv/D4AF37" alt="Computer Vision" class="tech-icon" loading="lazy">Computer Vision</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV" class="tech-icon" loading="lazy">OpenCV</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="tech-icon" loading="lazy">TensorFlow</span></div>
+<div class="flex flex-wrap gap-2"><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#00C853"/><text x="64" y="55" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="#FFF">YOLO</text><text x="64" y="80" text-anchor="middle" font-family="Arial" font-size="12" fill="#FFF">v8</text></svg>YOLO</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#6A1B9A"/><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="28" fill="#FFF">NLP</text></svg>NLP</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#1565C0"/><circle cx="32" cy="32" r="10" fill="#FFF"/><circle cx="96" cy="32" r="10" fill="#FFF"/><circle cx="32" cy="96" r="10" fill="#FFF"/><circle cx="96" cy="96" r="10" fill="#FFF"/><circle cx="64" cy="64" r="12" fill="#FF5722"/><line x1="32" y1="32" x2="64" y2="64" stroke="#FFF" stroke-width="2"/><line x1="96" y1="32" x2="64" y2="64" stroke="#FFF" stroke-width="2"/><line x1="32" y1="96" x2="64" y2="64" stroke="#FFF" stroke-width="2"/><line x1="96" y1="96" x2="64" y2="64" stroke="#FFF" stroke-width="2"/></svg>Neural Networks</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#E65100"/><circle cx="64" cy="64" r="28" fill="none" stroke="#FFF" stroke-width="4"/><circle cx="64" cy="64" r="12" fill="#FFF"/><circle cx="64" cy="64" r="4" fill="#E65100"/></svg>Computer Vision</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><circle cx="32" cy="64" r="28" fill="#FF0000" opacity="0.8"/><circle cx="64" cy="32" r="28" fill="#00FF00" opacity="0.8"/><circle cx="96" cy="64" r="28" fill="#0000FF" opacity="0.8"/></svg>OpenCV</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#FF6F00" d="M64,0L0,36.8v54.4L64,128l64-36.8V36.8L64,0zM64,112L16,84.3V43.7L64,16l48,27.7v40.6L64,112z"/><path fill="#FF6F00" d="M64,24L32,42.5v43L64,104l32-18.5v-43L64,24z"/></svg>TensorFlow</span></div>
 </div>
 <div class="glass-card p-6 reveal">
 <div class="flex items-center gap-3 mb-4">
 <div class="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center"><svg class="w-5 h-5 text-yellow-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg></div>
 <h3 class="font-semibold text-gray-900">DevOps & Tools</h3>
 </div>
-<div class="flex flex-wrap gap-2"><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="tech-icon" loading="lazy">Git</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="tech-icon" loading="lazy">Docker</span><span class="tag"><img src="https://cdn.simpleicons.org/githubactions/D4AF37" alt="GitHub Actions" class="tech-icon" loading="lazy">GitHub Actions</span><span class="tag"><img src="https://cdn.simpleicons.org/vercel/D4AF37" alt="Vercel" class="tech-icon" loading="lazy">Vercel</span><span class="tag"><img src="https://cdn.simpleicons.org/railway/D4AF37" alt="Railway" class="tech-icon" loading="lazy">Railway</span><span class="tag"><img src="https://cdn.simpleicons.org/render/D4AF37" alt="Render" class="tech-icon" loading="lazy">Render</span></div>
+<div class="flex flex-wrap gap-2"><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#F05032" d="M119.2,58.3L69.7,8.8c-3.1-3.1-8.2-3.1-11.3,0L46.8,20.4l14.2,14.2c3.3-1.1,7.1-0.4,9.8,2.3c2.7,2.7,3.4,6.5,2.3,9.8l13.7,13.7c3.3-1.1,7.1-0.4,9.8,2.3c3.8,3.8,3.8,10,0,13.8c-3.8,3.8-10,3.8-13.8,0c-3.8-3.8-3.8-10,0-13.8c1.1-1.1,2.4-1.8,3.8-2.2V52.5c-1.4-0.4-2.7-1.1-3.8-2.2c-3.3-3.3-3.3-8.7-0.7-12.3L50.2,23.8L8.8,65.2c-3.1,3.1-3.1,8.2,0,11.3l49.5,49.5c3.1,3.1,8.2,3.1,11.3,0l49.5-49.5C122.3,66.5,122.3,61.4,119.2,58.3z"/></svg>Git</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#2496ED" d="M124.8,52.1c-4.1-2.7-10.3-3.6-15.8-2.3c-1.1-7.8-5.8-14.6-14.3-20.6l-3.3-2.2l-2.2,3.3c-2.8,4.4-4.3,9.8-3.9,15.2c0.2,2.1,0.8,5.3,2.8,8.3c-1.9,1.1-5.6,2.5-10.5,2.5H6.2h-0.6C2.3,57.3,0,60.7,0,64.5c0,0.3,0,0.6,0,0.9c0,5.9,2.3,11.3,6.4,15.3c4.9,4.8,11.9,6.9,20.2,6.1c1.5-0.2,3-0.4,4.5-0.7c9.2-1.8,17.1-6.8,22.4-13.9c3.2,2.9,8,6.4,14.3,6.4h2.5c1.1,0,2.2-0.2,3.3-0.5c6.3-1.8,9.5-7.2,10.9-11.1c3.1-0.9,7.1-2.5,10.2-5.6C128.2,63.2,128.2,56.2,124.8,52.1zM28.6,62.9H16.2v12.4h12.4V62.9zM28.6,47.8H16.2v12.4h12.4V47.8zM43.7,62.9H31.3v12.4h12.4V62.9zM43.7,47.8H31.3v12.4h12.4V47.8zM43.7,32.7H31.3v12.4h12.4V32.7zM58.8,62.9H46.4v12.4h12.4V62.9zM58.8,47.8H46.4v12.4h12.4V47.8zM58.8,32.7H46.4v12.4h12.4V32.7zM73.9,62.9H61.5v12.4h12.4V62.9zM73.9,47.8H61.5v12.4h12.4V47.8z"/></svg>Docker</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#333"/><circle cx="64" cy="40" r="16" fill="#FFF"/><path d="M32 80 L64 56 L96 80 L96 104 L32 104 Z" fill="#FFF"/><circle cx="64" cy="72" r="8" fill="#333"/></svg>GitHub Actions</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#000"/><polygon points="64,20 104,108 24,108" fill="#FFF"/></svg>Vercel</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#0B0D0E"/><path d="M64 20 L84 60 L104 60 L84 100 L64 100 L44 60 L24 60 Z" fill="#FFF"/></svg>Railway</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#46E3B7"/><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="22" fill="#0B0D0E">R</text></svg>Render</span></div>
 </div>
 </div>
 </div>
@@ -973,7 +1181,7 @@ Resume
 <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-yellow-500 mt-2 flex-shrink-0"></span>Optimized inference pipeline, reducing latency by <strong>~25%</strong></li>
 <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-yellow-500 mt-2 flex-shrink-0"></span>Fine-tuned 3 pre-trained models, improving baseline accuracy by <strong>~15%</strong></li>
 </ul>
-<div class="flex flex-wrap gap-2 mt-4"><span class="tag"><img src="https://cdn.simpleicons.org/yolo/D4AF37" alt="YOLOv8" class="tech-icon" loading="lazy">YOLOv8</span><span class="tag"><img src="https://cdn.simpleicons.org/huggingface/D4AF37" alt="BERT" class="tech-icon" loading="lazy">BERT</span><span class="tag"><img src="https://cdn.simpleicons.org/openai/D4AF37" alt="GPT-2" class="tech-icon" loading="lazy">GPT-2</span><span class="tag"><img src="https://cdn.simpleicons.org/fastapi/D4AF37" alt="FastAPI" class="tech-icon" loading="lazy">FastAPI</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="tech-icon" loading="lazy">Docker</span><span class="tag"><img src="https://cdn.simpleicons.org/nvidia/D4AF37" alt="GPU" class="tech-icon" loading="lazy">GPU</span></div>
+<div class="flex flex-wrap gap-2 mt-4"><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#00C853"/><text x="64" y="55" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="#FFF">YOLO</text><text x="64" y="80" text-anchor="middle" font-family="Arial" font-size="12" fill="#FFF">v8</text></svg>YOLOv8</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#FF6F00"/><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="28" fill="#FFF">B</text></svg>BERT</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#10A37F"/><text x="64" y="55" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="#FFF">GPT</text><text x="64" y="80" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="18" fill="#FFF">-2</text></svg>GPT-2</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#009688" d="M64,8L8,40v48l56,32,56-32V40L64,8zm0,16l40,23-40,23L24,47l40-23zM24,56l32,18v36L24,92V56zm80,0v36L72,110V74l32-18z"/></svg>FastAPI</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#2496ED" d="M124.8,52.1c-4.1-2.7-10.3-3.6-15.8-2.3c-1.1-7.8-5.8-14.6-14.3-20.6l-3.3-2.2l-2.2,3.3c-2.8,4.4-4.3,9.8-3.9,15.2c0.2,2.1,0.8,5.3,2.8,8.3c-1.9,1.1-5.6,2.5-10.5,2.5H6.2h-0.6C2.3,57.3,0,60.7,0,64.5c0,0.3,0,0.6,0,0.9c0,5.9,2.3,11.3,6.4,15.3c4.9,4.8,11.9,6.9,20.2,6.1c1.5-0.2,3-0.4,4.5-0.7c9.2-1.8,17.1-6.8,22.4-13.9c3.2,2.9,8,6.4,14.3,6.4h2.5c1.1,0,2.2-0.2,3.3-0.5c6.3-1.8,9.5-7.2,10.9-11.1c3.1-0.9,7.1-2.5,10.2-5.6C128.2,63.2,128.2,56.2,124.8,52.1zM28.6,62.9H16.2v12.4h12.4V62.9zM28.6,47.8H16.2v12.4h12.4V47.8zM43.7,62.9H31.3v12.4h12.4V62.9zM43.7,47.8H31.3v12.4h12.4V47.8zM43.7,32.7H31.3v12.4h12.4V32.7zM58.8,62.9H46.4v12.4h12.4V62.9zM58.8,47.8H46.4v12.4h12.4V47.8zM58.8,32.7H46.4v12.4h12.4V32.7zM73.9,62.9H61.5v12.4h12.4V62.9zM73.9,47.8H61.5v12.4h12.4V47.8z"/></svg>Docker</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#76B900"/><rect x="20" y="30" width="88" height="68" rx="4" fill="#333"/><rect x="28" y="38" width="20" height="20" rx="2" fill="#76B900"/><rect x="54" y="38" width="20" height="20" rx="2" fill="#76B900"/><rect x="80" y="38" width="20" height="20" rx="2" fill="#76B900"/><text x="64" y="84" text-anchor="middle" font-family="Arial" font-size="10" fill="#FFF">NVIDIA</text></svg>GPU</span></div>
 </div>
 </div>
 <div class="relative pl-12 pb-12 exp-card-anim stagger-1">
@@ -988,7 +1196,7 @@ Resume
 <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-yellow-500 mt-2 flex-shrink-0"></span>Built reusable Python modules using OOP principles across 2 projects</li>
 <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-yellow-500 mt-2 flex-shrink-0"></span>Debugged 5+ production scripts, improving reliability</li>
 </ul>
-<div class="flex flex-wrap gap-2 mt-4"><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="tech-icon" loading="lazy">Python</span><span class="tag"><img src="https://cdn.simpleicons.org/apacheairflow/D4AF37" alt="ETL" class="tech-icon" loading="lazy">ETL</span><span class="tag"><img src="https://cdn.simpleicons.org/pytest/D4AF37" alt="Pytest" class="tech-icon" loading="lazy">Pytest</span><span class="tag"><img src="https://cdn.simpleicons.org/code/D4AF37" alt="OOP" class="tech-icon" loading="lazy">OOP</span><span class="tag"><img src="https://cdn.simpleicons.org/mysql/D4AF37" alt="SQL" class="tech-icon" loading="lazy">SQL</span></div>
+<div class="flex flex-wrap gap-2 mt-4"><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="url(#pygrad)" d="M63.6,11.4c-26.7,0-25.1,11.6-25.1,11.6l.1,12h25.6v3.6H25.6S11.4,39.2,11.4,64s14.2,25.4,14.2,25.4h8.5V77.2s-.5-14.2,14-14.2h25.4s13.5.2,13.5-13V24.9S89.4,11.4,63.6,11.4ZM50.9,19.6a4.5,4.5,0,1,1,4.5,4.5A4.5,4.5,0,0,1,50.9,19.6Z"/><path fill="url(#pygrad2)" d="M64.4,116.6c26.7,0,25.1-11.6,25.1-11.6l-.1-12H63.8V89.4h38.6s14.2.6,14.2-24.4S97.8,39.6,97.8,39.6H89.3V50.8s.5,14.2-14,14.2H49.9S36.4,65.2,36.4,78.2v13.5S39.4,116.6,64.4,116.6ZM77.1,108.4a4.5,4.5,0,1,1-4.5-4.5A4.5,4.5,0,0,1,77.1,108.4Z"/><defs><linearGradient id="pygrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#387EB8"/><stop offset="100%" stop-color="#366994"/></linearGradient><linearGradient id="pygrad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFE052"/><stop offset="100%" stop-color="#FFC331"/></linearGradient></defs></svg>Python</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#FFAB00"/><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="28" fill="#FFF">ETL</text></svg>ETL</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#0A9EDC"/><text x="64" y="55" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="18" fill="#FFF">Py</text><text x="64" y="80" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="#FFF">test</text></svg>Pytest</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#3F51B5"/><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="28" fill="#FFF">OOP</text></svg>OOP</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#F29111"/><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="28" fill="#FFF">SQL</text></svg>SQL</span></div>
 </div>
 </div>
 <div class="relative pl-12 exp-card-anim stagger-3">
@@ -1004,7 +1212,7 @@ Resume
 <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-yellow-500 mt-2 flex-shrink-0"></span>Refactored 2 legacy components, reducing duplication by <strong>~30%</strong></li>
 <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-yellow-500 mt-2 flex-shrink-0"></span>Resolved 10+ bugs across 5 agile sprints</li>
 </ul>
-<div class="flex flex-wrap gap-2 mt-4"><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React.js" class="tech-icon" loading="lazy">React.js</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="tech-icon" loading="lazy">Node.js</span><span class="tag"><img src="https://cdn.simpleicons.org/swagger/D4AF37" alt="REST API" class="tech-icon" loading="lazy">REST API</span><span class="tag"><img src="https://cdn.simpleicons.org/jsonwebtokens/D4AF37" alt="JWT" class="tech-icon" loading="lazy">JWT</span><span class="tag"><img src="https://cdn.simpleicons.org/jira/D4AF37" alt="Agile" class="tech-icon" loading="lazy">Agile</span></div>
+<div class="flex flex-wrap gap-2 mt-4"><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><g fill="#61DAFB"><circle cx="64" cy="64" r="11.4"/><ellipse cx="64" cy="64" rx="60" ry="22" fill="none" stroke="#61DAFB" stroke-width="5"/><ellipse cx="64" cy="64" rx="22" ry="60" transform="rotate(60 64 64)" fill="none" stroke="#61DAFB" stroke-width="5"/><ellipse cx="64" cy="64" rx="22" ry="60" transform="rotate(120 64 64)" fill="none" stroke="#61DAFB" stroke-width="5"/></g></svg>React.js</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#83CD29" d="M64,0L11.8,30.2v67.5L64,128l52.2-30.2V30.2L64,0zM99.6,87.5L64,108.1L28.4,87.5V46.5L64,25.9l35.6,20.6V87.5z"/><path fill="#83CD29" d="M64,36.5L41.2,49.6v26.3L64,89l22.8-13.1V49.6L64,36.5zM64,82.5L47.6,73V54.3L64,44.8l16.4,9.5V73L64,82.5z"/></svg>Node.js</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#00BCD4"/><text x="64" y="55" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="#FFF">REST</text><text x="64" y="80" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="14" fill="#FFF">API</text></svg>REST API</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#D63AFF"/><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="28" fill="#FFF">JWT</text></svg>JWT</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#0052CC"/><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="22" fill="#FFF">Agile</text></svg>Agile</span></div>
 </div>
 </div>
 </div>
@@ -1028,7 +1236,7 @@ Resume
 <div class="p-6">
 <h3 class="font-display text-xl font-bold mb-2">Smart Attendance System</h3>
 <p class="text-gray-600 text-sm mb-4 leading-relaxed">Full-stack attendance management with facial recognition-based marking, real-time analytics dashboards, and cloud deployment.</p>
-<div class="flex flex-wrap gap-2 mb-4"><span class="tag">React</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" class="tech-icon" loading="lazy">Flask</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV" class="tech-icon" loading="lazy">OpenCV</span><span class="tag"><img src="https://cdn.simpleicons.org/sqlalchemy/D4AF37" alt="SQLAlchemy" class="tech-icon" loading="lazy">SQLAlchemy</span><span class="tag"><img src="https://cdn.simpleicons.org/vercel/D4AF37" alt="Vercel" class="tech-icon" loading="lazy">Vercel</span></div>
+<div class="flex flex-wrap gap-2 mb-4"><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><g fill="#61DAFB"><circle cx="64" cy="64" r="11.4"/><ellipse cx="64" cy="64" rx="60" ry="22" fill="none" stroke="#61DAFB" stroke-width="5"/><ellipse cx="64" cy="64" rx="22" ry="60" transform="rotate(60 64 64)" fill="none" stroke="#61DAFB" stroke-width="5"/><ellipse cx="64" cy="64" rx="22" ry="60" transform="rotate(120 64 64)" fill="none" stroke="#61DAFB" stroke-width="5"/></g></svg>React</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#000" d="M64,0C28.7,0,0,28.7,0,64s28.7,64,64,64s64-28.7,64-64S99.3,0,64,0zM64,120c-30.9,0-56-25.1-56-56S33.1,8,64,8s56,25.1,56,56S94.9,120,64,120z"/><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="24" fill="#FFF">Flask</text></svg>Flask</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><circle cx="32" cy="64" r="28" fill="#FF0000" opacity="0.8"/><circle cx="64" cy="32" r="28" fill="#00FF00" opacity="0.8"/><circle cx="96" cy="64" r="28" fill="#0000FF" opacity="0.8"/></svg>OpenCV</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#333"/><text x="64" y="50" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="14" fill="#FFF">SQL</text><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="14" fill="#D4AF37">Alchemy</text></svg>SQLAlchemy</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#000"/><polygon points="64,20 104,108 24,108" fill="#FFF"/></svg>Vercel</span></div>
 <ul class="space-y-1 text-xs text-gray-500">
 <li>• Face recognition with 90%+ detection accuracy</li>
 <li>• Real-time attendance analytics dashboard</li>
@@ -1052,7 +1260,7 @@ View Code →
 <div class="p-6">
 <h3 class="font-display text-xl font-bold mb-2">MLOps Pipeline</h3>
 <p class="text-gray-600 text-sm mb-4 leading-relaxed">End-to-end ML lifecycle: train, track, containerize, and serve models via FastAPI with automated CI/CD on Render.</p>
-<div class="flex flex-wrap gap-2 mb-4"><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="tech-icon" loading="lazy">Python</span><span class="tag"><img src="https://cdn.simpleicons.org/fastapi/D4AF37" alt="FastAPI" class="tech-icon" loading="lazy">FastAPI</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="tech-icon" loading="lazy">Docker</span><span class="tag"><img src="https://cdn.simpleicons.org/githubactions/D4AF37" alt="GitHub Actions" class="tech-icon" loading="lazy">GitHub Actions</span></div>
+<div class="flex flex-wrap gap-2 mb-4"><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="url(#pygrad)" d="M63.6,11.4c-26.7,0-25.1,11.6-25.1,11.6l.1,12h25.6v3.6H25.6S11.4,39.2,11.4,64s14.2,25.4,14.2,25.4h8.5V77.2s-.5-14.2,14-14.2h25.4s13.5.2,13.5-13V24.9S89.4,11.4,63.6,11.4ZM50.9,19.6a4.5,4.5,0,1,1,4.5,4.5A4.5,4.5,0,0,1,50.9,19.6Z"/><path fill="url(#pygrad2)" d="M64.4,116.6c26.7,0,25.1-11.6,25.1-11.6l-.1-12H63.8V89.4h38.6s14.2.6,14.2-24.4S97.8,39.6,97.8,39.6H89.3V50.8s.5,14.2-14,14.2H49.9S36.4,65.2,36.4,78.2v13.5S39.4,116.6,64.4,116.6ZM77.1,108.4a4.5,4.5,0,1,1-4.5-4.5A4.5,4.5,0,0,1,77.1,108.4Z"/><defs><linearGradient id="pygrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#387EB8"/><stop offset="100%" stop-color="#366994"/></linearGradient><linearGradient id="pygrad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFE052"/><stop offset="100%" stop-color="#FFC331"/></linearGradient></defs></svg>Python</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#009688" d="M64,8L8,40v48l56,32,56-32V40L64,8zm0,16l40,23-40,23L24,47l40-23zM24,56l32,18v36L24,92V56zm80,0v36L72,110V74l32-18z"/></svg>FastAPI</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#2496ED" d="M124.8,52.1c-4.1-2.7-10.3-3.6-15.8-2.3c-1.1-7.8-5.8-14.6-14.3-20.6l-3.3-2.2l-2.2,3.3c-2.8,4.4-4.3,9.8-3.9,15.2c0.2,2.1,0.8,5.3,2.8,8.3c-1.9,1.1-5.6,2.5-10.5,2.5H6.2h-0.6C2.3,57.3,0,60.7,0,64.5c0,0.3,0,0.6,0,0.9c0,5.9,2.3,11.3,6.4,15.3c4.9,4.8,11.9,6.9,20.2,6.1c1.5-0.2,3-0.4,4.5-0.7c9.2-1.8,17.1-6.8,22.4-13.9c3.2,2.9,8,6.4,14.3,6.4h2.5c1.1,0,2.2-0.2,3.3-0.5c6.3-1.8,9.5-7.2,10.9-11.1c3.1-0.9,7.1-2.5,10.2-5.6C128.2,63.2,128.2,56.2,124.8,52.1zM28.6,62.9H16.2v12.4h12.4V62.9zM28.6,47.8H16.2v12.4h12.4V47.8zM43.7,62.9H31.3v12.4h12.4V62.9zM43.7,47.8H31.3v12.4h12.4V47.8zM43.7,32.7H31.3v12.4h12.4V32.7zM58.8,62.9H46.4v12.4h12.4V62.9zM58.8,47.8H46.4v12.4h12.4V47.8zM58.8,32.7H46.4v12.4h12.4V32.7zM73.9,62.9H61.5v12.4h12.4V62.9zM73.9,47.8H61.5v12.4h12.4V47.8z"/></svg>Docker</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#333"/><circle cx="64" cy="40" r="16" fill="#FFF"/><path d="M32 80 L64 56 L96 80 L96 104 L32 104 Z" fill="#FFF"/><circle cx="64" cy="72" r="8" fill="#333"/></svg>GitHub Actions</span></div>
 <ul class="space-y-1 text-xs text-gray-500">
 <li>• Containerized model serving with Docker</li>
 <li>• Automated CI/CD via GitHub Actions</li>
@@ -1076,7 +1284,7 @@ View Code →
 <div class="p-6">
 <h3 class="font-display text-xl font-bold mb-2">AI Video Subtitle Generator</h3>
 <p class="text-gray-600 text-sm mb-4 leading-relaxed">Auto-transcribes video and audio to SRT/VTT using OpenAI Whisper, with a glassmorphism UI built in TypeScript.</p>
-<div class="flex flex-wrap gap-2 mb-4"><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="tech-icon" loading="lazy">TypeScript</span><span class="tag">React</span><span class="tag"><img src="https://cdn.simpleicons.org/openai/D4AF37" alt="Whisper" class="tech-icon" loading="lazy">Whisper</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="tech-icon" loading="lazy">Node.js</span></div>
+<div class="flex flex-wrap gap-2 mb-4"><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" fill="#3178C6" rx="4"/><path fill="#FFF" d="M18.8,96.4l7.6-4.6c1.5,2.6,2.8,4.8,6.1,4.8c3.1,0,5.1-1.2,5.1-6V56.8h9.3v34.1c0,9.6-5.6,13.9-13.8,13.9C24.9,104.8,20.8,101.6,18.8,96.4zM55.8,95.4l7.6-4.4c2,3.3,4.6,5.7,9.2,5.7c3.9,0,6.3-1.9,6.3-4.6c0-3.2-2.6-4.4-6.9-6.2l-2.4-1c-6.8-2.9-11.3-6.5-11.3-14.2c0-7.1,5.4-12.5,13.8-12.5c6,0,10.3,2.1,13.4,7.6l-7.3,4.7c-1.6-2.9-3.4-4-6.1-4c-2.8,0-4.5,1.8-4.5,4c0,2.8,1.8,3.9,5.9,5.6l2.4,1c8,3.4,12.5,6.8,12.5,14.6c0,8.5-6.7,13.2-15.7,13.2C63.8,104.8,58.4,101.1,55.8,95.4z"/></svg>TypeScript</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><g fill="#61DAFB"><circle cx="64" cy="64" r="11.4"/><ellipse cx="64" cy="64" rx="60" ry="22" fill="none" stroke="#61DAFB" stroke-width="5"/><ellipse cx="64" cy="64" rx="22" ry="60" transform="rotate(60 64 64)" fill="none" stroke="#61DAFB" stroke-width="5"/><ellipse cx="64" cy="64" rx="22" ry="60" transform="rotate(120 64 64)" fill="none" stroke="#61DAFB" stroke-width="5"/></g></svg>React</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#10A37F"/><path d="M40 40 Q64 20 88 40 Q88 64 64 80 Q40 64 40 40" fill="none" stroke="#FFF" stroke-width="3"/><circle cx="64" cy="55" r="8" fill="#FFF"/></svg>Whisper</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#83CD29" d="M64,0L11.8,30.2v67.5L64,128l52.2-30.2V30.2L64,0zM99.6,87.5L64,108.1L28.4,87.5V46.5L64,25.9l35.6,20.6V87.5z"/><path fill="#83CD29" d="M64,36.5L41.2,49.6v26.3L64,89l22.8-13.1V49.6L64,36.5zM64,82.5L47.6,73V54.3L64,44.8l16.4,9.5V73L64,82.5z"/></svg>Node.js</span></div>
 <ul class="space-y-1 text-xs text-gray-500">
 <li>• OpenAI Whisper speech-to-text integration</li>
 <li>• Exports SRT and VTT subtitle formats</li>
@@ -1100,7 +1308,7 @@ View Code →
 <div class="p-6">
 <h3 class="font-display text-xl font-bold mb-2">SoundMind</h3>
 <p class="text-gray-600 text-sm mb-4 leading-relaxed">AI-powered music discovery platform with collaborative filtering recommendation engine that learns user preferences.</p>
-<div class="flex flex-wrap gap-2 mb-4"><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="tech-icon" loading="lazy">Python</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" class="tech-icon" loading="lazy">Flask</span><span class="tag"><img src="https://cdn.simpleicons.org/openai/D4AF37" alt="AI/ML" class="tech-icon" loading="lazy">AI/ML</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="tech-icon" loading="lazy">JavaScript</span></div>
+<div class="flex flex-wrap gap-2 mb-4"><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="url(#pygrad)" d="M63.6,11.4c-26.7,0-25.1,11.6-25.1,11.6l.1,12h25.6v3.6H25.6S11.4,39.2,11.4,64s14.2,25.4,14.2,25.4h8.5V77.2s-.5-14.2,14-14.2h25.4s13.5.2,13.5-13V24.9S89.4,11.4,63.6,11.4ZM50.9,19.6a4.5,4.5,0,1,1,4.5,4.5A4.5,4.5,0,0,1,50.9,19.6Z"/><path fill="url(#pygrad2)" d="M64.4,116.6c26.7,0,25.1-11.6,25.1-11.6l-.1-12H63.8V89.4h38.6s14.2.6,14.2-24.4S97.8,39.6,97.8,39.6H89.3V50.8s.5,14.2-14,14.2H49.9S36.4,65.2,36.4,78.2v13.5S39.4,116.6,64.4,116.6ZM77.1,108.4a4.5,4.5,0,1,1-4.5-4.5A4.5,4.5,0,0,1,77.1,108.4Z"/><defs><linearGradient id="pygrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#387EB8"/><stop offset="100%" stop-color="#366994"/></linearGradient><linearGradient id="pygrad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFE052"/><stop offset="100%" stop-color="#FFC331"/></linearGradient></defs></svg>Python</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#000" d="M64,0C28.7,0,0,28.7,0,64s28.7,64,64,64s64-28.7,64-64S99.3,0,64,0zM64,120c-30.9,0-56-25.1-56-56S33.1,8,64,8s56,25.1,56,56S94.9,120,64,120z"/><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="24" fill="#FFF">Flask</text></svg>Flask</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="16" fill="#1a1a2e"/><circle cx="40" cy="40" r="16" fill="#00d4ff"/><circle cx="88" cy="40" r="16" fill="#00d4ff"/><circle cx="40" cy="88" r="16" fill="#00d4ff"/><circle cx="88" cy="88" r="16" fill="#00d4ff"/><line x1="40" y1="40" x2="88" y2="40" stroke="#00d4ff" stroke-width="3"/><line x1="40" y1="88" x2="88" y2="88" stroke="#00d4ff" stroke-width="3"/><line x1="40" y1="40" x2="40" y2="88" stroke="#00d4ff" stroke-width="3"/><line x1="88" y1="40" x2="88" y2="88" stroke="#00d4ff" stroke-width="3"/><line x1="40" y1="40" x2="88" y2="88" stroke="#00d4ff" stroke-width="2"/><line x1="88" y1="40" x2="40" y2="88" stroke="#00d4ff" stroke-width="2"/></svg>AI/ML</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" fill="#F7DF1E" rx="4"/><path fill="#323330" d="M18.8,96.4l7.6-4.6c1.5,2.6,2.8,4.8,6.1,4.8c3.1,0,5.1-1.2,5.1-6V56.8h9.3v34.1c0,9.6-5.6,13.9-13.8,13.9C24.9,104.8,20.8,101.6,18.8,96.4zM55.8,95.4l7.6-4.4c2,3.3,4.6,5.7,9.2,5.7c3.9,0,6.3-1.9,6.3-4.6c0-3.2-2.6-4.4-6.9-6.2l-2.4-1c-6.8-2.9-11.3-6.5-11.3-14.2c0-7.1,5.4-12.5,13.8-12.5c6,0,10.3,2.1,13.4,7.6l-7.3,4.7c-1.6-2.9-3.4-4-6.1-4c-2.8,0-4.5,1.8-4.5,4c0,2.8,1.8,3.9,5.9,5.6l2.4,1c8,3.4,12.5,6.8,12.5,14.6c0,8.5-6.7,13.2-15.7,13.2C63.8,104.8,58.4,101.1,55.8,95.4z"/></svg>JavaScript</span></div>
 <ul class="space-y-1 text-xs text-gray-500">
 <li>• Collaborative filtering recommendation model</li>
 <li>• Flask REST API for real-time suggestions</li>
@@ -1124,7 +1332,7 @@ View Code →
 <div class="p-6">
 <h3 class="font-display text-xl font-bold mb-2">E Blood Connect</h3>
 <p class="text-gray-600 text-sm mb-4 leading-relaxed">Blood donation management system connecting donors with recipients, with blood-type compatibility matching and admin dashboards.</p>
-<div class="flex flex-wrap gap-2 mb-4"><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="tech-icon" loading="lazy">PHP</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="tech-icon" loading="lazy">MySQL</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="tech-icon" loading="lazy">HTML5</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="tech-icon" loading="lazy">CSS3</span></div>
+<div class="flex flex-wrap gap-2 mb-4"><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><ellipse cx="64" cy="64" rx="60" ry="32" fill="#777BB4"/><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="28" fill="#FFF">php</text></svg>PHP</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#00758F" d="M64,0C28.7,0,0,28.7,0,64s28.7,64,64,64s64-28.7,64-64S99.3,0,64,0zM64,120c-30.9,0-56-25.1-56-56S33.1,8,64,8s56,25.1,56,56S94.9,120,64,120z"/><text x="64" y="72" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="#FFF">MySQL</text></svg>MySQL</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#E44D26" d="M19.6,0l9.1,102.6l39.3,11l39.3-11L116.4,0H19.6zM96.8,91.4L64,100.8L31.2,91.4L24,16.6h80L96.8,91.4z"/><path fill="#F16529" d="M64,21.4h32.8l-2.7,30.4H64V21.4zM64,93.8V58.2h15.2l-1.1,12.4L64,75.6V93.8zM64,58.2V21.4H31.2l2.7,30.4H64zM64,75.6l-14.1-4.1l-0.9,10.3L64,93.8V75.6z"/></svg>HTML5</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#1572B6" d="M19.6,0l9.1,102.6l39.3,11l39.3-11L116.4,0H19.6zM96.8,91.4L64,100.8L31.2,91.4L24,16.6h80L96.8,91.4z"/><path fill="#33A9DC" d="M64,21.4h32.8l-2.7,30.4H64V21.4zM64,93.8V58.2h15.2l-1.1,12.4L64,75.6V93.8zM64,58.2V21.4H31.2l2.7,30.4H64zM64,75.6l-14.1-4.1l-0.9,10.3L64,93.8V75.6z"/></svg>CSS3</span></div>
 <ul class="space-y-1 text-xs text-gray-500">
 <li>• Blood-type compatibility logic</li>
 <li>• Admin dashboard and inventory tracking</li>
@@ -1148,7 +1356,7 @@ View Code →
 <div class="p-6">
 <h3 class="font-display text-xl font-bold mb-2">React Task Manager</h3>
 <p class="text-gray-600 text-sm mb-4 leading-relaxed">Full-stack Kanban with drag-and-drop boards, priority tagging, deadline tracking, and a REST API Node.js backend.</p>
-<div class="flex flex-wrap gap-2 mb-4"><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React.js" class="tech-icon" loading="lazy">React.js</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="tech-icon" loading="lazy">Node.js</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="tech-icon" loading="lazy">MongoDB</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="tech-icon" loading="lazy">CSS3</span></div>
+<div class="flex flex-wrap gap-2 mb-4"><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><g fill="#61DAFB"><circle cx="64" cy="64" r="11.4"/><ellipse cx="64" cy="64" rx="60" ry="22" fill="none" stroke="#61DAFB" stroke-width="5"/><ellipse cx="64" cy="64" rx="22" ry="60" transform="rotate(60 64 64)" fill="none" stroke="#61DAFB" stroke-width="5"/><ellipse cx="64" cy="64" rx="22" ry="60" transform="rotate(120 64 64)" fill="none" stroke="#61DAFB" stroke-width="5"/></g></svg>React.js</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#83CD29" d="M64,0L11.8,30.2v67.5L64,128l52.2-30.2V30.2L64,0zM99.6,87.5L64,108.1L28.4,87.5V46.5L64,25.9l35.6,20.6V87.5z"/><path fill="#83CD29" d="M64,36.5L41.2,49.6v26.3L64,89l22.8-13.1V49.6L64,36.5zM64,82.5L47.6,73V54.3L64,44.8l16.4,9.5V73L64,82.5z"/></svg>Node.js</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#47A248" d="M64,0c0,0-9.8,4.5-16.5,18.5C40.8,32.5,42,52,48,68c3,8,8,16,16,24c0-8,0-16,0-24c0-16,8-32,16-48C80,20,80,12,80,12L64,0zM64,128c0,0,0-8,0-16c0-8,0-16,0-24c0-16,8-32,16-48c0,0,0,8,0,16C80,80,72,96,64,128z"/></svg>MongoDB</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#1572B6" d="M19.6,0l9.1,102.6l39.3,11l39.3-11L116.4,0H19.6zM96.8,91.4L64,100.8L31.2,91.4L24,16.6h80L96.8,91.4z"/><path fill="#33A9DC" d="M64,21.4h32.8l-2.7,30.4H64V21.4zM64,93.8V58.2h15.2l-1.1,12.4L64,75.6V93.8zM64,58.2V21.4H31.2l2.7,30.4H64zM64,75.6l-14.1-4.1l-0.9,10.3L64,93.8V75.6z"/></svg>CSS3</span></div>
 <ul class="space-y-1 text-xs text-gray-500">
 <li>• Drag-and-drop kanban board with status columns</li>
 <li>• Priority tagging and deadline tracking</li>
@@ -1172,7 +1380,7 @@ View Code →
 <div class="p-6">
 <h3 class="font-display text-xl font-bold mb-2">Python Automation Toolkit</h3>
 <p class="text-gray-600 text-sm mb-4 leading-relaxed">A collection of Python scripts and utilities to automate repetitive workflows, data processing, and everyday tasks.</p>
-<div class="flex flex-wrap gap-2 mb-4"><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="tech-icon" loading="lazy">Python</span><span class="tag"><img src="https://cdn.simpleicons.org/githubactions/D4AF37" alt="Automation" class="tech-icon" loading="lazy">Automation</span><span class="tag"><img src="https://cdn.simpleicons.org/gnubash/D4AF37" alt="Scripting" class="tech-icon" loading="lazy">Scripting</span><span class="tag"><img src="https://cdn.simpleicons.org/linux/D4AF37" alt="OS Module" class="tech-icon" loading="lazy">OS Module</span></div>
+<div class="flex flex-wrap gap-2 mb-4"><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="url(#pygrad)" d="M63.6,11.4c-26.7,0-25.1,11.6-25.1,11.6l.1,12h25.6v3.6H25.6S11.4,39.2,11.4,64s14.2,25.4,14.2,25.4h8.5V77.2s-.5-14.2,14-14.2h25.4s13.5.2,13.5-13V24.9S89.4,11.4,63.6,11.4ZM50.9,19.6a4.5,4.5,0,1,1,4.5,4.5A4.5,4.5,0,0,1,50.9,19.6Z"/><path fill="url(#pygrad2)" d="M64.4,116.6c26.7,0,25.1-11.6,25.1-11.6l-.1-12H63.8V89.4h38.6s14.2.6,14.2-24.4S97.8,39.6,97.8,39.6H89.3V50.8s.5,14.2-14,14.2H49.9S36.4,65.2,36.4,78.2v13.5S39.4,116.6,64.4,116.6ZM77.1,108.4a4.5,4.5,0,1,1-4.5-4.5A4.5,4.5,0,0,1,77.1,108.4Z"/><defs><linearGradient id="pygrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#387EB8"/><stop offset="100%" stop-color="#366994"/></linearGradient><linearGradient id="pygrad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFE052"/><stop offset="100%" stop-color="#FFC331"/></linearGradient></defs></svg>Python</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#FF6D00"/><path d="M64 20 L80 60 L120 60 L88 88 L100 128 L64 100 L28 128 L40 88 L8 60 L48 60 Z" fill="#FFF"/></svg>Automation</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#4CAF50"/><text x="30" y="72" text-anchor="middle" font-family="monospace" font-size="20" fill="#FFF">&lt;/&gt;</text></svg>Scripting</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#333"/><text x="64" y="55" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="#FFF">OS</text><text x="64" y="80" text-anchor="middle" font-family="Arial" font-size="12" fill="#FFF">Module</text></svg>OS Module</span></div>
 <ul class="space-y-1 text-xs text-gray-500">
 <li>• File organization & batch processing scripts</li>
 <li>• Data processing & report generation automation</li>
@@ -1197,7 +1405,7 @@ View Code →
 <div class="p-6">
 <h3 class="font-display text-xl font-bold mb-2">AI Traffic Analytics Platform</h3>
 <p class="text-gray-600 text-sm mb-4 leading-relaxed">Real-time AI traffic analytics using YOLOv8, FastAPI, OpenCV, and interactive dashboards. Upload traffic videos for vehicle detection and congestion analysis.</p>
-<div class="flex flex-wrap gap-2 mb-4"><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="tech-icon" loading="lazy">Python</span><span class="tag"><img src="https://cdn.simpleicons.org/fastapi/D4AF37" alt="FastAPI" class="tech-icon" loading="lazy">FastAPI</span><span class="tag"><img src="https://cdn.simpleicons.org/yolo/D4AF37" alt="YOLOv8" class="tech-icon" loading="lazy">YOLOv8</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV" class="tech-icon" loading="lazy">OpenCV</span><span class="tag">React</span><span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" class="tech-icon" loading="lazy">Tailwind</span></div>
+<div class="flex flex-wrap gap-2 mb-4"><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="url(#pygrad)" d="M63.6,11.4c-26.7,0-25.1,11.6-25.1,11.6l.1,12h25.6v3.6H25.6S11.4,39.2,11.4,64s14.2,25.4,14.2,25.4h8.5V77.2s-.5-14.2,14-14.2h25.4s13.5.2,13.5-13V24.9S89.4,11.4,63.6,11.4ZM50.9,19.6a4.5,4.5,0,1,1,4.5,4.5A4.5,4.5,0,0,1,50.9,19.6Z"/><path fill="url(#pygrad2)" d="M64.4,116.6c26.7,0,25.1-11.6,25.1-11.6l-.1-12H63.8V89.4h38.6s14.2.6,14.2-24.4S97.8,39.6,97.8,39.6H89.3V50.8s.5,14.2-14,14.2H49.9S36.4,65.2,36.4,78.2v13.5S39.4,116.6,64.4,116.6ZM77.1,108.4a4.5,4.5,0,1,1-4.5-4.5A4.5,4.5,0,0,1,77.1,108.4Z"/><defs><linearGradient id="pygrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#387EB8"/><stop offset="100%" stop-color="#366994"/></linearGradient><linearGradient id="pygrad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFE052"/><stop offset="100%" stop-color="#FFC331"/></linearGradient></defs></svg>Python</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#009688" d="M64,8L8,40v48l56,32,56-32V40L64,8zm0,16l40,23-40,23L24,47l40-23zM24,56l32,18v36L24,92V56zm80,0v36L72,110V74l32-18z"/></svg>FastAPI</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><rect width="128" height="128" rx="8" fill="#00C853"/><text x="64" y="55" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="#FFF">YOLO</text><text x="64" y="80" text-anchor="middle" font-family="Arial" font-size="12" fill="#FFF">v8</text></svg>YOLOv8</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><circle cx="32" cy="64" r="28" fill="#FF0000" opacity="0.8"/><circle cx="64" cy="32" r="28" fill="#00FF00" opacity="0.8"/><circle cx="96" cy="64" r="28" fill="#0000FF" opacity="0.8"/></svg>OpenCV</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><g fill="#61DAFB"><circle cx="64" cy="64" r="11.4"/><ellipse cx="64" cy="64" rx="60" ry="22" fill="none" stroke="#61DAFB" stroke-width="5"/><ellipse cx="64" cy="64" rx="22" ry="60" transform="rotate(60 64 64)" fill="none" stroke="#61DAFB" stroke-width="5"/><ellipse cx="64" cy="64" rx="22" ry="60" transform="rotate(120 64 64)" fill="none" stroke="#61DAFB" stroke-width="5"/></g></svg>React</span><span class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="tech-icon"><path fill="#38BDF8" d="M64,0c-17.7,0-28.8,8.8-33.3,26.4c6.6-8.8,14.3-12.1,23.1-9.9c5,1.3,8.6,4.8,12.6,8.7c6.5,6.4,14,13.8,30.4,13.8c17.7,0,28.8-8.8,33.3-26.4c-6.6,8.8-14.3,12.1-23.1,9.9c-5-1.3-8.6-4.8-12.6-8.7C111.1,7.5,103.6,0,87.2,0H64zM30.4,48C12.7,48,1.6,56.8-2.9,74.4c6.6-8.8,14.3-12.1,23.1-9.9c5,1.3,8.6,4.8,12.6,8.7c6.5,6.4,14,13.8,30.4,13.8c17.7,0,28.8-8.8,33.3-26.4c-6.6,8.8-14.3,12.1-23.1,9.9c-5-1.3-8.6-4.8-12.6-8.7C77.5,55.5,70,48,53.6,48H30.4z" transform="translate(2.9, 0)"/></svg>Tailwind</span></div>
 <ul class="space-y-1 text-xs text-gray-500">
 <li>• YOLOv8 real-time vehicle detection (Cars, Bikes, Buses, Trucks)</li>
 <li>• FastAPI backend with async processing</li>
@@ -1286,7 +1494,7 @@ In Development
 </div>
 <div class="max-w-2xl mx-auto reveal">
 <form class="glass-card p-8 space-y-6" action="https://api.web3forms.com/submit" method="POST" id="contactForm">
-<input type="hidden" name="access_key" value=" 417b0a6c-a016-4096-ab66-e30c36e83c09">
+<input type="hidden" name="access_key" value="417b0a6c-a016-4096-ab66-e30c36e83c09">
 <input type="hidden" name="subject" value="New Portfolio Contact Form Submission">
 <input type="hidden" name="from_name" value="Sanjay Philip Portfolio">
 <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
@@ -1650,6 +1858,14 @@ if (contactForm) {
     contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
 
+        // Check if access key is still the placeholder
+        const accessKey = contactForm.querySelector('input[name="access_key"]')?.value;
+        if (!accessKey || accessKey === 'YOUR_ACCESS_KEY_HERE') {
+            formStatus.innerHTML = '<span class="text-yellow-600 dark:text-yellow-400">⚠️ Contact form is not configured yet. Please email me directly at <a href="mailto:sanjayphilip832@gmail.com" class="underline">sanjayphilip832@gmail.com</a></span>';
+            formStatus.classList.remove('hidden');
+            return;
+        }
+
         const originalText = submitBtn.innerHTML;
         submitBtn.innerHTML = '<span class="inline-flex items-center gap-2"><svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Sending...</span>';
         submitBtn.disabled = true;
@@ -1676,7 +1892,7 @@ if (contactForm) {
                 formStatus.classList.remove('hidden');
                 contactForm.reset();
             } else {
-                formStatus.innerHTML = '<span class="text-red-600 dark:text-red-400">✗ Something went wrong. Please try again or email me directly.</span>';
+                formStatus.innerHTML = '<span class="text-red-600 dark:text-green-400">✗ ' + (result.message || 'Something went wrong. Please try again or email me directly.') + '</span>';
                 formStatus.classList.remove('hidden');
             }
         } catch (error) {
