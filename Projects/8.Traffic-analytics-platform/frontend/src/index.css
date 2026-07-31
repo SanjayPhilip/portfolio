@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-dark-950 text-white;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-dark-800/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-xl 
+           transition-all duration-200 shadow-lg shadow-blue-500/25
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary:hover {
+    @apply from-blue-500 to-cyan-500;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-dark-800 text-white font-semibold rounded-xl border border-slate-700
+           transition-all duration-200;
+  }
+
+  .btn-secondary:hover {
+    background-color: rgb(51, 65, 85); /* slate-700 equivalent */
+  }
+
+  .stat-card {
+    @apply glass-panel p-6;
+  }
+
+  .stat-card:hover {
+    border-color: rgba(71, 85, 105, 0.5); /* slate-600/50 */
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-dark-800 border border-slate-700 rounded-xl text-white
+           placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20
+           transition-all duration-200;
+  }
+
+  .dropzone {
+    @apply border-2 border-dashed border-slate-600 rounded-2xl p-12 text-center
+           transition-all duration-300 cursor-pointer;
+  }
+
+  .dropzone:hover {
+    @apply border-blue-500 bg-blue-500/5;
+  }
+
+  .dropzone-active {
+    @apply border-blue-500 bg-blue-500/10;
+  }
+
+  .badge {
+    @apply px-3 py-1 text-xs font-semibold rounded-full;
+  }
+
+  .badge-green {
+    @apply badge bg-green-500/20 text-green-400 border border-green-500/30;
+  }
+
+  .badge-yellow {
+    @apply badge bg-yellow-500/20 text-yellow-400 border border-yellow-500/30;
+  }
+
+  .badge-red {
+    @apply badge bg-red-500/20 text-red-400 border border-red-500/30;
+  }
+
+  .badge-blue {
+    @apply badge bg-blue-500/20 text-blue-400 border border-blue-500/30;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+}

@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Sanjay Philip | Full Stack & ML Engineer</title>
+    <meta name="description" content="Portfolio of Sanjay Philip - Full Stack Developer, AI/ML Engineer. Final year MCA at Saintgits College of Engineering.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        gold: { 50: '#fdf9ed', 100: '#f9f0cc', 200: '#f4e4a6', 300: '#ecd375', 400: '#e5c158', 500: '#d4af37', 600: '#b8941f', 700: '#947018', 800: '#7a5c16', 900: '#664c15' },
+                        crimson: { DEFAULT: '#8b0000', light: '#a52a2a', dark: '#5c0000' },
+                        obsidian: { DEFAULT: '#0a0a0f', light: '#12121a', card: '#0d0d14' },
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'feather-fall': 'featherFall 8s linear infinite',
+                        'glow-pulse': 'glowPulse 3s ease-in-out infinite',
+                        'wing-flap': 'wingFlap 4s ease-in-out infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-20px)' } },
+                        fadeInUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        featherFall: { '0%': { transform: 'translateY(-100vh) rotate(0deg)', opacity: '0' }, '10%': { opacity: '1' }, '90%': { opacity: '1' }, '100%': { transform: 'translateY(100vh) rotate(360deg)', opacity: '0' } },
+                        glowPulse: { '0%, 100%': { boxShadow: '0 0 20px rgba(212,175,55,0.3)' }, '50%': { boxShadow: '0 0 40px rgba(212,175,55,0.6), 0 0 80px rgba(139,0,0,0.2)' } },
+                        wingFlap: { '0%, 100%': { transform: 'scaleX(1)' }, '50%': { transform: 'scaleX(0.85)' } },
+                        shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
+                        pulseGlow: { '0%, 100%': { opacity: '0.4' }, '50%': { opacity: '0.8' } },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Dark Mode - Dark Gold Palette */
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #0f0f16;
+            --text-primary: #f0e6d2;
+            --text-secondary: #a09080;
+            --border-color: rgba(212, 175, 55, 0.15);
+            --glow-gold: rgba(212, 175, 55, 0.25);
+            --glow-crimson: rgba(139, 0, 0, 0.15);
+            --gold: #c9a227;
+            --gold-light: #e8d5a3;
+            --gold-dark: #a08020;
+            --crimson: #7a0000;
+            --accent-gold: #d4af37;
+            --accent-crimson: #8b0000;
+        }
+
+        /* Light Mode - White Gold Palette */
+        html.light {
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf8f5;
+            --bg-card: #ffffff;
+            --text-primary: #1a1814;
+            --text-secondary: #6b6560;
+            --border-color: rgba(212, 175, 55, 0.2);
+            --glow-gold: rgba(212, 175, 55, 0.15);
+            --glow-crimson: rgba(139, 0, 0, 0.08);
+            --gold: #b8941f;
+            --gold-light: #d4af37;
+            --gold-dark: #8b6914;
+            --crimson: #8b0000;
+            --accent-gold: #d4af37;
+            --accent-crimson: #a52a2a;
+        }
+
+        html.light .glass {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        html.light .glass-card {
+            background: #ffffff;
+            border: 1px solid rgba(212, 175, 55, 0.12);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        html.light .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 20px 40px -10px rgba(212, 175, 55, 0.15), 0 0 60px -20px rgba(139, 0, 0, 0.08);
+        }
+
+        html.light .nav-blur {
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom-color: rgba(212, 175, 55, 0.1);
+        }
+
+        html.light .gradient-text {
+            background: linear-gradient(135deg, #b8941f 0%, #d4af37 40%, #e8c84a 70%, #c9a227 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        html.light .gradient-text-alt {
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 50%, #8b6914 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        html.light ::selection {
+            background: rgba(212, 175, 55, 0.2);
+            color: #1a1814;
+        }
+
+        html.light ::-webkit-scrollbar-track {
+            background: #ffffff;
+        }
+
+        html.light .grid-pattern {
+            background-image: linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+        }
+
+        html.light .skill-badge {
+            background: rgba(212, 175, 55, 0.06) !important;
+            border-color: rgba(212, 175, 55, 0.15) !important;
+            color: #8b6914 !important;
+        }
+
+        html.light .skill-badge:hover {
+            background: rgba(212, 175, 55, 0.12) !important;
+            box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.15) !important;
+        }
+
+        html.light .form-input:focus {
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.08);
+        }
+
+        html.light footer {
+            border-top-color: rgba(212, 175, 55, 0.1);
+        }
+
+        html.light .link-underline::after {
+            background: linear-gradient(90deg, #d4af37, #b8941f);
+        }
+
+        html.light .stat-number {
+            background: linear-gradient(135deg, #b8941f, #d4af37, #c9a227);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        html.light .shimmer-number {
+            background: linear-gradient(90deg, #b8941f, #d4af37, #e8c84a, #b8941f);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        html.light .project-card::before {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.04), rgba(139, 0, 0, 0.02));
+        }
+
+        html.light .glass-card::after {
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.04) 0%, transparent 70%);
+        }
+        body { background-color: var(--bg-primary); color: var(--text-primary); transition: background-color 0.5s ease, color 0.5s ease; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--crimson), var(--gold)); border-radius: 4px; }
+        .glass { background: rgba(255,255,255,0.02); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--border-color); }
+        html.light .glass { background: rgba(255,255,255,0.5); border: 1px solid rgba(139,0,0,0.08); box-shadow: 0 4px 30px rgba(0,0,0,0.05); }
+        .glass-card {
+            background: var(--bg-card); border: 1px solid var(--border-color); transition: all 0.4s cubic-bezier(0.4,0,0.2,1); position: relative; overflow: hidden;
+        }
+        .glass-card::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at center, rgba(212,175,55,0.03) 0%, transparent 70%); opacity: 0; transition: opacity 0.6s ease; pointer-events: none; z-index: 0; }
+        .glass-card:hover::after { opacity: 1; }
+        .glass-card:hover { transform: translateY(-8px); border-color: rgba(212,175,55,0.3); box-shadow: 0 20px 40px -10px var(--glow-gold), 0 0 60px -20px var(--glow-crimson); }
+        .gradient-text { background: linear-gradient(135deg, #d4af37 0%, #f4e4a6 40%, #e8d5a3 70%, #c9a227 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .gradient-text-alt { background: linear-gradient(135deg, #f4e4a6 0%, #d4af37 50%, #b8941f 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .gradient-text-alt { background: linear-gradient(135deg, #f4e4a6 0%, #d4af37 50%, #a52a2a 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .typing-cursor::after { content: '|'; animation: blink 1s step-end infinite; color: #d4af37; }
+        @keyframes blink { 50% { opacity: 0; } }
+        #hero-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+        .feather { position: absolute; width: 20px; height: 40px; opacity: 0.15; pointer-events: none; z-index: 1; }
+        .feather::before { content: ''; position: absolute; width: 2px; height: 100%; background: linear-gradient(to bottom, transparent, #d4af37, transparent); left: 50%; transform: translateX(-50%); }
+        .feather::after { content: ''; position: absolute; width: 100%; height: 60%; background: linear-gradient(135deg, rgba(212,175,55,0.2), transparent); border-radius: 50% 50% 0 0; top: 20%; }
+        .wing-decoration { position: absolute; opacity: 0.05; pointer-events: none; z-index: 0; }
+        .wing-left { left: -10%; top: 50%; transform: translateY(-50%) scaleX(-1); }
+        .wing-right { right: -10%; top: 50%; transform: translateY(-50%); }
+        .halo { position: absolute; border-radius: 50%; border: 1px solid rgba(212,175,55,0.1); pointer-events: none; }
+        .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.25; pointer-events: none; }
+        .stat-number { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 2.5rem; background: linear-gradient(135deg, #d4af37, #f4e4a6, #a52a2a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .nav-blur { background: rgba(10,10,15,0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        html.light .nav-blur { background: rgba(250,246,240,0.9); }
+        .mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
+        .mobile-menu.open { transform: translateX(0); }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.4,0,0.2,1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .grid-pattern { background-image: linear-gradient(rgba(212,175,55,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.015) 1px, transparent 1px); background-size: 50px 50px; }
+        .link-underline { position: relative; }
+        .link-underline::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #d4af37, #a52a2a); transition: width 0.3s ease; }
+        .link-underline:hover::after { width: 100%; }
+        .skill-badge { transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .skill-badge::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); transition: left 0.5s ease; }
+        .skill-badge:hover::before { left: 100%; }
+        .skill-badge:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 10px 25px -5px rgba(212,175,55,0.25); }
+        .project-card { position: relative; overflow: hidden; }
+        .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(212,175,55,0.05), rgba(139,0,0,0.03)); opacity: 0; transition: opacity 0.4s ease; z-index: 0; border-radius: inherit; }
+        .project-card:hover::before { opacity: 1; }
+        ::selection { background: rgba(212,175,55,0.25); color: #fff; }
+        img { max-width: 100%; height: auto; }
+        html, body { overflow-x: hidden; max-width: 100vw; }
+
+        /* 3D Tilt Card Effect - Desktop Only */
+        .tilt-card { transform-style: preserve-3d; transition: transform 0.15s ease-out; }
+        .tilt-card .tilt-content { transform: translateZ(30px); }
+
+        /* 3D Floating Shapes */
+        .shape-3d {
+            position: absolute; pointer-events: none; opacity: 0.4;
+            animation: floatShape 10s ease-in-out infinite;
+        }
+        @keyframes floatShape {
+            0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+            25% { transform: translateY(-30px) rotateX(90deg) rotateY(45deg); }
+            50% { transform: translateY(0) rotateX(180deg) rotateY(90deg); }
+            75% { transform: translateY(30px) rotateX(270deg) rotateY(135deg); }
+        }
+
+        /* Glow border animation */
+        .glow-border { position: relative; }
+        .glow-border::before {
+            content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #d4af37, #8b0000, #d4af37, #a52a2a);
+            background-size: 400% 400%; z-index: -1; border-radius: inherit;
+            animation: glowBorder 4s ease infinite; opacity: 0; transition: opacity 0.3s ease;
+        }
+        .glow-border:hover::before { opacity: 1; }
+        @keyframes glowBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Certification card hover */
+        .cert-card { transition: all 0.4s cubic-bezier(0.4,0,0.2,1); }
+        .cert-card:hover { transform: translateY(-5px) scale(1.02); }
+
+        /* Scroll progress indicator */
+        .scroll-progress {
+            position: fixed; top: 0; left: 0; height: 3px;
+            background: linear-gradient(90deg, #8b0000, #d4af37, #f4e4a6);
+            z-index: 100; transition: width 0.1s ease-out;
+            box-shadow: 0 0 10px rgba(212,175,55,0.5);
+        }
+
+        /* Stagger animation delays */
+        .stagger-1 { transition-delay: 0.05s; }
+        .stagger-2 { transition-delay: 0.1s; }
+        .stagger-3 { transition-delay: 0.15s; }
+        .stagger-4 { transition-delay: 0.2s; }
+        .stagger-5 { transition-delay: 0.25s; }
+        .stagger-6 { transition-delay: 0.3s; }
+        .stagger-7 { transition-delay: 0.35s; }
+        .stagger-8 { transition-delay: 0.4s; }
+
+        /* Slide-in animations */
+        .slide-in-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s cubic-bezier(0.4,0,0.2,1); }
+        .slide-in-left.active { opacity: 1; transform: translateX(0); }
+        .slide-in-right { opacity: 0; transform: translateX(50px); transition: all 0.8s cubic-bezier(0.4,0,0.2,1); }
+        .slide-in-right.active { opacity: 1; transform: translateX(0); }
+
+        /* Number shimmer */
+        .shimmer-number {
+            background: linear-gradient(90deg, #d4af37, #f4e4a6, #a52a2a, #d4af37);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+        }
+
+        /* Wing SVG path animation */
+        .wing-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            transition: stroke-dashoffset 2s ease-out;
+        }
+        .wing-path.active { stroke-dashoffset: 0; }
+
+        /* Contact form input focus */
+        .form-input:focus {
+            border-color: rgba(212,175,55,0.5);
+            box-shadow: 0 0 0 3px rgba(212,175,55,0.1);
+        }
+
+        /* Timeline line animation */
+        .timeline-line {
+            position: absolute; left: 0; top: 0; width: 2px; height: 0;
+            background: linear-gradient(180deg, #d4af37, #8b0000);
+            transition: height 1.5s ease-out;
+        }
+        .timeline-line.active { height: 100%; }
+
+        /* Mobile-first responsive styles */
+        @media (max-width: 640px) {
+            #hero { min-height: 100svh; padding-top: 5rem; }
+            #hero h1 { font-size: 2.8rem !important; line-height: 1.1 !important; }
+            #hero .gradient-text { font-size: 3rem !important; }
+            #typing-text { font-size: 0.85rem !important; }
+            .orb, .feather, .shape-3d, .wing-decoration { display: none !important; }
+            .stat-number { font-size: 1.6rem !important; }
+            .project-card .h-48 { height: 10rem !important; }
+            .project-card h3 { font-size: 1rem !important; }
+            #contact .glass-card { padding: 1.25rem !important; }
+            footer .flex-col { gap: 1rem !important; }
+            footer p { text-align: center; }
+            .mobile-link { font-size: 1.5rem !important; }
+            .glass-card { padding: 1.25rem !important; }
+            .skill-badge { font-size: 0.7rem !important; padding: 0.35rem 0.7rem !important; }
+            section { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+            .max-w-7xl { padding-left: 1rem !important; padding-right: 1rem !important; }
+        }
+        @media (max-width: 390px) { 
+            #hero h1 { font-size: 2.3rem !important; } 
+            #hero .gradient-text { font-size: 2.5rem !important; } 
+            #typing-text { font-size: 0.75rem !important; }
+        }
+        @media (max-width: 768px) { 
+            .skill-badge { font-size: 0.75rem !important; padding: 0.4rem 0.8rem !important; } 
+            a, button { min-height: 44px; min-width: 44px; } 
+            .mobile-link { padding: 0.5rem 1rem; }
+            .tilt-card { transform: none !important; }
+            .tilt-card .tilt-content { transform: none !important; }
+            #hero-canvas { opacity: 0.5; }
+        }
+        @media (min-width: 768px) and (max-width: 1024px) { 
+            .glass-card { padding: 1.5rem !important; } 
+            #hero h1 { font-size: 4rem !important; }
+        }
+        @media (max-height: 500px) and (orientation: landscape) { 
+            #hero { min-height: auto !important; padding-top: 5rem !important; padding-bottom: 2rem !important; } 
+            #hero h1 { font-size: 2rem !important; } 
+            .orb, .feather { display: none !important; }
+        }
+        @media (prefers-reduced-motion: reduce) { 
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } 
+            .orb, .feather, .shape-3d { display: none !important; }
+            .reveal, .slide-in-left, .slide-in-right { opacity: 1 !important; transform: none !important; }
+        }
+        @media (hover: none) and (pointer: coarse) { 
+            .glass-card:hover { transform: none; } 
+            .skill-badge:hover { transform: none; } 
+            .tilt-card { transform: none !important; }
+            .glass-card::after { display: none; }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-white/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-14 sm:h-16 lg:h-20">
+                <a href="#" class="flex items-center gap-2 sm:gap-3 group">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#d4af37] to-[#8b0000] flex items-center justify-center text-[#e8e4dc] font-serif font-bold text-sm sm:text-lg shadow-lg shadow-[#d4af37]/20 group-hover:shadow-[#d4af37]/40 transition-all duration-300 relative overflow-hidden">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <span class="font-serif font-bold text-lg sm:text-xl hidden sm:block tracking-wider">Sanjay<span class="gradient-text">Philip</span></span>
+                </a>
+                <div class="hidden md:flex items-center gap-6 lg:gap-8">
+                    <a href="#about" class="text-sm font-medium text-text-secondary hover:text-[#d4af37] transition-colors link-underline tracking-wide">About</a>
+                    <a href="#education" class="text-sm font-medium text-text-secondary hover:text-[#d4af37] transition-colors link-underline tracking-wide">Education</a>
+                    <a href="#skills" class="text-sm font-medium text-text-secondary hover:text-[#d4af37] transition-colors link-underline tracking-wide">Skills</a>
+                    <a href="#experience" class="text-sm font-medium text-text-secondary hover:text-[#d4af37] transition-colors link-underline tracking-wide">Experience</a>
+                    <a href="#projects" class="text-sm font-medium text-text-secondary hover:text-[#d4af37] transition-colors link-underline tracking-wide">Projects</a>
+                    <a href="#certifications" class="text-sm font-medium text-text-secondary hover:text-[#d4af37] transition-colors link-underline tracking-wide">Certs</a>
+                    <a href="#contact" class="text-sm font-medium text-text-secondary hover:text-[#d4af37] transition-colors link-underline tracking-wide">Contact</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="theme-toggle" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl glass flex items-center justify-center hover:bg-white/5 transition-all duration-300 group" aria-label="Toggle Dark Mode">
+                        <i class="fas fa-moon text-[#d4af37] group-hover:rotate-12 transition-transform duration-300 text-sm sm:text-base" id="theme-icon"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="md:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-xl glass flex items-center justify-center hover:bg-white/5 transition-all" aria-label="Open Menu">
+                        <i class="fas fa-bars text-text-primary text-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-bg-primary/98 backdrop-blur-xl mobile-menu md:hidden">
+        <div class="flex flex-col items-center justify-center h-full gap-6 sm:gap-8">
+            <a href="#about" class="text-xl sm:text-2xl font-serif font-bold text-text-primary hover:text-[#d4af37] transition-colors mobile-link tracking-wider">About</a>
+            <a href="#education" class="text-xl sm:text-2xl font-serif font-bold text-text-primary hover:text-[#d4af37] transition-colors mobile-link tracking-wider">Education</a>
+            <a href="#skills" class="text-xl sm:text-2xl font-serif font-bold text-text-primary hover:text-[#d4af37] transition-colors mobile-link tracking-wider">Skills</a>
+            <a href="#experience" class="text-xl sm:text-2xl font-serif font-bold text-text-primary hover:text-[#d4af37] transition-colors mobile-link tracking-wider">Experience</a>
+            <a href="#projects" class="text-xl sm:text-2xl font-serif font-bold text-text-primary hover:text-[#d4af37] transition-colors mobile-link tracking-wider">Projects</a>
+            <a href="#certifications" class="text-xl sm:text-2xl font-serif font-bold text-text-primary hover:text-[#d4af37] transition-colors mobile-link tracking-wider">Certifications</a>
+            <a href="#contact" class="text-xl sm:text-2xl font-serif font-bold text-text-primary hover:text-[#d4af37] transition-colors mobile-link tracking-wider">Contact</a>
+        </div>
+        <button id="close-mobile-menu" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 rounded-xl glass flex items-center justify-center" aria-label="Close Menu">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        <canvas id="hero-canvas"></canvas>
+
+        <!-- 3D Floating Shapes - Desktop Only -->
+        <div class="shape-3d hidden md:block" style="top: 15%; left: 10%; width: 60px; height: 60px; border: 2px solid rgba(212,175,55,0.2); transform-style: preserve-3d; animation-delay: 0s;">
+            <div style="position: absolute; width: 100%; height: 100%; border: 1px solid rgba(212,175,55,0.1); transform: rotateX(45deg) rotateY(45deg);"></div>
+        </div>
+        <div class="shape-3d hidden md:block" style="top: 60%; right: 15%; width: 80px; height: 80px; border: 2px solid rgba(139,0,0,0.2); border-radius: 50%; animation-delay: 2s;"></div>
+        <div class="shape-3d hidden md:block" style="bottom: 20%; left: 20%; width: 40px; height: 40px; background: rgba(212,175,55,0.1); transform: rotate(45deg); animation-delay: 4s;"></div>
+        <div class="shape-3d hidden md:block" style="top: 30%; right: 25%; width: 50px; height: 50px; border: 2px solid rgba(212,175,55,0.15); animation-delay: 1s;">
+            <div style="position: absolute; inset: 10px; border: 1px solid rgba(139,0,0,0.1);"></div>
+        </div>
+
+        <!-- CSS Feathers - Desktop Only -->
+        <div class="feather hidden md:block" style="left: 10%; animation: featherFall 10s linear infinite; animation-delay: 0s;"></div>
+        <div class="feather hidden md:block" style="left: 25%; animation: featherFall 12s linear infinite; animation-delay: 2s; transform: scale(0.7);"></div>
+        <div class="feather hidden md:block" style="left: 40%; animation: featherFall 9s linear infinite; animation-delay: 4s; transform: scale(1.2);"></div>
+        <div class="feather hidden md:block" style="left: 60%; animation: featherFall 11s linear infinite; animation-delay: 1s; transform: scale(0.8);"></div>
+        <div class="feather hidden md:block" style="left: 75%; animation: featherFall 13s linear infinite; animation-delay: 3s; transform: scale(1.1);"></div>
+        <div class="feather hidden md:block" style="left: 90%; animation: featherFall 10s linear infinite; animation-delay: 5s; transform: scale(0.6);"></div>
+
+        <!-- Wing Decorations - Desktop Only -->
+        <svg class="wing-decoration wing-left hidden lg:block" width="300" height="400" viewBox="0 0 300 400" fill="none">
+            <path class="wing-path" d="M150 200 C 100 150, 20 100, 10 50 C 5 30, 30 20, 50 40 C 80 70, 120 120, 150 180" stroke="rgba(212,175,55,0.1)" stroke-width="1" fill="none"/>
+            <path class="wing-path" d="M150 200 C 80 140, 0 80, 0 30 C -5 10, 25 5, 45 25 C 75 55, 110 110, 150 170" stroke="rgba(212,175,55,0.05)" stroke-width="1" fill="none"/>
+            <path class="wing-path" d="M150 200 C 120 160, 60 120, 40 80 C 30 60, 50 50, 70 70 C 90 90, 120 130, 150 185" stroke="rgba(139,0,0,0.08)" stroke-width="1" fill="none"/>
+        </svg>
+        <svg class="wing-decoration wing-right hidden lg:block" width="300" height="400" viewBox="0 0 300 400" fill="none">
+            <path class="wing-path" d="M150 200 C 100 150, 20 100, 10 50 C 5 30, 30 20, 50 40 C 80 70, 120 120, 150 180" stroke="rgba(212,175,55,0.1)" stroke-width="1" fill="none"/>
+            <path class="wing-path" d="M150 200 C 80 140, 0 80, 0 30 C -5 10, 25 5, 45 25 C 75 55, 110 110, 150 170" stroke="rgba(212,175,55,0.05)" stroke-width="1" fill="none"/>
+            <path class="wing-path" d="M150 200 C 120 160, 60 120, 40 80 C 30 60, 50 50, 70 70 C 90 90, 120 130, 150 185" stroke="rgba(139,0,0,0.08)" stroke-width="1" fill="none"/>
+        </svg>
+
+        <!-- Halos and Orbs - Desktop Only -->
+        <div class="halo w-64 h-64 top-1/4 left-1/2 -translate-x-1/2 animate-pulse hidden md:block" style="animation-duration:4s;"></div>
+        <div class="halo w-96 h-96 top-1/4 left-1/2 -translate-x-1/2 animate-pulse hidden md:block" style="animation-duration:6s; animation-delay:1s;"></div>
+        <div class="orb w-96 h-96 bg-[#d4af37]/10 top-20 -left-48 animate-float hidden md:block" style="animation-delay:0s;"></div>
+        <div class="orb w-80 h-80 bg-[#8b0000]/15 bottom-20 -right-40 animate-float hidden md:block" style="animation-delay:2s;"></div>
+        <div class="orb w-64 h-64 bg-[#a52a2a]/10 top-1/2 left-1/3 animate-float hidden md:block" style="animation-delay:4s;"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full glass mb-6 sm:mb-8 animate-fade-in-up border border-[#d4af37]/20">
+                <span class="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse"></span>
+                <span class="text-xs sm:text-sm font-medium text-text-secondary tracking-wide">Available for opportunities</span>
+            </div>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-black mb-4 sm:mb-6 tracking-tight animate-fade-in-up" style="animation-delay:0.1s;">
+                <span class="block text-text-primary">Sanjay</span>
+                <span class="block gradient-text">Philip</span>
+            </h1>
+            <div class="h-6 sm:h-8 md:h-10 mb-6 sm:mb-8 animate-fade-in-up" style="animation-delay:0.2s;">
+                <p id="typing-text" class="text-sm sm:text-lg md:text-xl lg:text-2xl font-mono text-text-secondary typing-cursor"></p>
+            </div>
+            <p class="max-w-2xl mx-auto text-text-secondary text-sm sm:text-base md:text-lg mb-8 sm:mb-10 leading-relaxed animate-fade-in-up px-2 sm:px-0" style="animation-delay:0.3s;">
+                I build things end-to-end: clean React frontends, Python backends, and ML models that actually ship. Final year MCA student at Saintgits College of Engineering (KTU) with a CGPA of 8.69 and three internships behind me.
+            </p>
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 animate-fade-in-up px-2" style="animation-delay:0.35s;">
+                <span class="px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm text-[#d4af37]"><i class="fab fa-react mr-1"></i>React</span>
+                <span class="px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm text-[#d4af37]"><i class="fab fa-python mr-1"></i>Python</span>
+                <span class="px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm text-[#d4af37]"><i class="fab fa-docker mr-1"></i>Docker</span>
+                <span class="px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm text-[#d4af37]"><i class="fas fa-bolt mr-1"></i>FastAPI</span>
+                <span class="px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm text-[#d4af37]"><i class="fas fa-brain mr-1"></i>AI / ML</span>
+                <span class="px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm text-[#d4af37]"><i class="fab fa-node mr-1"></i>Node.js</span>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 animate-fade-in-up" style="animation-delay:0.4s;">
+                <a href="#projects" class="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 rounded-xl bg-gradient-to-r from-[#8b0000] to-[#d4af37] text-[#e8e4dc] font-semibold hover:shadow-lg hover:shadow-[#d4af37]/20 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 tracking-wide text-sm sm:text-base">
+                    <i class="fas fa-rocket"></i> View My Work
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 rounded-xl glass text-text-primary font-semibold hover:bg-white/5 hover:border-[#d4af37]/30 transition-all duration-300 flex items-center justify-center gap-2 tracking-wide text-sm sm:text-base">
+                    <i class="fas fa-paper-plane"></i> Get In Touch
+                </a>
+            </div>
+            <div class="flex items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-12 animate-fade-in-up" style="animation-delay:0.5s;">
+                <a href="https://github.com/SanjayPhilip" target="_blank" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl glass flex items-center justify-center text-text-secondary hover:text-[#d4af37] hover:bg-[#d4af37]/10 hover:border-[#d4af37]/30 transition-all duration-300 hover:scale-110" aria-label="GitHub">
+                    <i class="fab fa-github text-lg sm:text-xl"></i>
+                </a>
+                <a href="https://linkedin.com/in/sanjay-philip-3a2531255" target="_blank" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl glass flex items-center justify-center text-text-secondary hover:text-[#d4af37] hover:bg-[#d4af37]/10 hover:border-[#d4af37]/30 transition-all duration-300 hover:scale-110" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in text-lg sm:text-xl"></i>
+                </a>
+                <a href="mailto:sanjayphilip832@gmail.com" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl glass flex items-center justify-center text-text-secondary hover:text-[#d4af37] hover:bg-[#d4af37]/10 hover:border-[#d4af37]/30 transition-all duration-300 hover:scale-110" aria-label="Email">
+                    <i class="fas fa-envelope text-lg sm:text-xl"></i>
+                </a>
+            </div>
+            <div class="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden sm:flex flex-col items-center" style="animation-duration:3s;">
+                <a href="#about" class="flex flex-col items-center gap-1 sm:gap-2 text-text-secondary hover:text-[#d4af37] transition-colors">
+                    <span class="text-xs font-medium tracking-widest uppercase">Descend</span>
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="relative py-8 sm:py-12 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 reveal">
+                <div class="text-center p-2">
+                    <div class="stat-number shimmer-number" data-target="8">0+</div>
+                    <div class="text-xs sm:text-sm text-text-secondary mt-1">Projects deployed</div>
+                </div>
+                <div class="text-center p-2">
+                    <div class="stat-number shimmer-number" data-target="3">0</div>
+                    <div class="text-xs sm:text-sm text-text-secondary mt-1">Internships</div>
+                </div>
+                <div class="text-center p-2">
+                    <div class="stat-number shimmer-number" data-target="10">0+</div>
+                    <div class="text-xs sm:text-sm text-text-secondary mt-1">Technologies</div>
+                </div>
+                <div class="text-center p-2">
+                    <div class="stat-number shimmer-number" data-target="90">0%+</div>
+                    <div class="text-xs sm:text-sm text-text-secondary mt-1">ML accuracy</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 01 About Section -->
+    <section id="about" class="relative py-16 sm:py-24 lg:py-32 grid-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
+                <div class="reveal order-2 lg:order-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-xs sm:text-sm font-mono text-[#d4af37]">01 —</span>
+                        <span class="text-xs sm:text-sm font-serif font-semibold uppercase tracking-widest text-[#d4af37]">About</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-4 sm:mb-6">The person behind <span class="gradient-text">the commits</span></h2>
+                    <p class="text-text-secondary/70 text-xs sm:text-sm mb-4 sm:mb-6 italic">(yes, I write messy code sometimes)</p>
+                    <p class="text-text-secondary text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">I'm an <strong class="text-text-primary">Integrated MCA Final Year student</strong> at Saintgits College of Engineering (KTU) with a CGPA of 8.69. What started as curiosity about how websites work turned into a full obsession with building — frontends, backends, ML pipelines, and everything in between.</p>
+                    <p class="text-text-secondary text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">I've completed <strong class="text-text-primary">three internships</strong> across web dev at Tisser Technologies, Python automation at Spectrum Soft Tech, and ML/AI at NextgenPro. Every one taught me the same lesson: <strong class="text-[#d4af37]">the best code is the code that ships and gets used</strong>.</p>
+                    <p class="text-text-secondary text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">Currently leveling up in <strong class="text-text-primary">MLOps, model deployment, and cloud architecture</strong>. I believe AI should live in production, not locked in notebooks.</p>
+                    <div class="flex flex-wrap gap-2 sm:gap-3">
+                        <span class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg glass text-xs sm:text-sm text-text-secondary border border-[#d4af37]/10"><i class="fas fa-lightbulb mr-1.5 sm:mr-2 text-[#d4af37]"></i>Problem Solver</span>
+                        <span class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg glass text-xs sm:text-sm text-text-secondary border border-[#d4af37]/10"><i class="fas fa-bolt mr-1.5 sm:mr-2 text-[#d4af37]"></i>Fast Learner</span>
+                        <span class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg glass text-xs sm:text-sm text-text-secondary border border-[#d4af37]/10"><i class="fas fa-users mr-1.5 sm:mr-2 text-[#d4af37]"></i>Team Player</span>
+                        <span class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg glass text-xs sm:text-sm text-text-secondary border border-[#d4af37]/10"><i class="fas fa-rocket mr-1.5 sm:mr-2 text-[#d4af37]"></i>Innovative Thinker</span>
+                    </div>
+                </div>
+                <div class="reveal order-1 lg:order-2" style="transition-delay:0.2s;">
+                    <div class="glass-card rounded-2xl p-6 sm:p-8 border border-[#d4af37]/10 tilt-card" id="about-card">
+                        <div class="tilt-content">
+                            <div class="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                                <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-[#d4af37] to-[#8b0000] flex items-center justify-center text-[#e8e4dc] font-serif font-bold text-xl sm:text-2xl shadow-lg shadow-[#d4af37]/20">SP</div>
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-serif font-bold">Sanjay Philip</h3>
+                                    <p class="text-xs sm:text-sm text-text-secondary">Full Stack & ML Engineer</p>
+                                </div>
+                            </div>
+                            <div class="space-y-2 sm:space-y-3 text-xs sm:text-sm">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-university text-[#d4af37] w-4 sm:w-5 text-xs sm:text-sm"></i>
+                                    <span class="text-text-secondary">Saintgits College of Engineering, KTU</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-graduation-cap text-[#d4af37] w-4 sm:w-5 text-xs sm:text-sm"></i>
+                                    <span class="text-text-secondary">Integrated MCA (2022 - 2027)</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-star text-[#d4af37] w-4 sm:w-5 text-xs sm:text-sm"></i>
+                                    <span class="text-text-secondary">CGPA: <strong class="text-text-primary">8.69 / 10.0</strong></span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-map-marker-alt text-[#d4af37] w-4 sm:w-5 text-xs sm:text-sm"></i>
+                                    <span class="text-text-secondary">Kottayam, Kerala, India</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-white/5">
+                                <p class="text-xs text-text-secondary/60 uppercase tracking-wider mb-2 sm:mb-3">Quick Links</p>
+                                <div class="flex gap-2 sm:gap-3">
+                                    <a href="https://github.com/SanjayPhilip" target="_blank" class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg glass flex items-center justify-center text-text-secondary hover:text-[#d4af37] hover:bg-[#d4af37]/10 transition-all" aria-label="GitHub"><i class="fab fa-github text-sm"></i></a>
+                                    <a href="https://linkedin.com/in/sanjay-philip-3a2531255" target="_blank" class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg glass flex items-center justify-center text-text-secondary hover:text-[#d4af37] hover:bg-[#d4af37]/10 transition-all" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-sm"></i></a>
+                                    <a href="mailto:sanjayphilip832@gmail.com" class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg glass flex items-center justify-center text-text-secondary hover:text-[#d4af37] hover:bg-[#d4af37]/10 transition-all" aria-label="Email"><i class="fas fa-envelope text-sm"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02 Education Section -->
+    <section id="education" class="relative py-16 sm:py-24 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 sm:mb-16 reveal">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <span class="text-xs sm:text-sm font-mono text-[#d4af37]">02 —</span>
+                    <span class="text-xs sm:text-sm font-serif font-semibold uppercase tracking-widest text-[#d4af37]">Education</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-3 sm:mb-4">Where I learned to <span class="gradient-text">build</span></h2>
+                <p class="text-text-secondary/70 text-xs sm:text-sm italic">mostly self-taught tbh</p>
+            </div>
+            <div class="max-w-3xl mx-auto reveal">
+                <div class="glass-card rounded-2xl p-6 sm:p-8 border border-[#d4af37]/10 relative glow-border">
+                    <div class="absolute -left-2 sm:-left-3 top-6 sm:top-8 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-[#d4af37] to-[#8b0000] flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-[#e8e4dc] text-xs"></i>
+                    </div>
+                    <div class="pl-3 sm:pl-4">
+                        <h3 class="text-xl sm:text-2xl font-serif font-bold mb-2">Integrated Master of Computer Applications (I.M.C.A.)</h3>
+                        <p class="text-[#d4af37] text-sm sm:text-base font-medium mb-1">Saintgits College of Engineering, Kottayam — KTU</p>
+                        <p class="text-xs sm:text-sm text-text-secondary mb-3 sm:mb-4">2022 — 2027</p>
+                        <ul class="space-y-2 text-text-secondary text-xs sm:text-sm">
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-[#d4af37] mt-0.5 sm:mt-1 text-xs"></i>CGPA: <strong class="text-text-primary">8.69 / 10.0</strong> (Final Year, 9th Semester)</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-[#d4af37] mt-0.5 sm:mt-1 text-xs"></i>Coursework: Full-Stack Development, Machine Learning, Deep Learning, Computer Vision, NLP, Database Systems, Software Engineering</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-[#d4af37] mt-0.5 sm:mt-1 text-xs"></i>Active in project-based learning with 6+ deployed projects and 3 internships</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03 Skills Section -->
+    <section id="skills" class="relative py-16 sm:py-24 lg:py-32 grid-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 sm:mb-16 reveal">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <span class="text-xs sm:text-sm font-mono text-[#d4af37]">03 —</span>
+                    <span class="text-xs sm:text-sm font-serif font-semibold uppercase tracking-widest text-[#d4af37]">Skills</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-3 sm:mb-4">Tools I actually <span class="gradient-text">use</span></h2>
+                <p class="text-text-secondary/70 text-xs sm:text-sm italic">not just listed to look good</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 reveal">
+                <div class="glass-card rounded-2xl p-5 sm:p-6 lg:p-8 border border-[#d4af37]/10 tilt-card stagger-1">
+                    <div class="tilt-content">
+                        <div class="flex items-center gap-3 mb-4 sm:mb-6">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/20 flex items-center justify-center text-[#d4af37]"><i class="fas fa-code text-lg sm:text-xl"></i></div>
+                            <h3 class="text-lg sm:text-xl font-serif font-bold">Languages</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2">
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm font-medium text-[#d4af37]"><i class="fab fa-python mr-1.5"></i>Python</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm font-medium text-[#d4af37]"><i class="fab fa-js mr-1.5"></i>JavaScript</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm font-medium text-[#d4af37]"><i class="fas fa-code mr-1.5"></i>TypeScript</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm font-medium text-[#d4af37]"><i class="fab fa-php mr-1.5"></i>PHP</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm font-medium text-[#d4af37]"><i class="fab fa-java mr-1.5"></i>Java</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm font-medium text-[#d4af37]"><i class="fas fa-c mr-1.5"></i>C / C++</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-5 sm:p-6 lg:p-8 border border-[#f4e4a6]/10 tilt-card stagger-2">
+                    <div class="tilt-content">
+                        <div class="flex items-center gap-3 mb-4 sm:mb-6">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#f4e4a6]/10 border border-[#f4e4a6]/20 flex items-center justify-center text-[#f4e4a6]"><i class="fas fa-laptop-code text-lg sm:text-xl"></i></div>
+                            <h3 class="text-lg sm:text-xl font-serif font-bold">Frontend</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2">
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#f4e4a6]/10 border border-[#f4e4a6]/20 text-xs sm:text-sm font-medium text-[#f4e4a6]"><i class="fab fa-react mr-1.5"></i>React.js</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#f4e4a6]/10 border border-[#f4e4a6]/20 text-xs sm:text-sm font-medium text-[#f4e4a6]"><i class="fab fa-html5 mr-1.5"></i>HTML5</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#f4e4a6]/10 border border-[#f4e4a6]/20 text-xs sm:text-sm font-medium text-[#f4e4a6]"><i class="fab fa-css3-alt mr-1.5"></i>CSS3</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#f4e4a6]/10 border border-[#f4e4a6]/20 text-xs sm:text-sm font-medium text-[#f4e4a6]"><i class="fab fa-css3 mr-1.5"></i>Tailwind</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#f4e4a6]/10 border border-[#f4e4a6]/20 text-xs sm:text-sm font-medium text-[#f4e4a6]"><i class="fab fa-bootstrap mr-1.5"></i>Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-5 sm:p-6 lg:p-8 border border-[#8b0000]/10 tilt-card stagger-3">
+                    <div class="tilt-content">
+                        <div class="flex items-center gap-3 mb-4 sm:mb-6">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#8b0000]/10 border border-[#8b0000]/20 flex items-center justify-center text-[#a52a2a]"><i class="fas fa-server text-lg sm:text-xl"></i></div>
+                            <h3 class="text-lg sm:text-xl font-serif font-bold">Backend</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2">
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#8b0000]/10 border border-[#8b0000]/20 text-xs sm:text-sm font-medium text-[#a52a2a]"><i class="fab fa-node mr-1.5"></i>Node.js</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#8b0000]/10 border border-[#8b0000]/20 text-xs sm:text-sm font-medium text-[#a52a2a]"><i class="fas fa-server mr-1.5"></i>Express.js</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#8b0000]/10 border border-[#8b0000]/20 text-xs sm:text-sm font-medium text-[#a52a2a]"><i class="fas fa-flask mr-1.5"></i>Flask</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#8b0000]/10 border border-[#8b0000]/20 text-xs sm:text-sm font-medium text-[#a52a2a]"><i class="fas fa-bolt mr-1.5"></i>FastAPI</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#8b0000]/10 border border-[#8b0000]/20 text-xs sm:text-sm font-medium text-[#a52a2a]"><i class="fab fa-php mr-1.5"></i>PHP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-5 sm:p-6 lg:p-8 border border-[#b8941f]/10 tilt-card stagger-4">
+                    <div class="tilt-content">
+                        <div class="flex items-center gap-3 mb-4 sm:mb-6">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#b8941f]/10 border border-[#b8941f]/20 flex items-center justify-center text-[#b8941f]"><i class="fas fa-database text-lg sm:text-xl"></i></div>
+                            <h3 class="text-lg sm:text-xl font-serif font-bold">Database</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2">
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#b8941f]/10 border border-[#b8941f]/20 text-xs sm:text-sm font-medium text-[#b8941f]"><i class="fas fa-database mr-1.5"></i>MySQL</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#b8941f]/10 border border-[#b8941f]/20 text-xs sm:text-sm font-medium text-[#b8941f]"><i class="fas fa-leaf mr-1.5"></i>MongoDB</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#b8941f]/10 border border-[#b8941f]/20 text-xs sm:text-sm font-medium text-[#b8941f]"><i class="fas fa-elephant mr-1.5"></i>PostgreSQL</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#b8941f]/10 border border-[#b8941f]/20 text-xs sm:text-sm font-medium text-[#b8941f]"><i class="fas fa-layer-group mr-1.5"></i>SQLAlchemy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-5 sm:p-6 lg:p-8 border border-[#d4af37]/10 tilt-card stagger-5">
+                    <div class="tilt-content">
+                        <div class="flex items-center gap-3 mb-4 sm:mb-6">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/20 flex items-center justify-center text-[#d4af37]"><i class="fas fa-brain text-lg sm:text-xl"></i></div>
+                            <h3 class="text-lg sm:text-xl font-serif font-bold">AI / ML</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2">
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm font-medium text-[#d4af37]"><i class="fas fa-bullseye mr-1.5"></i>YOLOv8</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm font-medium text-[#d4af37]"><i class="fas fa-comments mr-1.5"></i>NLP</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm font-medium text-[#d4af37]"><i class="fas fa-network-wired mr-1.5"></i>Neural Networks</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm font-medium text-[#d4af37]"><i class="fas fa-eye mr-1.5"></i>Computer Vision</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm font-medium text-[#d4af37]"><i class="fas fa-camera mr-1.5"></i>OpenCV</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs sm:text-sm font-medium text-[#d4af37]"><i class="fas fa-brain mr-1.5"></i>TensorFlow</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-5 sm:p-6 lg:p-8 border border-[#f4e4a6]/10 tilt-card stagger-6">
+                    <div class="tilt-content">
+                        <div class="flex items-center gap-3 mb-4 sm:mb-6">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#f4e4a6]/10 border border-[#f4e4a6]/20 flex items-center justify-center text-[#f4e4a6]"><i class="fas fa-tools text-lg sm:text-xl"></i></div>
+                            <h3 class="text-lg sm:text-xl font-serif font-bold">DevOps & Tools</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2">
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#f4e4a6]/10 border border-[#f4e4a6]/20 text-xs sm:text-sm font-medium text-[#f4e4a6]"><i class="fab fa-git-alt mr-1.5"></i>Git</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#f4e4a6]/10 border border-[#f4e4a6]/20 text-xs sm:text-sm font-medium text-[#f4e4a6]"><i class="fab fa-docker mr-1.5"></i>Docker</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#f4e4a6]/10 border border-[#f4e4a6]/20 text-xs sm:text-sm font-medium text-[#f4e4a6]"><i class="fab fa-github mr-1.5"></i>GitHub Actions</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#f4e4a6]/10 border border-[#f4e4a6]/20 text-xs sm:text-sm font-medium text-[#f4e4a6]"><i class="fas fa-cloud mr-1.5"></i>Vercel</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#f4e4a6]/10 border border-[#f4e4a6]/20 text-xs sm:text-sm font-medium text-[#f4e4a6]"><i class="fas fa-train mr-1.5"></i>Railway</span>
+                            <span class="skill-badge px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#f4e4a6]/10 border border-[#f4e4a6]/20 text-xs sm:text-sm font-medium text-[#f4e4a6]"><i class="fas fa-server mr-1.5"></i>Render</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04 Experience Section -->
+    <section id="experience" class="relative py-16 sm:py-24 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 sm:mb-16 reveal">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <span class="text-xs sm:text-sm font-mono text-[#d4af37]">04 —</span>
+                    <span class="text-xs sm:text-sm font-serif font-semibold uppercase tracking-widest text-[#d4af37]">Experience</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-3 sm:mb-4">Where I've put skills to <span class="gradient-text">work</span></h2>
+                <p class="text-text-secondary/70 text-xs sm:text-sm italic">3 internships, lots of coffee</p>
+            </div>
+            <div class="space-y-4 sm:space-y-6 max-w-4xl mx-auto reveal relative">
+                <!-- Timeline line -->
+                <div class="timeline-line hidden sm:block" id="timeline-line"></div>
+
+                <!-- NextgenPro -->
+                <div class="glass-card rounded-2xl p-5 sm:p-8 border border-[#d4af37]/10 group hover:border-[#d4af37]/30 transition-all duration-500 tilt-card slide-in-left stagger-1">
+                    <div class="tilt-content">
+                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-3 sm:mb-4">
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-serif font-bold text-[#d4af37] group-hover:text-[#f4e4a6] transition-colors">ML & AI Intern</h3>
+                                <p class="text-text-secondary text-sm sm:text-base font-medium">NextgenPro</p>
+                            </div>
+                            <span class="text-xs sm:text-sm text-text-secondary/60 font-mono">May 2026 — Jun 2026</span>
+                        </div>
+                        <ul class="space-y-1.5 sm:space-y-2 text-text-secondary text-xs sm:text-sm mb-3 sm:mb-4">
+                            <li class="flex items-start gap-2"><i class="fas fa-caret-right text-[#d4af37] mt-0.5 sm:mt-1"></i>Built YOLO-based object detection with <strong class="text-text-primary">90%+ accuracy</strong> across 5+ classes</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-caret-right text-[#d4af37] mt-0.5 sm:mt-1"></i>Developed NLP chatbot with multi-turn context, cutting query resolution by <strong class="text-text-primary">~30%</strong></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-caret-right text-[#d4af37] mt-0.5 sm:mt-1"></i>Optimized inference pipeline, reducing latency by <strong class="text-text-primary">~25%</strong></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-caret-right text-[#d4af37] mt-0.5 sm:mt-1"></i>Fine-tuned 3 pre-trained models, improving baseline accuracy by <strong class="text-text-primary">~15%</strong></li>
+                        </ul>
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2">
+                            <span class="px-2 py-0.5 sm:px-2 sm:py-1 rounded bg-[#d4af37]/10 text-xs text-[#d4af37] border border-[#d4af37]/10">YOLOv8</span>
+                            <span class="px-2 py-0.5 sm:px-2 sm:py-1 rounded bg-[#d4af37]/10 text-xs text-[#d4af37] border border-[#d4af37]/10">BERT</span>
+                            <span class="px-2 py-0.5 sm:px-2 sm:py-1 rounded bg-[#d4af37]/10 text-xs text-[#d4af37] border border-[#d4af37]/10">GPT-2</span>
+                            <span class="px-2 py-0.5 sm:px-2 sm:py-1 rounded bg-[#d4af37]/10 text-xs text-[#d4af37] border border-[#d4af37]/10">FastAPI</span>
+                            <span class="px-2 py-0.5 sm:px-2 sm:py-1 rounded bg-[#d4af37]/10 text-xs text-[#d4af37] border border-[#d4af37]/10">Docker</span>
+                            <span class="px-2 py-0.5 sm:px-2 sm:py-1 rounded bg-[#d4af37]/10 text-xs text-[#d4af37] border border-[#d4af37]/10">NVIDIA GPU</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Spectrum -->
+                <div class="glass-card rounded-2xl p-5 sm:p-8 border border-[#8b0000]/10 group hover:border-[#8b0000]/30 transition-all duration-500 tilt-card slide-in-left stagger-2">
+                    <div class="tilt-content">
+                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-3 sm:mb-4">
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-serif font-bold text-[#a52a2a] group-hover:text-[#d4af37] transition-colors">Python Development Intern</h3>
+                                <p class="text-text-secondary text-sm sm:text-base font-medium">Spectrum Soft Tech Solutions</p>
+                            </div>
+                            <span class="text-xs sm:text-sm text-text-secondary/60 font-mono">Jun 2025</span>
+                        </div>
+                        <ul class="space-y-1.5 sm:space-y-2 text-text-secondary text-xs sm:text-sm mb-3 sm:mb-4">
+                            <li class="flex items-start gap-2"><i class="fas fa-caret-right text-[#a52a2a] mt-0.5 sm:mt-1"></i>Automated 3 data-processing workflows, cutting manual effort by <strong class="text-text-primary">~40%</strong></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-caret-right text-[#a52a2a] mt-0.5 sm:mt-1"></i>Built reusable Python modules using OOP principles across 2 projects</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-caret-right text-[#a52a2a] mt-0.5 sm:mt-1"></i>Debugged 5+ production scripts, improving reliability</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2">
+                            <span class="px-2 py-0.5 sm:px-2 sm:py-1 rounded bg-[#8b0000]/10 text-xs text-[#a52a2a] border border-[#8b0000]/10">Python</span>
+                            <span class="px-2 py-0.5 sm:px-2 sm:py-1 rounded bg-[#8b0000]/10 text-xs text-[#a52a2a] border border-[#8b0000]/10">ETL</span>
+                            <span class="px-2 py-0.5 sm:px-2 sm:py-1 rounded bg-[#8b0000]/10 text-xs text-[#a52a2a] border border-[#8b0000]/10">Pytest</span>
+                            <span class="px-2 py-0.5 sm:px-2 sm:py-1 rounded bg-[#8b0000]/10 text-xs text-[#a52a2a] border border-[#8b0000]/10">OOP</span>
+                            <span class="px-2 py-0.5 sm:px-2 sm:py-1 rounded bg-[#8b0000]/10 text-xs text-[#a52a2a] border border-[#8b0000]/10">SQL</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tisser -->
+                <div class="glass-card rounded-2xl p-5 sm:p-8 border border-[#b8941f]/10 group hover:border-[#b8941f]/30 transition-all duration-500 tilt-card slide-in-left stagger-3">
+                    <div class="tilt-content">
+                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-3 sm:mb-4">
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-serif font-bold text-[#b8941f] group-hover:text-[#d4af37] transition-colors">Software Development Intern</h3>
+                                <p class="text-text-secondary text-sm sm:text-base font-medium">Tisser Technologies</p>
+                            </div>
+                            <span class="text-xs sm:text-sm text-text-secondary/60 font-mono">Jun 2024 — Jul 2024</span>
+                        </div>
+                        <ul class="space-y-1.5 sm:space-y-2 text-text-secondary text-xs sm:text-sm mb-3 sm:mb-4">
+                            <li class="flex items-start gap-2"><i class="fas fa-caret-right text-[#b8941f] mt-0.5 sm:mt-1"></i>Built 3+ responsive React.js modules, improving page load by <strong class="text-text-primary">~20%</strong></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-caret-right text-[#b8941f] mt-0.5 sm:mt-1"></i>Integrated 5+ RESTful APIs connecting React frontend to Node.js backend</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-caret-right text-[#b8941f] mt-0.5 sm:mt-1"></i>Refactored 2 legacy components, reducing duplication by <strong class="text-text-primary">~30%</strong></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-caret-right text-[#b8941f] mt-0.5 sm:mt-1"></i>Resolved 10+ bugs across 5 agile sprints</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2">
+                            <span class="px-2 py-0.5 sm:px-2 sm:py-1 rounded bg-[#b8941f]/10 text-xs text-[#b8941f] border border-[#b8941f]/10">React.js</span>
+                            <span class="px-2 py-0.5 sm:px-2 sm:py-1 rounded bg-[#b8941f]/10 text-xs text-[#b8941f] border border-[#b8941f]/10">Node.js</span>
+                            <span class="px-2 py-0.5 sm:px-2 sm:py-1 rounded bg-[#b8941f]/10 text-xs text-[#b8941f] border border-[#b8941f]/10">REST API</span>
+                            <span class="px-2 py-0.5 sm:px-2 sm:py-1 rounded bg-[#b8941f]/10 text-xs text-[#b8941f] border border-[#b8941f]/10">JWT</span>
+                            <span class="px-2 py-0.5 sm:px-2 sm:py-1 rounded bg-[#b8941f]/10 text-xs text-[#b8941f] border border-[#b8941f]/10">Agile</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05 Projects Section -->
+    <section id="projects" class="relative py-16 sm:py-24 lg:py-32 grid-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 sm:mb-16 reveal">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <span class="text-xs sm:text-sm font-mono text-[#d4af37]">05 —</span>
+                    <span class="text-xs sm:text-sm font-serif font-semibold uppercase tracking-widest text-[#d4af37]">Projects</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-3 sm:mb-4">Things I've built, broken, <span class="gradient-text">shipped</span></h2>
+                <p class="text-text-secondary/70 text-xs sm:text-sm italic">some are still held together by duct tape</p>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 reveal">
+                <!-- Smart Attendance -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group border border-[#d4af37]/10 tilt-card slide-in-left stagger-1">
+                    <div class="tilt-content">
+                        <div class="h-36 sm:h-48 bg-gradient-to-br from-[#d4af37]/20 to-[#8b0000]/20 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-user-check text-5xl sm:text-6xl text-[#d4af37]/20 group-hover:scale-110 group-hover:text-[#d4af37]/40 transition-all duration-500"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-card to-transparent"></div>
+                            <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex gap-1.5 sm:gap-2">
+                                <span class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md bg-[#d4af37]/20 text-xs font-medium text-[#d4af37] border border-[#d4af37]/20"><i class="fas fa-brain mr-1"></i>AI</span>
+                                <span class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md bg-[#d4af37]/20 text-xs font-medium text-[#d4af37] border border-[#d4af37]/20"><i class="fas fa-cloud mr-1"></i>Cloud</span>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <div class="flex items-start justify-between mb-2 sm:mb-3">
+                                <h3 class="text-base sm:text-xl font-serif font-bold group-hover:text-[#d4af37] transition-colors">Smart Attendance System</h3>
+                                <a href="https://github.com/SanjayPhilip/smart-attendance-system" target="_blank" class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg glass flex items-center justify-center text-text-secondary hover:text-[#d4af37] hover:bg-[#d4af37]/10 transition-all flex-shrink-0 ml-2" aria-label="View Code"><i class="fab fa-github text-xs sm:text-sm"></i></a>
+                            </div>
+                            <p class="text-text-secondary text-xs sm:text-sm mb-3 sm:mb-4">Full-stack attendance management with facial recognition-based marking, real-time analytics dashboards, and cloud deployment.</p>
+                            <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-react mr-1 text-[#d4af37]"></i>React</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fas fa-flask mr-1 text-[#a52a2a]"></i>Flask</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fas fa-eye mr-1 text-[#d4af37]"></i>OpenCV</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fas fa-layer-group mr-1 text-[#f4e4a6]"></i>SQLAlchemy</span>
+                            </div>
+                            <div class="flex items-center gap-3 sm:gap-4 text-xs text-text-secondary/60">
+                                <span><i class="fas fa-star text-[#d4af37] mr-1"></i>90%+ accuracy</span>
+                                <span><i class="fas fa-users text-[#d4af37] mr-1"></i>Role-based</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- MLOps Pipeline -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group border border-[#8b0000]/10 tilt-card slide-in-right stagger-2">
+                    <div class="tilt-content">
+                        <div class="h-36 sm:h-48 bg-gradient-to-br from-[#8b0000]/20 to-[#5c0000]/5 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-project-diagram text-5xl sm:text-6xl text-[#8b0000]/20 group-hover:scale-110 group-hover:text-[#8b0000]/40 transition-all duration-500"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-card to-transparent"></div>
+                            <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex gap-1.5 sm:gap-2">
+                                <span class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md bg-[#8b0000]/20 text-xs font-medium text-[#a52a2a] border border-[#8b0000]/20"><i class="fas fa-cogs mr-1"></i>MLOps</span>
+                                <span class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md bg-[#8b0000]/20 text-xs font-medium text-[#a52a2a] border border-[#8b0000]/20"><i class="fas fa-sync mr-1"></i>CI/CD</span>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <div class="flex items-start justify-between mb-2 sm:mb-3">
+                                <h3 class="text-base sm:text-xl font-serif font-bold group-hover:text-[#a52a2a] transition-colors">MLOps Pipeline</h3>
+                                <a href="https://github.com/SanjayPhilip" target="_blank" class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg glass flex items-center justify-center text-text-secondary hover:text-[#a52a2a] hover:bg-[#8b0000]/10 transition-all flex-shrink-0 ml-2" aria-label="View Code"><i class="fab fa-github text-xs sm:text-sm"></i></a>
+                            </div>
+                            <p class="text-text-secondary text-xs sm:text-sm mb-3 sm:mb-4">End-to-end ML lifecycle: train, track, containerize, and serve models via FastAPI with automated CI/CD on Render.</p>
+                            <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-python mr-1 text-[#d4af37]"></i>Python</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fas fa-bolt mr-1 text-[#f4e4a6]"></i>FastAPI</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-docker mr-1 text-[#a52a2a]"></i>Docker</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-github mr-1 text-[#d4af37]"></i>GitHub Actions</span>
+                            </div>
+                            <div class="flex items-center gap-3 sm:gap-4 text-xs text-text-secondary/60">
+                                <span><i class="fas fa-rocket text-[#d4af37] mr-1"></i>Auto-deploy</span>
+                                <span><i class="fas fa-chart-line text-[#d4af37] mr-1"></i>Monitoring</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- AI Subtitle -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group border border-[#d4af37]/10 tilt-card slide-in-left stagger-3">
+                    <div class="tilt-content">
+                        <div class="h-36 sm:h-48 bg-gradient-to-br from-[#d4af37]/20 to-[#f4e4a6]/5 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-closed-captioning text-5xl sm:text-6xl text-[#d4af37]/20 group-hover:scale-110 group-hover:text-[#d4af37]/40 transition-all duration-500"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-card to-transparent"></div>
+                            <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex gap-1.5 sm:gap-2">
+                                <span class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md bg-[#d4af37]/20 text-xs font-medium text-[#d4af37] border border-[#d4af37]/20"><i class="fas fa-brain mr-1"></i>AI</span>
+                                <span class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md bg-[#d4af37]/20 text-xs font-medium text-[#d4af37] border border-[#d4af37]/20"><i class="fas fa-microphone mr-1"></i>Whisper</span>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <div class="flex items-start justify-between mb-2 sm:mb-3">
+                                <h3 class="text-base sm:text-xl font-serif font-bold group-hover:text-[#d4af37] transition-colors">AI Video Subtitle Generator</h3>
+                                <a href="https://github.com/SanjayPhilip" target="_blank" class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg glass flex items-center justify-center text-text-secondary hover:text-[#d4af37] hover:bg-[#d4af37]/10 transition-all flex-shrink-0 ml-2" aria-label="View Code"><i class="fab fa-github text-xs sm:text-sm"></i></a>
+                            </div>
+                            <p class="text-text-secondary text-xs sm:text-sm mb-3 sm:mb-4">Auto-transcribes video and audio to SRT/VTT using OpenAI Whisper, with a glassmorphism UI built in TypeScript.</p>
+                            <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fas fa-code mr-1 text-[#d4af37]"></i>TypeScript</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-react mr-1 text-[#a52a2a]"></i>React</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fas fa-robot mr-1 text-[#f4e4a6]"></i>OpenAI Whisper</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-node mr-1 text-[#d4af37]"></i>Node.js</span>
+                            </div>
+                            <div class="flex items-center gap-3 sm:gap-4 text-xs text-text-secondary/60">
+                                <span><i class="fas fa-language text-[#d4af37] mr-1"></i>Multi-lang</span>
+                                <span><i class="fas fa-magic text-[#d4af37] mr-1"></i>Auto-sync</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SoundMind -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group border border-[#b8941f]/10 tilt-card slide-in-right stagger-4">
+                    <div class="tilt-content">
+                        <div class="h-36 sm:h-48 bg-gradient-to-br from-[#b8941f]/20 to-[#947018]/5 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-music text-5xl sm:text-6xl text-[#b8941f]/20 group-hover:scale-110 group-hover:text-[#b8941f]/40 transition-all duration-500"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-card to-transparent"></div>
+                            <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex gap-1.5 sm:gap-2">
+                                <span class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md bg-[#b8941f]/20 text-xs font-medium text-[#b8941f] border border-[#b8941f]/20"><i class="fas fa-brain mr-1"></i>ML</span>
+                                <span class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md bg-[#b8941f]/20 text-xs font-medium text-[#b8941f] border border-[#b8941f]/20"><i class="fas fa-music mr-1"></i>RecSys</span>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <div class="flex items-start justify-between mb-2 sm:mb-3">
+                                <h3 class="text-base sm:text-xl font-serif font-bold group-hover:text-[#b8941f] transition-colors">SoundMind</h3>
+                                <a href="https://github.com/SanjayPhilip/SoundMind" target="_blank" class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg glass flex items-center justify-center text-text-secondary hover:text-[#b8941f] hover:bg-[#b8941f]/10 transition-all flex-shrink-0 ml-2" aria-label="View Code"><i class="fab fa-github text-xs sm:text-sm"></i></a>
+                            </div>
+                            <p class="text-text-secondary text-xs sm:text-sm mb-3 sm:mb-4">AI-powered music discovery platform with collaborative filtering recommendation engine that learns user preferences.</p>
+                            <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-python mr-1 text-[#d4af37]"></i>Python</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fas fa-flask mr-1 text-[#a52a2a]"></i>Flask</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fas fa-brain mr-1 text-[#f4e4a6]"></i>AI/ML</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-js mr-1 text-[#d4af37]"></i>JavaScript</span>
+                            </div>
+                            <div class="flex items-center gap-3 sm:gap-4 text-xs text-text-secondary/60">
+                                <span><i class="fas fa-heart text-[#d4af37] mr-1"></i>Personalized</span>
+                                <span><i class="fas fa-chart-line text-[#d4af37] mr-1"></i>ML Engine</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- React Task Manager -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group border border-[#f4e4a6]/10 tilt-card slide-in-left stagger-5">
+                    <div class="tilt-content">
+                        <div class="h-36 sm:h-48 bg-gradient-to-br from-[#f4e4a6]/20 to-[#d4af37]/5 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-tasks text-5xl sm:text-6xl text-[#f4e4a6]/20 group-hover:scale-110 group-hover:text-[#f4e4a6]/40 transition-all duration-500"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-card to-transparent"></div>
+                            <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex gap-1.5 sm:gap-2">
+                                <span class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md bg-[#f4e4a6]/20 text-xs font-medium text-[#f4e4a6] border border-[#f4e4a6]/20"><i class="fas fa-layer-group mr-1"></i>Full-Stack</span>
+                                <span class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md bg-[#f4e4a6]/20 text-xs font-medium text-[#f4e4a6] border border-[#f4e4a6]/20"><i class="fas fa-columns mr-1"></i>Kanban</span>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <div class="flex items-start justify-between mb-2 sm:mb-3">
+                                <h3 class="text-base sm:text-xl font-serif font-bold group-hover:text-[#f4e4a6] transition-colors">React Task Manager</h3>
+                                <a href="https://github.com/SanjayPhilip/task-manager" target="_blank" class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg glass flex items-center justify-center text-text-secondary hover:text-[#f4e4a6] hover:bg-[#f4e4a6]/10 transition-all flex-shrink-0 ml-2" aria-label="View Code"><i class="fab fa-github text-xs sm:text-sm"></i></a>
+                            </div>
+                            <p class="text-text-secondary text-xs sm:text-sm mb-3 sm:mb-4">Full-stack Kanban with drag-and-drop boards, priority tagging, deadline tracking, and a REST API Node.js backend.</p>
+                            <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-react mr-1 text-[#d4af37]"></i>React.js</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-node mr-1 text-[#a52a2a]"></i>Node.js</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fas fa-leaf mr-1 text-[#f4e4a6]"></i>MongoDB</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-css3-alt mr-1 text-[#d4af37]"></i>CSS3</span>
+                            </div>
+                            <div class="flex items-center gap-3 sm:gap-4 text-xs text-text-secondary/60">
+                                <span><i class="fas fa-drag text-[#d4af37] mr-1"></i>Drag & Drop</span>
+                                <span><i class="fas fa-bell text-[#d4af37] mr-1"></i>Deadlines</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- E Blood Connect -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group border border-[#8b0000]/10 tilt-card slide-in-right stagger-6">
+                    <div class="tilt-content">
+                        <div class="h-36 sm:h-48 bg-gradient-to-br from-[#8b0000]/20 to-[#5c0000]/5 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-tint text-5xl sm:text-6xl text-[#8b0000]/20 group-hover:scale-110 group-hover:text-[#8b0000]/40 transition-all duration-500"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-card to-transparent"></div>
+                            <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex gap-1.5 sm:gap-2">
+                                <span class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md bg-[#8b0000]/20 text-xs font-medium text-[#a52a2a] border border-[#8b0000]/20"><i class="fas fa-heart mr-1"></i>Social</span>
+                                <span class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md bg-[#8b0000]/20 text-xs font-medium text-[#a52a2a] border border-[#8b0000]/20"><i class="fab fa-php mr-1"></i>PHP</span>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <div class="flex items-start justify-between mb-2 sm:mb-3">
+                                <h3 class="text-base sm:text-xl font-serif font-bold group-hover:text-[#a52a2a] transition-colors">E Blood Connect</h3>
+                                <a href="https://github.com/SanjayPhilip/Blood-Bank-Management-System" target="_blank" class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg glass flex items-center justify-center text-text-secondary hover:text-[#a52a2a] hover:bg-[#8b0000]/10 transition-all flex-shrink-0 ml-2" aria-label="View Code"><i class="fab fa-github text-xs sm:text-sm"></i></a>
+                            </div>
+                            <p class="text-text-secondary text-xs sm:text-sm mb-3 sm:mb-4">Blood donation management system connecting donors with recipients, with blood-type compatibility matching and admin dashboards.</p>
+                            <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-php mr-1 text-[#a52a2a]"></i>PHP</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fas fa-database mr-1 text-[#d4af37]"></i>MySQL</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-html5 mr-1 text-[#f4e4a6]"></i>HTML5</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-js mr-1 text-[#d4af37]"></i>JavaScript</span>
+                            </div>
+                            <div class="flex items-center gap-3 sm:gap-4 text-xs text-text-secondary/60">
+                                <span><i class="fas fa-bell text-[#d4af37] mr-1"></i>Real-time</span>
+                                <span><i class="fas fa-boxes text-[#d4af37] mr-1"></i>Inventory</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Python Automation -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group border border-[#d4af37]/10 tilt-card slide-in-left stagger-7">
+                    <div class="tilt-content">
+                        <div class="h-36 sm:h-48 bg-gradient-to-br from-[#d4af37]/20 to-[#b8941f]/5 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-robot text-5xl sm:text-6xl text-[#d4af37]/20 group-hover:scale-110 group-hover:text-[#d4af37]/40 transition-all duration-500"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-card to-transparent"></div>
+                            <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex gap-1.5 sm:gap-2">
+                                <span class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md bg-[#d4af37]/20 text-xs font-medium text-[#d4af37] border border-[#d4af37]/20"><i class="fas fa-cogs mr-1"></i>Automation</span>
+                                <span class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md bg-[#d4af37]/20 text-xs font-medium text-[#d4af37] border border-[#d4af37]/20"><i class="fas fa-terminal mr-1"></i>Scripts</span>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <div class="flex items-start justify-between mb-2 sm:mb-3">
+                                <h3 class="text-base sm:text-xl font-serif font-bold group-hover:text-[#d4af37] transition-colors">Python Automation Toolkit</h3>
+                                <a href="https://github.com/SanjayPhilip/python-automation-toolkit" target="_blank" class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg glass flex items-center justify-center text-text-secondary hover:text-[#d4af37] hover:bg-[#d4af37]/10 transition-all flex-shrink-0 ml-2" aria-label="View Code"><i class="fab fa-github text-xs sm:text-sm"></i></a>
+                            </div>
+                            <p class="text-text-secondary text-xs sm:text-sm mb-3 sm:mb-4">A collection of Python scripts and utilities to automate repetitive workflows, data processing, and everyday tasks.</p>
+                            <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-python mr-1 text-[#d4af37]"></i>Python</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fas fa-folder mr-1 text-[#a52a2a]"></i>OS Module</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fas fa-cogs mr-1 text-[#f4e4a6]"></i>Automation</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fas fa-code mr-1 text-[#d4af37]"></i>Scripting</span>
+                            </div>
+                            <div class="flex items-center gap-3 sm:gap-4 text-xs text-text-secondary/60">
+                                <span><i class="fas fa-clock text-[#d4af37] mr-1"></i>Scheduled</span>
+                                <span><i class="fas fa-file-alt text-[#d4af37] mr-1"></i>File Ops</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- AI Traffic Analytics Platform -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group border border-[#d4af37]/10 sm:col-span-2 tilt-card slide-in-right stagger-8">
+                    <div class="tilt-content">
+                        <div class="h-36 sm:h-48 bg-gradient-to-br from-[#d4af37]/20 via-[#8b0000]/10 to-[#b8941f]/5 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-traffic-light text-5xl sm:text-6xl text-[#d4af37]/20 group-hover:scale-110 group-hover:text-[#d4af37]/40 transition-all duration-500"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-card to-transparent"></div>
+                            <div class="absolute top-3 sm:top-4 right-3 sm:right-4">
+                                <span class="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#8b0000]/20 text-xs font-medium text-[#a52a2a] border border-[#8b0000]/20 animate-pulse"><i class="fas fa-hammer mr-1"></i>In Development</span>
+                            </div>
+                            <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex gap-1.5 sm:gap-2">
+                                <span class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md bg-[#d4af37]/20 text-xs font-medium text-[#d4af37] border border-[#d4af37]/20"><i class="fas fa-brain mr-1"></i>AI</span>
+                                <span class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md bg-[#d4af37]/20 text-xs font-medium text-[#d4af37] border border-[#d4af37]/20"><i class="fas fa-video mr-1"></i>CV</span>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <div class="flex items-start justify-between mb-2 sm:mb-3">
+                                <h3 class="text-base sm:text-xl font-serif font-bold group-hover:text-[#d4af37] transition-colors">AI Traffic Analytics Platform</h3>
+                                <a href="https://github.com/SanjayPhilip" target="_blank" class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg glass flex items-center justify-center text-text-secondary hover:text-[#d4af37] hover:bg-[#d4af37]/10 transition-all flex-shrink-0 ml-2" aria-label="View Code"><i class="fab fa-github text-xs sm:text-sm"></i></a>
+                            </div>
+                            <p class="text-text-secondary text-xs sm:text-sm mb-3 sm:mb-4">Real-time AI traffic analytics using YOLOv8, FastAPI, OpenCV, and interactive dashboards. Upload traffic videos for vehicle detection and congestion analysis.</p>
+                            <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-python mr-1 text-[#d4af37]"></i>Python</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fas fa-bolt mr-1 text-[#f4e4a6]"></i>FastAPI</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fas fa-bullseye mr-1 text-[#a52a2a]"></i>YOLOv8</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fas fa-eye mr-1 text-[#d4af37]"></i>OpenCV</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-react mr-1 text-[#f4e4a6]"></i>React</span>
+                                <span class="text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-white/5 text-text-secondary"><i class="fab fa-css3 mr-1 text-[#d4af37]"></i>Tailwind</span>
+                            </div>
+                            <div class="flex items-center gap-3 sm:gap-4 text-xs text-text-secondary/60">
+                                <span><i class="fas fa-car text-[#d4af37] mr-1"></i>Vehicle Detection</span>
+                                <span><i class="fas fa-chart-bar text-[#d4af37] mr-1"></i>Congestion Analysis</span>
+                                <span><i class="fas fa-bolt text-[#d4af37] mr-1"></i>Real-time</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 06 Certifications Section -->
+    <section id="certifications" class="relative py-16 sm:py-24 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 sm:mb-16 reveal">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <span class="text-xs sm:text-sm font-mono text-[#d4af37]">06 —</span>
+                    <span class="text-xs sm:text-sm font-serif font-semibold uppercase tracking-widest text-[#d4af37]">Certifications</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-3 sm:mb-4">What I've <span class="gradient-text">learned</span></h2>
+                <p class="text-text-secondary/70 text-xs sm:text-sm italic">Coursera binge-watching phase</p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 reveal">
+                <div class="cert-card glass-card rounded-xl p-4 sm:p-6 border border-[#d4af37]/10 text-center group stagger-1">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-4 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#d4af37]/20 to-[#8b0000]/20 flex items-center justify-center text-lg sm:text-2xl group-hover:scale-110 transition-transform duration-300">🤖</div>
+                    <h3 class="font-serif font-bold text-xs sm:text-sm mb-1">Introduction to Robotic Process Automation</h3>
+                    <p class="text-xs text-text-secondary/70">Coursera · 2024</p>
+                </div>
+                <div class="cert-card glass-card rounded-xl p-4 sm:p-6 border border-[#d4af37]/10 text-center group stagger-2">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-4 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#d4af37]/20 to-[#8b0000]/20 flex items-center justify-center text-lg sm:text-2xl group-hover:scale-110 transition-transform duration-300">👁</div>
+                    <h3 class="font-serif font-bold text-xs sm:text-sm mb-1">Computer Vision 101</h3>
+                    <p class="text-xs text-text-secondary/70">Coursera · 2024</p>
+                </div>
+                <div class="cert-card glass-card rounded-xl p-4 sm:p-6 border border-[#d4af37]/10 text-center group stagger-3">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-4 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#d4af37]/20 to-[#8b0000]/20 flex items-center justify-center text-lg sm:text-2xl group-hover:scale-110 transition-transform duration-300">🧠</div>
+                    <h3 class="font-serif font-bold text-xs sm:text-sm mb-1">Introduction to Deep Learning</h3>
+                    <p class="text-xs text-text-secondary/70">Coursera · 2024</p>
+                </div>
+                <div class="cert-card glass-card rounded-xl p-4 sm:p-6 border border-[#d4af37]/10 text-center group stagger-4">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-4 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#d4af37]/20 to-[#8b0000]/20 flex items-center justify-center text-lg sm:text-2xl group-hover:scale-110 transition-transform duration-300">💬</div>
+                    <h3 class="font-serif font-bold text-xs sm:text-sm mb-1">Natural Language Processing (NLP)</h3>
+                    <p class="text-xs text-text-secondary/70">Coursera · 2024</p>
+                </div>
+                <div class="cert-card glass-card rounded-xl p-4 sm:p-6 border border-[#d4af37]/10 text-center group stagger-5">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-4 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#d4af37]/20 to-[#8b0000]/20 flex items-center justify-center text-lg sm:text-2xl group-hover:scale-110 transition-transform duration-300">⚡</div>
+                    <h3 class="font-serif font-bold text-xs sm:text-sm mb-1">Introduction to Artificial Intelligence</h3>
+                    <p class="text-xs text-text-secondary/70">Coursera · 2024</p>
+                </div>
+                <div class="cert-card glass-card rounded-xl p-4 sm:p-6 border border-[#d4af37]/10 text-center group stagger-6">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-4 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#d4af37]/20 to-[#8b0000]/20 flex items-center justify-center text-lg sm:text-2xl group-hover:scale-110 transition-transform duration-300">📊</div>
+                    <h3 class="font-serif font-bold text-xs sm:text-sm mb-1">Introduction to Data Science</h3>
+                    <p class="text-xs text-text-secondary/70">Coursera · 2024</p>
+                </div>
+                <div class="cert-card glass-card rounded-xl p-4 sm:p-6 border border-[#d4af37]/10 text-center group stagger-7">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-4 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#d4af37]/20 to-[#8b0000]/20 flex items-center justify-center text-lg sm:text-2xl group-hover:scale-110 transition-transform duration-300">🌐</div>
+                    <h3 class="font-serif font-bold text-xs sm:text-sm mb-1">Building Web Applications in PHP</h3>
+                    <p class="text-xs text-text-secondary/70">Coursera · 2023</p>
+                </div>
+                <div class="cert-card glass-card rounded-xl p-4 sm:p-6 border border-[#d4af37]/10 text-center group stagger-8">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-4 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#d4af37]/20 to-[#8b0000]/20 flex items-center justify-center text-lg sm:text-2xl group-hover:scale-110 transition-transform duration-300">🎓</div>
+                    <h3 class="font-serif font-bold text-xs sm:text-sm mb-1">Bootstrap</h3>
+                    <p class="text-xs text-text-secondary/70">IIT Bombay — Spoken Tutorial · 2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 07 Contact Section -->
+    <section id="contact" class="relative py-16 sm:py-24 lg:py-32 grid-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 sm:mb-16 reveal">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <span class="text-xs sm:text-sm font-mono text-[#d4af37]">07 —</span>
+                    <span class="text-xs sm:text-sm font-serif font-semibold uppercase tracking-widest text-[#d4af37]">Contact</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-3 sm:mb-4">Let's <span class="gradient-text">Connect</span></h2>
+                <p class="text-text-secondary/70 text-xs sm:text-sm italic max-w-xl mx-auto px-4">I'm looking for Full Stack or AI/ML roles. If you think I'd be a good fit, shoot me a message. I usually reply within a day.</p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 max-w-5xl mx-auto reveal">
+                <div class="glass-card rounded-2xl p-5 sm:p-8 border border-[#d4af37]/10">
+                    <h3 class="text-xl sm:text-2xl font-serif font-bold mb-4 sm:mb-6">Send a message</h3>
+                    <form id="contact-form" class="space-y-3 sm:space-y-4">
+                        <div>
+                            <label class="block text-xs sm:text-sm font-medium text-text-secondary mb-1.5 sm:mb-2">Name</label>
+                            <input type="text" required class="form-input w-full px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl glass bg-transparent border border-[#d4af37]/20 text-text-primary placeholder-text-secondary/50 focus:outline-none transition-all text-sm" placeholder="Your name">
+                        </div>
+                        <div>
+                            <label class="block text-xs sm:text-sm font-medium text-text-secondary mb-1.5 sm:mb-2">Email</label>
+                            <input type="email" required class="form-input w-full px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl glass bg-transparent border border-[#d4af37]/20 text-text-primary placeholder-text-secondary/50 focus:outline-none transition-all text-sm" placeholder="your@email.com">
+                        </div>
+                        <div>
+                            <label class="block text-xs sm:text-sm font-medium text-text-secondary mb-1.5 sm:mb-2">Message</label>
+                            <textarea rows="4" required class="form-input w-full px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl glass bg-transparent border border-[#d4af37]/20 text-text-primary placeholder-text-secondary/50 focus:outline-none transition-all resize-none text-sm" placeholder="Hey Sanjay, I have an opportunity for you..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 sm:px-8 sm:py-4 rounded-xl bg-gradient-to-r from-[#8b0000] to-[#d4af37] text-[#e8e4dc] font-semibold hover:shadow-lg hover:shadow-[#d4af37]/20 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+                <div class="flex flex-col justify-center">
+                    <div class="space-y-3 sm:space-y-6">
+                        <div class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl glass border border-[#d4af37]/10 hover:border-[#d4af37]/30 transition-all">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37] flex-shrink-0">
+                                <i class="fas fa-envelope text-base sm:text-xl"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <p class="text-xs sm:text-sm text-text-secondary">Email</p>
+                                <a href="mailto:sanjayphilip832@gmail.com" class="text-text-primary font-medium hover:text-[#d4af37] transition-colors text-sm sm:text-base truncate block">sanjayphilip832@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl glass border border-[#d4af37]/10 hover:border-[#d4af37]/30 transition-all">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37] flex-shrink-0">
+                                <i class="fab fa-github text-base sm:text-xl"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <p class="text-xs sm:text-sm text-text-secondary">GitHub</p>
+                                <a href="https://github.com/SanjayPhilip" target="_blank" class="text-text-primary font-medium hover:text-[#d4af37] transition-colors text-sm sm:text-base truncate block">github.com/SanjayPhilip</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl glass border border-[#d4af37]/10 hover:border-[#d4af37]/30 transition-all">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37] flex-shrink-0">
+                                <i class="fab fa-linkedin-in text-base sm:text-xl"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <p class="text-xs sm:text-sm text-text-secondary">LinkedIn</p>
+                                <a href="https://linkedin.com/in/sanjay-philip-3a2531255" target="_blank" class="text-text-primary font-medium hover:text-[#d4af37] transition-colors text-sm sm:text-base truncate block">linkedin.com/in/sanjay-philip-3a2531255</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl glass border border-[#d4af37]/10 hover:border-[#d4af37]/30 transition-all">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37] flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-base sm:text-xl"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <p class="text-xs sm:text-sm text-text-secondary">Location</p>
+                                <p class="text-text-primary font-medium text-sm sm:text-base truncate">Kottayam, Kerala, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative py-8 sm:py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-[#d4af37] to-[#8b0000] flex items-center justify-center text-[#e8e4dc] font-serif font-bold text-xs sm:text-sm">SP</div>
+                    <span class="font-serif font-bold text-base sm:text-lg tracking-wider">Sanjay<span class="gradient-text">Philip</span></span>
+                </div>
+                <p class="text-xs sm:text-sm text-text-secondary/60 text-center">Built with <i class="fas fa-heart text-[#8b0000] mx-1"></i> and way too much coffee. No React, just vibes.</p>
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <a href="https://github.com/SanjayPhilip" target="_blank" class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg glass flex items-center justify-center text-text-secondary hover:text-[#d4af37] hover:bg-[#d4af37]/10 transition-all" aria-label="GitHub"><i class="fab fa-github text-sm"></i></a>
+                    <a href="https://linkedin.com/in/sanjay-philip-3a2531255" target="_blank" class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg glass flex items-center justify-center text-text-secondary hover:text-[#d4af37] hover:bg-[#d4af37]/10 transition-all" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-sm"></i></a>
+                    <a href="mailto:sanjayphilip832@gmail.com" class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg glass flex items-center justify-center text-text-secondary hover:text-[#d4af37] hover:bg-[#d4af37]/10 transition-all" aria-label="Email"><i class="fas fa-envelope text-sm"></i></a>
+                </div>
+            </div>
+            <div class="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/5 text-center">
+                <p class="text-xs text-text-secondary/40">Sanjay Philip. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Typing Effect
+        const textElement = document.getElementById('typing-text');
+        const phrases = [
+            'Full-Stack & ML Engineer',
+            'React · Python · AI/ML',
+            'I ship code that works',
+            'Currently learning MLOps'
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typingSpeed = 2000;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typingSpeed = 500;
+            }
+            setTimeout(typeEffect, typingSpeed);
+        }
+        typeEffect();
+
+        // Three.js Hero Background
+        const canvas = document.getElementById('hero-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+
+        // Mobile optimization: reduce pixel ratio
+        const isMobile = window.innerWidth < 768;
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1 : 2));
+
+        // Particles - reduced count on mobile
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = isMobile ? 300 : 800;
+        const posArray = new Float32Array(particlesCount * 3);
+        const colorArray = new Float32Array(particlesCount * 3);
+
+        for (let i = 0; i < particlesCount * 3; i += 3) {
+            posArray[i] = (Math.random() - 0.5) * 10;
+            posArray[i + 1] = (Math.random() - 0.5) * 10;
+            posArray[i + 2] = (Math.random() - 0.5) * 10;
+
+            const isGold = Math.random() > 0.5;
+            colorArray[i] = isGold ? 0.83 : 0.55;
+            colorArray[i + 1] = isGold ? 0.69 : 0.0;
+            colorArray[i + 2] = isGold ? 0.22 : 0.0;
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
+
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.02,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.8,
+            blending: THREE.AdditiveBlending
+        });
+
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particlesMesh);
+
+        // Floating geometric shapes - fewer on mobile
+        const shapes = [];
+        const shapeGeometries = [
+            new THREE.IcosahedronGeometry(0.15, 0),
+            new THREE.OctahedronGeometry(0.12, 0),
+            new THREE.TetrahedronGeometry(0.13, 0)
+        ];
+        const shapeMaterials = [
+            new THREE.MeshBasicMaterial({ color: 0xd4af37, wireframe: true, transparent: true, opacity: 0.3 }),
+            new THREE.MeshBasicMaterial({ color: 0x8b0000, wireframe: true, transparent: true, opacity: 0.25 }),
+            new THREE.MeshBasicMaterial({ color: 0xf4e4a6, wireframe: true, transparent: true, opacity: 0.2 })
+        ];
+
+        // Update colors based on theme
+        function updateThreeJSColors() {
+            const isLight = document.documentElement.classList.contains('light');
+            if (isLight) {
+                shapeMaterials[0].color.setHex(0xc9a227);
+                shapeMaterials[1].color.setHex(0xb8941f);
+                shapeMaterials[2].color.setHex(0xe8d5a3);
+                particlesMaterial.opacity = 0.5;
+            } else {
+                shapeMaterials[0].color.setHex(0xd4af37);
+                shapeMaterials[1].color.setHex(0x8b0000);
+                shapeMaterials[2].color.setHex(0xf4e4a6);
+                particlesMaterial.opacity = 0.8;
+            }
+        }
+
+        const shapeCount = isMobile ? 5 : 15;
+        for (let i = 0; i < shapeCount; i++) {
+            const geo = shapeGeometries[i % 3];
+            const mat = shapeMaterials[i % 3];
+            const mesh = new THREE.Mesh(geo, mat);
+            mesh.position.set(
+                (Math.random() - 0.5) * 8,
+                (Math.random() - 0.5) * 6,
+                (Math.random() - 0.5) * 4 - 2
+            );
+            mesh.userData = {
+                rotationSpeed: {
+                    x: (Math.random() - 0.5) * 0.01,
+                    y: (Math.random() - 0.5) * 0.01,
+                    z: (Math.random() - 0.5) * 0.01
+                },
+                floatSpeed: Math.random() * 0.002 + 0.001,
+                floatOffset: Math.random() * Math.PI * 2
+            };
+            shapes.push(mesh);
+            scene.add(mesh);
+        }
+
+        // Add ethereal wings using plane geometries
+        if (!isMobile) {
+            const wingShape = new THREE.Shape();
+            wingShape.moveTo(0, 0);
+            wingShape.bezierCurveTo(1, 2, 3, 3, 4, 1);
+            wingShape.bezierCurveTo(3.5, 0.5, 2, 0, 0, 0);
+
+            const wingGeometry = new THREE.ShapeGeometry(wingShape);
+            const wingMaterial = new THREE.MeshBasicMaterial({ 
+                color: 0xf4e4a6, 
+                transparent: true, 
+                opacity: 0.08,
+                side: THREE.DoubleSide
+            });
+
+            const leftWing = new THREE.Mesh(wingGeometry, wingMaterial);
+            leftWing.position.set(-2, 1, -3);
+            leftWing.scale.set(1.5, 1.5, 1.5);
+            leftWing.rotation.z = Math.PI / 6;
+            leftWing.userData = { flapSpeed: 0.8, flapOffset: 0 };
+            scene.add(leftWing);
+            shapes.push(leftWing);
+
+            const rightWing = new THREE.Mesh(wingGeometry, wingMaterial);
+            rightWing.position.set(2, 1, -3);
+            rightWing.scale.set(-1.5, 1.5, 1.5);
+            rightWing.rotation.z = -Math.PI / 6;
+            rightWing.userData = { flapSpeed: 0.8, flapOffset: Math.PI };
+            scene.add(rightWing);
+            shapes.push(rightWing);
+        }
+
+        // Glowing orbs with point lights
+        const orbColors = [0xd4af37, 0x8b0000, 0xf4e4a6];
+        const orbs = [];
+        const orbCount = isMobile ? 2 : 4;
+
+        for (let i = 0; i < orbCount; i++) {
+            const orbGeometry = new THREE.SphereGeometry(0.3, 32, 32);
+            const orbMaterial = new THREE.MeshBasicMaterial({
+                color: orbColors[i % 3],
+                transparent: true,
+                opacity: 0.3
+            });
+            const orb = new THREE.Mesh(orbGeometry, orbMaterial);
+            orb.position.set(
+                (Math.random() - 0.5) * 6,
+                (Math.random() - 0.5) * 4,
+                (Math.random() - 0.5) * 2 - 2
+            );
+            orb.userData = {
+                orbitRadius: 2 + Math.random() * 2,
+                orbitSpeed: 0.0003 + Math.random() * 0.0005,
+                orbitOffset: Math.random() * Math.PI * 2,
+                yOffset: Math.random() * Math.PI * 2
+            };
+
+            // Add point light to each orb
+            if (!isMobile) {
+                const light = new THREE.PointLight(orbColors[i % 3], 0.5, 5);
+                orb.add(light);
+            }
+
+            orbs.push(orb);
+            scene.add(orb);
+        }
+
+        // Dynamic lighting
+        const ambientLight = new THREE.AmbientLight(0x404040, 0.5);
+        scene.add(ambientLight);
+
+        const dirLight1 = new THREE.DirectionalLight(0xd4af37, 0.3);
+        dirLight1.position.set(5, 5, 5);
+        scene.add(dirLight1);
+
+        const dirLight2 = new THREE.DirectionalLight(0x4444ff, 0.1);
+        dirLight2.position.set(-5, -5, 5);
+        scene.add(dirLight2);
+
+        camera.position.z = 3;
+
+        let mouseX = 0;
+        let mouseY = 0;
+        let targetX = 0;
+        let targetY = 0;
+
+        const windowHalfX = window.innerWidth / 2;
+        const windowHalfY = window.innerHeight / 2;
+
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX - windowHalfX) / 100;
+            mouseY = (event.clientY - windowHalfY) / 100;
+        });
+
+        const clock = new THREE.Clock();
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const elapsedTime = clock.getElapsedTime();
+
+            targetX = mouseX * 0.5;
+            targetY = mouseY * 0.5;
+
+            particlesMesh.rotation.y += 0.001;
+            particlesMesh.rotation.x += 0.0005;
+
+            shapes.forEach((shape, i) => {
+                if (shape.userData.flapSpeed) {
+                    // Wing flapping
+                    shape.rotation.z += Math.sin(elapsedTime * shape.userData.flapSpeed + shape.userData.flapOffset) * 0.005;
+                } else {
+                    shape.rotation.x += shape.userData.rotationSpeed.x;
+                    shape.rotation.y += shape.userData.rotationSpeed.y;
+                    shape.rotation.z += shape.userData.rotationSpeed.z;
+                }
+                shape.position.y += Math.sin(elapsedTime * shape.userData.floatSpeed + shape.userData.floatOffset) * 0.001;
+            });
+
+            // Animate orbs in asymmetric orbits
+            orbs.forEach(orb => {
+                const t = elapsedTime * orb.userData.orbitSpeed + orb.userData.orbitOffset;
+                orb.position.x = Math.sin(t) * orb.userData.orbitRadius;
+                orb.position.z = Math.cos(t * 1.3) * orb.userData.orbitRadius * 0.5 - 2;
+                orb.position.y += Math.sin(elapsedTime * 0.5 + orb.userData.yOffset) * 0.002;
+            });
+
+            camera.position.x += (targetX - camera.position.x) * 0.05;
+            camera.position.y += (-targetY - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Debounced resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            }, 100);
+        });
+
+        // Scroll Progress Bar
+        const scrollProgress = document.getElementById('scroll-progress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        });
+
+        // Scroll Reveal with stagger
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Also activate child stagger elements
+                    const staggers = entry.target.querySelectorAll('[class*="stagger-"]');
+                    staggers.forEach((el, i) => {
+                        setTimeout(() => {
+                            el.style.opacity = '1';
+                            el.style.transform = 'translateY(0)';
+                        }, i * 80);
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => {
+            // Set initial state for stagger children
+            const staggers = el.querySelectorAll('[class*="stagger-"]');
+            staggers.forEach(stagger => {
+                stagger.style.opacity = '0';
+                stagger.style.transform = 'translateY(20px)';
+                stagger.style.transition = 'all 0.6s cubic-bezier(0.4,0,0.2,1)';
+            });
+            revealObserver.observe(el);
+        });
+
+        // Slide-in animations
+        const slideElements = document.querySelectorAll('.slide-in-left, .slide-in-right');
+        const slideObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        slideElements.forEach(el => slideObserver.observe(el));
+
+        // Wing path animation
+        const wingPaths = document.querySelectorAll('.wing-path');
+        const wingObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.3 });
+        wingPaths.forEach(path => wingObserver.observe(path));
+
+        // Timeline line animation
+        const timelineLine = document.getElementById('timeline-line');
+        if (timelineLine) {
+            const timelineObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        timelineLine.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            timelineObserver.observe(timelineLine.parentElement);
+        }
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 100) {
+                navbar.classList.add('shadow-lg', 'shadow-black/20');
+            } else {
+                navbar.classList.remove('shadow-lg', 'shadow-black/20');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+        closeMobileMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        mobileLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('light');
+            if (html.classList.contains('light')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+            updateThreeJSColors();
+        });
+
+        // 3D Tilt Effect for Cards - Desktop Only
+        if (!isMobile) {
+            const tiltCards = document.querySelectorAll('.tilt-card');
+
+            tiltCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+                });
+            });
+        }
+
+        // Contact form
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+            btn.style.background = 'linear-gradient(90deg, #16a34a, #22c55e)';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+                e.target.reset();
+            }, 3000);
+        });
+        // Stat counter animation with easing
+const statNumbers = document.querySelectorAll('.stat-number');
+const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const target = entry.target;
+            const finalText = target.textContent;
+            const hasPlus = finalText.includes('+');
+            const hasPercent = finalText.includes('%');
+            const finalNum = parseInt(target.getAttribute('data-target')) || 0;
+            
+            let current = 0;
+            const duration = 1500;
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easeProgress = 1 - Math.pow(1 - progress, 3);
+                current = Math.floor(easeProgress * finalNum);
+
+                let display = current.toString();
+                if (hasPlus) display += '+';
+                if (hasPercent) display += '%';
+                target.textContent = display;
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    let finalDisplay = finalNum.toString();
+                    if (hasPlus) finalDisplay += '+';
+                    if (hasPercent) finalDisplay += '%';
+                    target.textContent = finalDisplay;
+                }
+            }
+            requestAnimationFrame(updateCounter);
+            statObserver.unobserve(target);
+        }
+    });
+}, { threshold: 0.5 });
+
+statNumbers.forEach(stat => statObserver.observe(stat));
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Feather cascade on scroll (desktop only)
+        let lastFeatherTime = 0;
+        const featherInterval = 10000; // 10 seconds
+
+        if (!isMobile) {
+            window.addEventListener('scroll', () => {
+                const now = Date.now();
+                if (now - lastFeatherTime > featherInterval) {
+                    lastFeatherTime = now;
+                    createFeatherCascade();
+                }
+            });
+        }
+
+        function createFeatherCascade() {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const feather = document.createElement('div');
+                    feather.style.cssText = `
+                        position: fixed;
+                        top: -50px;
+                        left: ${Math.random() * 100}%;
+                        width: 15px;
+                        height: 30px;
+                        opacity: 0.3;
+                        pointer-events: none;
+                        z-index: 50;
+                        animation: featherFall ${4 + Math.random() * 3}s linear forwards;
+                    `;
+                    feather.innerHTML = `
+                        <div style="position: absolute; width: 2px; height: 100%; background: linear-gradient(to bottom, transparent, #d4af37, transparent); left: 50%; transform: translateX(-50%);"></div>
+                        <div style="position: absolute; width: 100%; height: 60%; background: linear-gradient(135deg, rgba(212,175,55,0.3), transparent); border-radius: 50% 50% 0 0; top: 20%;"></div>
+                    `;
+                    document.body.appendChild(feather);
+                    setTimeout(() => feather.remove(), 7000);
+                }, i * 300);
+            }
+        }
+    </script>
+</body>
+</html>
