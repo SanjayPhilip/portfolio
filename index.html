@@ -11,7 +11,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-tailwind.config={theme:{extend:{colors:{gold:{50:'#FFFBEB',100:'#FEF3C7',200:'#FDE68A',300:'#FCD34D',400:'#FBBF24',500:'#F59E0B',600:'#D97706',700:'#B45309',800:'#92400E',900:'#78350F'},cream:'#FAF9F6',ivory:'#FFFFF0'},fontFamily:{display:['Playfair Display','serif'],body:['Inter','sans-serif']}}};
+tailwind.config={theme:{extend:{colors:{gold:{50:'#FFFBEB',100:'#FEF3C7',200:'#FDE68A',300:'#FCD34D',400:'#FBBF24',500:'#F59E0B',600:'#D97706',700:'#B45309',800:'#92400E',900:'#78350F'},cream:'#FAF9F6',ivory:'#FFFFF0'},fontFamily:{display:['Playfair Display','serif'],body:['Inter','sans-serif']}}}};
 </script>
 <style>
 img{max-width:100%;height:auto}
@@ -1015,6 +1015,7 @@ section{padding-top:3rem;padding-bottom:3rem}
 <a href="#experience" class="text-sm font-medium text-gray-700 hover:text-yellow-700 transition-colors nav-link">Experience</a>
 <a href="#projects" class="text-sm font-medium text-gray-700 hover:text-yellow-700 transition-colors nav-link">Projects</a>
 <a href="#certifications" class="text-sm font-medium text-gray-700 hover:text-yellow-700 transition-colors nav-link">Certifications</a>
+<a href="./resume.pdf" download="Sanjay_Philip_Resume.pdf" rel="noopener noreferrer" class="btn-outline text-sm" style="border-color:#DC2626;color:#DC2626;padding:10px 22px;"><svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 3H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>Resume</a>
 <a href="#contact" class="btn-gold text-sm">Contact Me</a>
 <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">
 <svg id="sun-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
@@ -1038,6 +1039,7 @@ section{padding-top:3rem;padding-bottom:3rem}
 <a href="#projects" class="text-lg font-medium text-gray-800 hover:text-yellow-700 transition-colors mobile-link">Projects</a>
 <a href="#certifications" class="text-lg font-medium text-gray-800 hover:text-yellow-700 transition-colors mobile-link">Certifications</a>
 <a href="#contact" class="text-lg font-medium text-gray-800 hover:text-yellow-700 transition-colors mobile-link">Contact</a>
+<a href="./resume.pdf" download="Sanjay_Philip_Resume.pdf" rel="noopener noreferrer" class="text-lg font-medium text-red-600 hover:text-red-700 transition-colors mobile-link">Resume</a>
 <button id="mobile-theme-toggle" class="theme-toggle mt-4 self-start" title="Toggle dark mode" aria-label="Toggle dark mode">
 <svg id="mobile-sun-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
 <svg id="mobile-moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
@@ -1768,6 +1770,14 @@ In Development
 </div>
 </footer>
 
+<!-- Scroll Progress Bar -->
+<div id="scroll-progress" style="position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold-primary),var(--gold-light));width:0%;z-index:100;transition:width 0.1s linear;box-shadow:0 0 6px rgba(212,175,55,0.3);"></div>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" aria-label="Back to top" style="position:fixed;bottom:16px;right:16px;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold-primary),var(--gold-dark));color:white;border:none;cursor:pointer;z-index:50;opacity:0;transform:translateY(20px);transition:all 0.3s ease;box-shadow:0 4px 15px rgba(212,175,55,0.3);display:flex;align-items:center;justify-content:center;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=this.dataset.visible==='true'?'translateY(0)':'translateY(20px)'">
+<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+</button>
+
 <script>
 (function(){
 'use strict';
@@ -1854,6 +1864,8 @@ function animateCounters(){
 var counters=document.querySelectorAll('.counter');
 counters.forEach(function(counter){
 var target=parseFloat(counter.getAttribute('data-target'));
+var ring=counter.closest('.glass-card').querySelector('path[data-target]');
+var ringTarget=ring?parseFloat(ring.getAttribute('data-target')):0;
 var duration=2000;
 var start=0;
 var startTime=null;
@@ -1864,7 +1876,8 @@ var percentage=Math.min(progress/duration,1);
 var easeOut=1-Math.pow(1-percentage,3);
 var current=start+(target-start)*easeOut;
 if(target%1!==0){counter.textContent=current.toFixed(2);}else{counter.textContent=Math.floor(current);}
-if(percentage<1){requestAnimationFrame(updateCounter);}else{counter.textContent=target;}
+if(ring){ring.style.strokeDasharray=(ringTarget*easeOut).toFixed(2)+', 100';}
+if(percentage<1){requestAnimationFrame(updateCounter);}else{counter.textContent=target;if(ring){ring.style.strokeDasharray=ringTarget+', 100';}}
 }
 var observer=new IntersectionObserver(function(entries){
 entries.forEach(function(entry){
@@ -2349,14 +2362,6 @@ document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]').forEach(functio
         }
     };
 })();</script>
-
-<!-- Scroll Progress Bar -->
-<div id="scroll-progress" style="position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold-primary),var(--gold-light));width:0%;z-index:100;transition:width 0.1s linear;box-shadow:0 0 6px rgba(212,175,55,0.3);"></div>
-
-<!-- Back to Top Button -->
-<button id="back-to-top" aria-label="Back to top" style="position:fixed;bottom:16px;right:16px;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold-primary),var(--gold-dark));color:white;border:none;cursor:pointer;z-index:50;opacity:0;transform:translateY(20px);transition:all 0.3s ease;box-shadow:0 4px 15px rgba(212,175,55,0.3);display:flex;align-items:center;justify-content:center;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=this.dataset.visible==='true'?'translateY(0)':'translateY(20px)'">
-<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
-</button>
 
 </body>
 </html>
