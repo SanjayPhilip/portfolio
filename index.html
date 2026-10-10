@@ -7,7 +7,9 @@
 <meta content="Sanjay Philip — Full-Stack Developer &amp; ML Engineer in Kottayam, Kerala. React, Python, computer vision, MLOps, and Synapse, a two-sided AI hiring platform." name="description"/>
 <meta content="Sanjay Philip" name="author"/>
 <meta content="light dark" name="color-scheme"/>
-<meta content="summary" name="twitter:card"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="og-image.png" property="og:image"/>
+<meta content="og-image.png" name="twitter:image"/>
 <meta content="Sanjay Philip — Full-Stack &amp; ML Engineer" name="twitter:title"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Sanjay Philip","jobTitle":"Full-Stack Developer & ML Engineer","address":{"@type":"PostalAddress","addressLocality":"Kottayam","addressRegion":"Kerala","addressCountry":"IN"},"sameAs":["https://github.com/SanjayPhilip","https://www.linkedin.com/in/sanjay-philip-3a2531255/"]}</script>
 <meta content="website" property="og:type"/>
@@ -2897,6 +2899,39 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 .chips li:hover .ti, .tag-row span:hover .ti { color: var(--gold-strong); transform: scale(1.18) rotate(-6deg); }
 .tag-row span { display: inline-flex; align-items: center; }
 .tag-row span .ti { width: 12px; height: 12px; margin-right: 6px; }
+
+.nav-gh { display: inline-grid; place-items: center; width: 34px; height: 34px; }
+.nav-gh svg { width: 19px; height: 19px; }
+.nav-gh::after { display: none; }
+.nav-gh:hover { color: var(--gold-strong); transform: translateY(-1px); }
+.cert-details { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.cert-details summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 18px 4px; font: 600 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--gold-strong); }
+:root[data-theme="dark"] .cert-details summary { color: var(--gold); }
+.cert-details summary::-webkit-details-marker { display: none; }
+.cert-details summary span { font-size: 20px; transition: transform .3s var(--ease); }
+.cert-details[open] summary span { transform: rotate(45deg); }
+.cert-details .cert-list { border-top: 1px solid var(--line); }
+.js .cert-list > div.reveal { opacity: 1; transform: none; }
+.cert-section { padding-top: 60px; padding-bottom: 90px; }
+
+.lead-stats { list-style: none; margin: 0; padding: 18px 0 0; display: flex; flex-wrap: wrap; gap: 14px 34px; border-top: 1px solid var(--line); }
+.lead-stats li { display: flex; flex-direction: column; }
+.lead-stats strong { font: 500 clamp(32px, 3.4vw, 46px)/1 var(--serif); letter-spacing: -.02em; color: var(--gold-strong); }
+:root[data-theme="dark"] .lead-stats strong { color: var(--gold); }
+.lead-stats span { margin-top: 6px; font: 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.case-study { margin-top: 18px; width: 100%; border-top: 1px solid var(--line); }
+.case-study summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 14px 0 4px; font: 600 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--gold-strong); }
+:root[data-theme="dark"] .case-study summary { color: var(--gold); }
+.case-study summary::-webkit-details-marker { display: none; }
+.case-study summary span { font-size: 20px; transition: transform .3s var(--ease); }
+.case-study[open] summary span { transform: rotate(45deg); }
+.case-body { padding: 8px 0 4px; animation: rise .5s var(--ease) both; }
+.case-body h4 { margin: 18px 0 6px; font: 600 11px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
+.case-body p, .case-body li { font-size: 14px; line-height: 1.7; color: var(--muted); margin: 0 0 6px; }
+.case-body ul { margin: 6px 0 0; padding-left: 18px; }
+.case-body li b { color: var(--ink); font-weight: 600; }
+
+.about-story > p:not(.about-lede) { margin: 0 0 14px; }
 </style>
 <script>
       document.documentElement.classList.add("js");
@@ -2904,7 +2939,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
         try {
           const saved = localStorage.getItem("sanjay-theme");
           document.documentElement.dataset.theme =
-            saved === "dark" ? "dark" : "light";
+            saved ? (saved === "dark" ? "dark" : "light") : (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
         } catch {
           document.documentElement.dataset.theme = "light";
         }
@@ -2929,7 +2964,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 <a class="nav-link" href="#experience">Experience</a>
 <a class="nav-link" href="#about">About</a>
 <a class="nav-link nav-contact" href="#contact">Contact <span aria-hidden="true">↗</span></a>
-<a class="resume-nav-link" download="Sanjay-Philip-Resume.pdf" href="data:application/pdf;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EtT2JsaXF1ZSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjMgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago1IDAgb2JqCjw8Ci9Db250ZW50cyA5IDAgUiAvTWVkaWFCb3ggWyAwIDAgNjEyIDc5MiBdIC9QYXJlbnQgOCAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKNiAwIG9iago8PAovUGFnZU1vZGUgL1VzZU5vbmUgL1BhZ2VzIDggMCBSIC9UeXBlIC9DYXRhbG9nCj4+CmVuZG9iago3IDAgb2JqCjw8Ci9BdXRob3IgKFNhbmpheSBQaGlsaXApIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNjA2MTMwODM5MzkrMDAnMDAnKSAvQ3JlYXRvciAoXCh1bnNwZWNpZmllZFwpKSAvS2V5d29yZHMgKCkgL01vZERhdGUgKEQ6MjAyNjA2MTMwODM5MzkrMDAnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIFwob3BlbnNvdXJjZVwpKSAKICAvU3ViamVjdCAoRnVsbCBTdGFjayBEZXZlbG9wZXIgUmVzdW1lKSAvVGl0bGUgKFNhbmpheSBQaGlsaXAgUmVzdW1lKSAvVHJhcHBlZCAvRmFsc2UKPj4KZW5kb2JqCjggMCBvYmoKPDwKL0NvdW50IDEgL0tpZHMgWyA1IDAgUiBdIC9UeXBlIC9QYWdlcwo+PgplbmRvYmoKOSAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCAzMTc1Cj4+CnN0cmVhbQpHYXUwRj5CZWRsJnE4MDFXMGNqamVwdS8lTWlzRkcocm1uMDFSQCVSU0UjcipDN28nLlhjWmZcMFBBXS9wOSFiSyZHQktgKTFzcT1RXjRZUFdrWiwnIy4zbzFXLEZtJTM7O0B0ZEslL2ZEWlBVS1pHRSRHYUYhWzk0LzcmSzJQRmMrPj9yMj9hNGkyQEQpYmYnPipgbEVcZGwrNlkxXi1DTz1vRTYvUnEtaCN0N0Q9IkpbVkFTIy5ISTMxWkFhbik6SmVea2suX3JcRjZZWmBFViw0U28tOCYrS1EtYyJHP0YtYm5VJjNCKmc8RUZZdDRHXjRcWU5TM1QxSUxMMlZrc0B0IyRsUmwlYTBFaj9VV1liLl8lam48SjclT1wwJ0ZNaEdzWUkpJzVmOGg3SSpIdVZxNCYocUo6PTRQTV4vXGlcQCN1LVQ9VXQkMWEmSzouYTBiPjlyR0xPci4oMGJBTUdyX3NBKSNTMnJXSVIjVj8xaDAwaUwvZ0tsc1o7K0ZPQTRiWjZzMElYaSRYNWZVRSVHUGkhdEE/YDBAKmFKW2YlYGUwOj5yKEYjRTBdT11hXjhQbV1uLyxcaytyUlpgYktLUl86bTAmYUYmcTl1IkI4bC5PdSZ0WzxiRF89UF80Mi82SDlZZ1RiU0lUUFBRW0oua2ZQJVw5TTdgODFAcGBSKGk6Y2NTPU01Vj1hNl9ndW5aZF9Cal0hTVs/MlgkKWJOJUlnYCtZUmg5KG9ZWEVeYGokJFMkKzhSUVAuPCgsVU9ySVA0VkQ6VCkpMkEwTVAnITpFVzg9XE0wVzouYS9paVRKblAsRWg9UXBFK25rRSFfRisvbVNaSyplbmMuSk0xQ0YwM0x0X2IyT19dcm1nbiNjVF49WVUyJzQ0UmA9JDwsb01lKEpGNy1OYEtNUy81SCdYLT06PlNFT18xSixqOV1aS2NvKUxbNTdLSCJaYltKcyxwP1hdNC1FRUsrIV9YYiwoZj9wImdhRkhRblA7IixgVSh1I2pTVSYqcUNWUEVaLjBkIjNHJWVHKVpxYUwlUj0hbk1MWy1IQ2pCVHJGT0YoaW0/VDFDXiYiXFYjVUMqRW1wUEIlK1dEXTtAbUBOa0VEdShpLUt1YyFfTyszOzJtOyo+IzpGJmddRWhqI0tiJGtnKlxMW0xhU0E2TkBsQzkrVSwsQ0grbU83OlNLLFwrOjNtI1YlLVw6PUA/Tkk1KGpNbVVaJ2JyR1VQMCVsWmIxKWxSLVBZbGlTMWxdQSU/NU90WVRqOlU0YVEpVkw7QCFwbSxGJChPW1tdWmVLXEFmbTlYPjorQGw2VV5lOEJgbCkyN29ISihdUTN0OCxzaFgtOkFnLF5Ebz1qP1lFcFwuX2hqIWRYQnAyJDhJKnBrPyluImhTO1UoOixcXjVOIyZnJi9jI3RcWklILUZDNFwrOF9jMSZgXS9qa2RiaS41RUowSDFoOkZ1c18tWyFvZVAoYEczPU4sK2pMM2VwXSsiVkYua24uKVQvXTpcWT1hWTFwWUo2LkJNP2RXUGhjREE2QmpgZidPUT1UXCRUUTxxJzpGR1diKGxXXC4wQVI7c0JaRzViX0QsP0YqOS9MaWAiUG9nRStMWXRWal9FYWVXP1E4Niwqa1EvNXBLQyxXJFMha3AtJmE/V1NkRzpLVC1GSThHOitVXjglaGIzRXNmbVA8X0gkdUhdblk0PVQxX1wlZkBHbXNqJTQsUztSO2tKZlNGO1A3VGFCR2BUKjY4QlI+YS43QVsvc0o5MjQjSV5HRy9uKT0xbTFHSk4jTnREIW83RnJSPjVzMEpIMExcdTdsS1tXT3ItJ2Upa0NUVWJAZzAtRl8xbU1tRUFOM0JxQm1CcTl1VCMnWCpaZEovYkY/TFZvY1lVImpfYVkhZmwicnVqU1JdcS5MQDc6bDhgYEZAYmVDOkZtcFxqdTlKLE50Wk1XSE1VY2llZTZDQVZdWCpqZVQ5JUlDWWJxQGVAcSI1cW9lUSkiZD8pKmo3WTpMOWAxLS5NRjcqLl4jLz5NV20/NFklUSZ1cCRVRi5BXEAjRGctKG9NSHFsOkFhdT0/TWBrbXImKChBNE5kXjwwY3NcTjdeR2xFY1dNWmwoQlQoVGAxLjMrQm9yNV9oOzw3QVk0NDotQDRvWmY7TzhwQCgvXkkmaUBoODFeLEgicm1KYkc0YDdkai8yW09OQHJdaGQ2R1g1N0hxXDBbLzpvbmVRLG1hYlsqKkZlKGMtSDJeWWVdNHBhQ0JWREpnQT4sJ18/Ik5NVTpbQlIkcEwzJG5ES1IlNGJtLCx0XUBOVmluUWVMcFxpKy1PIyIlcVUqRlhRNCddRF9HLCIiZGxbXSJaQFtpTDJQMC5KYkEoK3QxXysiP0tpTjZbLUY5NjFkQiRmTTkrSkBxIUNtJjhZKzhAcDlKMnJyVmktWCRBYDJgPGE/J3VqRixbTUtaL0RUWE1lVFpYUVplSj00PG5vaGtOTGVMKEBtUSlLLT9EcyhCMExYPGxVbEBWakRSODY8UW4xPih0TEYqc05eUztJcTQ8NEdKVF4uVTg0Jz0iUkxAY2xFYDZHM00iU0ZdQ01HazkiKUI1PCFTYjxuQkJ0aFEuLi1BVV0pL0cnXz0oWS5XcSlCKT1fQjBLaGwvLTxSNjRhQFlrbWVeLWFZTmltSVNARiJSZCRDNU5MOT9eVyluO28uQi0lWzc4NktZPjVcRmU1PWFATSMpKzEiUVwsP1FXLi1ua1VWWThaZSxbIlcnbGBYMmQ8anFDZTk1WkYzNFlQalJOLSlKL1tRdT9nPUhsM0MsZzAzKWBtOGlcWykzISw2PSFaWzZTSW4uUDFEJGo8LFZoS21DVyctc2MoWUZyPio0SDU+LV8zS0VjbTZuMSU0QkpfS3A+QU9jNF88TDlkY29iTDBuNHJkJ15JZjVmTlFJbzxJc1VdNk1QJHBBcjBJRDFaLjo0dCspQjNPXSZEajQtNDJIQlQ/WVp0RUBrKk9XJlo9WnFgWVxYaTQ5a2EmYVNkL0lvMDBuZittJ0IlRElCOjxQKlhHY0dfTFBkV2twUzVvWS5XVGNTKjsnZiV0VzRqIWcoUF9jREtSaT4kXClNXmZwYShVVlVVWCM+TiUoYT9sLmAkNFxPUUNuVDZWKSQkXTMmI3FAWTBkM3IzLGBnQnEoKltNJzxAQWNHY1w8NnRYNDY0QGQhTUosNDpsaENUWG5WNmpsIzlCXyQnVy1jUC9lbEp1OU1aSzVrdFBULmxsSSVjaXQ4LEpeOW5YIzNLa290MkJwLXNLdWJYTDQrRCxhayVCYXMsLG1iO2tqLzVjKCo4NENERFxiLltKbm1ROyNjQE1RME0pOiwvU1VrTG4yYC5gKzVZZmIxJFknWVRvQColT1IjWGFJdW4+K0MjVSkuK2BvSmUhJydtWlU6VkwibylCJz8rcz1ARTVDZF1JKV9IU2pxa1VoJi5IbidWVkJUImtHYms2LytOOj07RDJJJC03VmFxQCsoalxrYVciJWlYXlgwPjNFOnEnJWc4cGs8JSdsZzxdQlFNIzw5UGluMEpTSidMS2QkPVkoYEw1OWE+cGgjKmxnJDhdYGNddC1OVDNvczBjJEE9Tj81L1o8KEIpVW5AI1M8LW89ZTRJSl1sTmBLbDBAcjY8WjgtRzZpN0hUNjNILnAxTk0nWm5EJWA4b1szdGEpYkhgUT9YQEQjZSY/dCRKXjI+Qz9DNklmZjcxa2hxT1BrOidaKjBCTGpTK2JEb11WUWtqPyRtUyRdXmE2aFhiUFRkUT50UUdeaEhqYWhaRV1CTkYjbXFualYqaGh0IS1QZ24wUCdfbmw5VkQmVXNlMDpcX2RYYGc2OkhNcmBVSThVIk9eZVhtZC9vdE9vKVplNEk9NzcqXi5NaHJaMCl0SUNMR3VZI1o1bD8uOS1ZcUpZTUk1VS5QXWNdUmMzSl0pZGVVX0UsKUdxTm1tODVcPHNXXSdWQCpgMlJwbmFcP1hAVEwkW0BUKHBVYkdVaTNzIS1waWswSD0yZ0EtTVFMc3I9WE5lYUhpaS1XbllcJDg2JXUjcFdeTD00OC5jNCZdMyg6IXAmZlhbImcoaDNALWYuKmFWP1haRy1AQ2ZmW20yI1g3RTxxZWspSC8pLDAvWGonJSY6XUlwLltBaCxtRUtvSj5UKyFDcCUhZUZWUiVaaGZMUVljYGQ8X2YxTWUuUWNyclg4ckpRYH4+ZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgMTAKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDYxIDAwMDAwIG4gCjAwMDAwMDAxMTIgMDAwMDAgbiAKMDAwMDAwMDIxOSAwMDAwMCBuIAowMDAwMDAwMzMxIDAwMDAwIG4gCjAwMDAwMDA0NDYgMDAwMDAgbiAKMDAwMDAwMDYzOSAwMDAwMCBuIAowMDAwMDAwNzA3IDAwMDAwIG4gCjAwMDAwMDEwMDYgMDAwMDAgbiAKMDAwMDAwMTA2NSAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9JRCAKWzxiZjcwMTcwZTM2Y2ViYWE2OGIzYzU5ZWQzZmY0M2QzYT48YmY3MDE3MGUzNmNlYmFhNjhiM2M1OWVkM2ZmNDNkM2E+XQolIFJlcG9ydExhYiBnZW5lcmF0ZWQgUERGIGRvY3VtZW50IC0tIGRpZ2VzdCAob3BlbnNvdXJjZSkKCi9JbmZvIDcgMCBSCi9Sb290IDYgMCBSCi9TaXplIDEwCj4+CnN0YXJ0eHJlZgo0MzMxCiUlRU9GCg==">Résumé <span aria-hidden="true">↓</span></a>
+<a aria-label="GitHub profile" class="nav-link nav-gh" href="https://github.com/SanjayPhilip" rel="noreferrer" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a><a class="resume-nav-link" download="Sanjay-Philip-Resume.pdf" href="data:application/pdf;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EtT2JsaXF1ZSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjMgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago1IDAgb2JqCjw8Ci9Db250ZW50cyA5IDAgUiAvTWVkaWFCb3ggWyAwIDAgNjEyIDc5MiBdIC9QYXJlbnQgOCAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKNiAwIG9iago8PAovUGFnZU1vZGUgL1VzZU5vbmUgL1BhZ2VzIDggMCBSIC9UeXBlIC9DYXRhbG9nCj4+CmVuZG9iago3IDAgb2JqCjw8Ci9BdXRob3IgKFNhbmpheSBQaGlsaXApIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNjA2MTMwODM5MzkrMDAnMDAnKSAvQ3JlYXRvciAoXCh1bnNwZWNpZmllZFwpKSAvS2V5d29yZHMgKCkgL01vZERhdGUgKEQ6MjAyNjA2MTMwODM5MzkrMDAnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIFwob3BlbnNvdXJjZVwpKSAKICAvU3ViamVjdCAoRnVsbCBTdGFjayBEZXZlbG9wZXIgUmVzdW1lKSAvVGl0bGUgKFNhbmpheSBQaGlsaXAgUmVzdW1lKSAvVHJhcHBlZCAvRmFsc2UKPj4KZW5kb2JqCjggMCBvYmoKPDwKL0NvdW50IDEgL0tpZHMgWyA1IDAgUiBdIC9UeXBlIC9QYWdlcwo+PgplbmRvYmoKOSAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCAzMTc1Cj4+CnN0cmVhbQpHYXUwRj5CZWRsJnE4MDFXMGNqamVwdS8lTWlzRkcocm1uMDFSQCVSU0UjcipDN28nLlhjWmZcMFBBXS9wOSFiSyZHQktgKTFzcT1RXjRZUFdrWiwnIy4zbzFXLEZtJTM7O0B0ZEslL2ZEWlBVS1pHRSRHYUYhWzk0LzcmSzJQRmMrPj9yMj9hNGkyQEQpYmYnPipgbEVcZGwrNlkxXi1DTz1vRTYvUnEtaCN0N0Q9IkpbVkFTIy5ISTMxWkFhbik6SmVea2suX3JcRjZZWmBFViw0U28tOCYrS1EtYyJHP0YtYm5VJjNCKmc8RUZZdDRHXjRcWU5TM1QxSUxMMlZrc0B0IyRsUmwlYTBFaj9VV1liLl8lam48SjclT1wwJ0ZNaEdzWUkpJzVmOGg3SSpIdVZxNCYocUo6PTRQTV4vXGlcQCN1LVQ9VXQkMWEmSzouYTBiPjlyR0xPci4oMGJBTUdyX3NBKSNTMnJXSVIjVj8xaDAwaUwvZ0tsc1o7K0ZPQTRiWjZzMElYaSRYNWZVRSVHUGkhdEE/YDBAKmFKW2YlYGUwOj5yKEYjRTBdT11hXjhQbV1uLyxcaytyUlpgYktLUl86bTAmYUYmcTl1IkI4bC5PdSZ0WzxiRF89UF80Mi82SDlZZ1RiU0lUUFBRW0oua2ZQJVw5TTdgODFAcGBSKGk6Y2NTPU01Vj1hNl9ndW5aZF9Cal0hTVs/MlgkKWJOJUlnYCtZUmg5KG9ZWEVeYGokJFMkKzhSUVAuPCgsVU9ySVA0VkQ6VCkpMkEwTVAnITpFVzg9XE0wVzouYS9paVRKblAsRWg9UXBFK25rRSFfRisvbVNaSyplbmMuSk0xQ0YwM0x0X2IyT19dcm1nbiNjVF49WVUyJzQ0UmA9JDwsb01lKEpGNy1OYEtNUy81SCdYLT06PlNFT18xSixqOV1aS2NvKUxbNTdLSCJaYltKcyxwP1hdNC1FRUsrIV9YYiwoZj9wImdhRkhRblA7IixgVSh1I2pTVSYqcUNWUEVaLjBkIjNHJWVHKVpxYUwlUj0hbk1MWy1IQ2pCVHJGT0YoaW0/VDFDXiYiXFYjVUMqRW1wUEIlK1dEXTtAbUBOa0VEdShpLUt1YyFfTyszOzJtOyo+IzpGJmddRWhqI0tiJGtnKlxMW0xhU0E2TkBsQzkrVSwsQ0grbU83OlNLLFwrOjNtI1YlLVw6PUA/Tkk1KGpNbVVaJ2JyR1VQMCVsWmIxKWxSLVBZbGlTMWxdQSU/NU90WVRqOlU0YVEpVkw7QCFwbSxGJChPW1tdWmVLXEFmbTlYPjorQGw2VV5lOEJgbCkyN29ISihdUTN0OCxzaFgtOkFnLF5Ebz1qP1lFcFwuX2hqIWRYQnAyJDhJKnBrPyluImhTO1UoOixcXjVOIyZnJi9jI3RcWklILUZDNFwrOF9jMSZgXS9qa2RiaS41RUowSDFoOkZ1c18tWyFvZVAoYEczPU4sK2pMM2VwXSsiVkYua24uKVQvXTpcWT1hWTFwWUo2LkJNP2RXUGhjREE2QmpgZidPUT1UXCRUUTxxJzpGR1diKGxXXC4wQVI7c0JaRzViX0QsP0YqOS9MaWAiUG9nRStMWXRWal9FYWVXP1E4Niwqa1EvNXBLQyxXJFMha3AtJmE/V1NkRzpLVC1GSThHOitVXjglaGIzRXNmbVA8X0gkdUhdblk0PVQxX1wlZkBHbXNqJTQsUztSO2tKZlNGO1A3VGFCR2BUKjY4QlI+YS43QVsvc0o5MjQjSV5HRy9uKT0xbTFHSk4jTnREIW83RnJSPjVzMEpIMExcdTdsS1tXT3ItJ2Upa0NUVWJAZzAtRl8xbU1tRUFOM0JxQm1CcTl1VCMnWCpaZEovYkY/TFZvY1lVImpfYVkhZmwicnVqU1JdcS5MQDc6bDhgYEZAYmVDOkZtcFxqdTlKLE50Wk1XSE1VY2llZTZDQVZdWCpqZVQ5JUlDWWJxQGVAcSI1cW9lUSkiZD8pKmo3WTpMOWAxLS5NRjcqLl4jLz5NV20/NFklUSZ1cCRVRi5BXEAjRGctKG9NSHFsOkFhdT0/TWBrbXImKChBNE5kXjwwY3NcTjdeR2xFY1dNWmwoQlQoVGAxLjMrQm9yNV9oOzw3QVk0NDotQDRvWmY7TzhwQCgvXkkmaUBoODFeLEgicm1KYkc0YDdkai8yW09OQHJdaGQ2R1g1N0hxXDBbLzpvbmVRLG1hYlsqKkZlKGMtSDJeWWVdNHBhQ0JWREpnQT4sJ18/Ik5NVTpbQlIkcEwzJG5ES1IlNGJtLCx0XUBOVmluUWVMcFxpKy1PIyIlcVUqRlhRNCddRF9HLCIiZGxbXSJaQFtpTDJQMC5KYkEoK3QxXysiP0tpTjZbLUY5NjFkQiRmTTkrSkBxIUNtJjhZKzhAcDlKMnJyVmktWCRBYDJgPGE/J3VqRixbTUtaL0RUWE1lVFpYUVplSj00PG5vaGtOTGVMKEBtUSlLLT9EcyhCMExYPGxVbEBWakRSODY8UW4xPih0TEYqc05eUztJcTQ8NEdKVF4uVTg0Jz0iUkxAY2xFYDZHM00iU0ZdQ01HazkiKUI1PCFTYjxuQkJ0aFEuLi1BVV0pL0cnXz0oWS5XcSlCKT1fQjBLaGwvLTxSNjRhQFlrbWVeLWFZTmltSVNARiJSZCRDNU5MOT9eVyluO28uQi0lWzc4NktZPjVcRmU1PWFATSMpKzEiUVwsP1FXLi1ua1VWWThaZSxbIlcnbGBYMmQ8anFDZTk1WkYzNFlQalJOLSlKL1tRdT9nPUhsM0MsZzAzKWBtOGlcWykzISw2PSFaWzZTSW4uUDFEJGo8LFZoS21DVyctc2MoWUZyPio0SDU+LV8zS0VjbTZuMSU0QkpfS3A+QU9jNF88TDlkY29iTDBuNHJkJ15JZjVmTlFJbzxJc1VdNk1QJHBBcjBJRDFaLjo0dCspQjNPXSZEajQtNDJIQlQ/WVp0RUBrKk9XJlo9WnFgWVxYaTQ5a2EmYVNkL0lvMDBuZittJ0IlRElCOjxQKlhHY0dfTFBkV2twUzVvWS5XVGNTKjsnZiV0VzRqIWcoUF9jREtSaT4kXClNXmZwYShVVlVVWCM+TiUoYT9sLmAkNFxPUUNuVDZWKSQkXTMmI3FAWTBkM3IzLGBnQnEoKltNJzxAQWNHY1w8NnRYNDY0QGQhTUosNDpsaENUWG5WNmpsIzlCXyQnVy1jUC9lbEp1OU1aSzVrdFBULmxsSSVjaXQ4LEpeOW5YIzNLa290MkJwLXNLdWJYTDQrRCxhayVCYXMsLG1iO2tqLzVjKCo4NENERFxiLltKbm1ROyNjQE1RME0pOiwvU1VrTG4yYC5gKzVZZmIxJFknWVRvQColT1IjWGFJdW4+K0MjVSkuK2BvSmUhJydtWlU6VkwibylCJz8rcz1ARTVDZF1JKV9IU2pxa1VoJi5IbidWVkJUImtHYms2LytOOj07RDJJJC03VmFxQCsoalxrYVciJWlYXlgwPjNFOnEnJWc4cGs8JSdsZzxdQlFNIzw5UGluMEpTSidMS2QkPVkoYEw1OWE+cGgjKmxnJDhdYGNddC1OVDNvczBjJEE9Tj81L1o8KEIpVW5AI1M8LW89ZTRJSl1sTmBLbDBAcjY8WjgtRzZpN0hUNjNILnAxTk0nWm5EJWA4b1szdGEpYkhgUT9YQEQjZSY/dCRKXjI+Qz9DNklmZjcxa2hxT1BrOidaKjBCTGpTK2JEb11WUWtqPyRtUyRdXmE2aFhiUFRkUT50UUdeaEhqYWhaRV1CTkYjbXFualYqaGh0IS1QZ24wUCdfbmw5VkQmVXNlMDpcX2RYYGc2OkhNcmBVSThVIk9eZVhtZC9vdE9vKVplNEk9NzcqXi5NaHJaMCl0SUNMR3VZI1o1bD8uOS1ZcUpZTUk1VS5QXWNdUmMzSl0pZGVVX0UsKUdxTm1tODVcPHNXXSdWQCpgMlJwbmFcP1hAVEwkW0BUKHBVYkdVaTNzIS1waWswSD0yZ0EtTVFMc3I9WE5lYUhpaS1XbllcJDg2JXUjcFdeTD00OC5jNCZdMyg6IXAmZlhbImcoaDNALWYuKmFWP1haRy1AQ2ZmW20yI1g3RTxxZWspSC8pLDAvWGonJSY6XUlwLltBaCxtRUtvSj5UKyFDcCUhZUZWUiVaaGZMUVljYGQ8X2YxTWUuUWNyclg4ckpRYH4+ZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgMTAKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDYxIDAwMDAwIG4gCjAwMDAwMDAxMTIgMDAwMDAgbiAKMDAwMDAwMDIxOSAwMDAwMCBuIAowMDAwMDAwMzMxIDAwMDAwIG4gCjAwMDAwMDA0NDYgMDAwMDAgbiAKMDAwMDAwMDYzOSAwMDAwMCBuIAowMDAwMDAwNzA3IDAwMDAwIG4gCjAwMDAwMDEwMDYgMDAwMDAgbiAKMDAwMDAwMTA2NSAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9JRCAKWzxiZjcwMTcwZTM2Y2ViYWE2OGIzYzU5ZWQzZmY0M2QzYT48YmY3MDE3MGUzNmNlYmFhNjhiM2M1OWVkM2ZmNDNkM2E+XQolIFJlcG9ydExhYiBnZW5lcmF0ZWQgUERGIGRvY3VtZW50IC0tIGRpZ2VzdCAob3BlbnNvdXJjZSkKCi9JbmZvIDcgMCBSCi9Sb290IDYgMCBSCi9TaXplIDEwCj4+CnN0YXJ0eHJlZgo0MzMxCiUlRU9GCg==">Résumé <span aria-hidden="true">↓</span></a>
 <button aria-label="Switch to dark mode" aria-pressed="false" class="theme-toggle" data-theme-toggle="" type="button">
 <svg aria-hidden="true" class="icon-moon" viewbox="0 0 24 24">
 <path d="M20.4 15.4A8.7 8.7 0 0 1 8.6 3.6 9 9 0 1 0 20.4 15.4Z"></path>
@@ -2964,7 +2999,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 <div class="hero-copy">
 <p class="eyebrow">
 <span class="availability-dot"></span> OPEN TO SOFTWARE ENGINEER,
-            FULL-STACK &amp; ML/MLOPS ROLES
+            FULL-STACK &amp; ML/MLOPS ROLES · GRADUATING 2027
           </p>
 <p class="hero-name">
             SANJAY PHILIP <span>FULL-STACK DEVELOPER · ML ENGINEER</span>
@@ -2985,11 +3020,11 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 <a class="button button-gold" href="#work">Explore selected work <span aria-hidden="true">↓</span></a><a class="button button-quiet" href="mailto:sanjayphilip832@gmail.com">Say hello <span aria-hidden="true">↗</span></a>
 </div>
 <div aria-label="Portfolio highlights" class="hero-stats">
-<div><strong>11</strong><small>PUBLIC REPOS</small></div>
+<div><strong>01</strong><small>LIVE PRODUCT</small></div>
 <div><strong>03</strong><small>INTERNSHIPS</small></div>
 <div><strong>8.69</strong><small>CGPA / 10</small></div>
 <div>
-<strong>90<span>%+</span></strong><small>YOLOv8 ACCURACY</small>
+<strong>250<span>+</span></strong><small>FEST PARTICIPANTS</small>
 </div>
 </div>
 </div>
@@ -3082,6 +3117,28 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 <p class="team-credit">
                 Built with Akshay K R and Devika S · Team No. 05
               </p>
+<details class="case-study"><summary>Read the case study <span aria-hidden="true">+</span></summary>
+<div class="case-body">
+<h4>Overview</h4>
+<p>Synapse is an AI-powered hiring platform that helps candidates optimise their resumes for specific roles and helps employers evaluate and shortlist applicants more efficiently.</p>
+<h4>My contribution</h4>
+<p>I handled the full technical implementation as part of the team, across the frontend, backend, AI integration and application environment.</p>
+<ul>
+<li><b>Resume intelligence</b> — parsing structured data from PDF and DOCX resumes.</li>
+<li><b>AI optimisation</b> — rewriting suggestions tailored to a job description.</li>
+<li><b>Job matching</b> — 40% keyword matching combined with 60% semantic similarity (Sentence-Transformers).</li>
+<li><b>Hiring workflow</b> — job postings, automated screening and ranked shortlists.</li>
+<li><b>Access control</b> — JWT authentication, role-based access and OAuth login.</li>
+<li><b>Admin &amp; communication</b> — an admin dashboard and candidate communication features.</li>
+</ul>
+<h4>Engineering highlights</h4>
+<ul>
+<li>61 backend and 163 frontend tests, as reported in the project documentation.</li>
+<li>Containerised environment with Docker Compose.</li>
+</ul>
+<h4>Outcome</h4>
+<p>A working, deployed application with separate candidate and employer workflows. Usage and impact metrics haven’t been collected yet, so I don’t claim any.</p>
+</div></details>
 </div>
 </article>
 <article class="feature-card reveal">
@@ -3160,10 +3217,10 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 <p class="eyebrow section-index"><span>+</span> / OTHER PROJECTS</p>
 <span>SIX ADDITIONAL PROJECTS</span>
 </div>
-<a class="project-row" href="https://github.com/SanjayPhilip/smart-attendance-system" rel="noreferrer" target="_blank"><span class="row-number">05</span><span class="row-title">Smart Attendance System</span><span class="row-description">Face-recognition attendance with a live dashboard</span><span class="row-stack">React · Flask · OpenCV</span><span class="row-arrow">↗</span></a>
-<a class="project-row" href="https://github.com/SanjayPhilip/modelforge" rel="noreferrer" target="_blank"><span class="row-number">06</span><span class="row-title">MLOps Pipeline</span><span class="row-description">Versioned FastAPI model serving with Docker and CI/CD</span><span class="row-stack">Python · FastAPI · Docker</span><span class="row-arrow">↗</span></a>
+<a class="project-row" href="https://github.com/SanjayPhilip/smart-attendance-system" rel="noreferrer" target="_blank"><span class="row-number">05</span><span class="row-title">Smart Attendance System</span><span class="row-description">Face-recognition attendance with a Flask REST API, analytics and Vercel/Railway deployment</span><span class="row-stack">React · Flask · OpenCV</span><span class="row-arrow">↗</span></a>
+<a class="project-row" href="https://github.com/SanjayPhilip/modelforge" rel="noreferrer" target="_blank"><span class="row-number">06</span><span class="row-title">MLOps Pipeline</span><span class="row-description">Pipeline to train, track, containerise and deploy models — FastAPI serving, GitHub Actions CI/CD</span><span class="row-stack">Python · FastAPI · Docker</span><span class="row-arrow">↗</span></a>
 <a class="project-row" href="https://github.com/SanjayPhilip/SoundMind" rel="noreferrer" target="_blank"><span class="row-number">07</span><span class="row-title">SoundMind</span><span class="row-description">Collaborative-filtering music discovery</span><span class="row-stack">Python · Flask · ML</span><span class="row-arrow">↗</span></a>
-<a class="project-row" href="https://github.com/SanjayPhilip/task-manager" rel="noreferrer" target="_blank"><span class="row-number">08</span><span class="row-title">React Task Manager</span><span class="row-description">Mobile-first Kanban with a REST API</span><span class="row-stack">React · Node · MongoDB</span><span class="row-arrow">↗</span></a>
+<a class="project-row" href="https://github.com/SanjayPhilip/task-manager" rel="noreferrer" target="_blank"><span class="row-number">08</span><span class="row-title">React Task Manager</span><span class="row-description">Drag-and-drop Kanban with priority tags, deadlines and a REST API</span><span class="row-stack">React · Node · MongoDB</span><span class="row-arrow">↗</span></a>
 <a class="project-row" href="https://github.com/SanjayPhilip/python-automation-toolkit" rel="noreferrer" target="_blank"><span class="row-number">09</span><span class="row-title">Python Automation Toolkit</span><span class="row-description">Reusable utilities for files, data &amp; reports</span><span class="row-stack">Python · Scripting</span><span class="row-arrow">↗</span></a>
 <a class="project-row project-row-early" href="https://github.com/SanjayPhilip/clipflow" rel="noreferrer" target="_blank"><span class="row-number">10</span><span class="row-title">Clipflow</span><span class="row-description">System-tray clipboard manager; AI tools are on the roadmap</span><span class="row-stack">Python · PyQt6 · SQLite</span><span class="work-status">EARLY STAGE</span></a>
 </div>
@@ -3197,19 +3254,9 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 <span class="timeline-index">01</span>
 </div>
 <ul>
-<li>
-                    Built YOLO-based detection with
-                    <strong>90%+ accuracy</strong> across 5+ classes.
-                  </li>
-<li>
-                    Developed a multi-turn NLP chatbot that cut query resolution
-                    time by <strong>about 30%</strong>.
-                  </li>
-<li>
-                    Reduced inference latency by about 25%; fine-tuned three
-                    pre-trained models to improve baseline accuracy by about
-                    15%.
-                  </li>
+<li>Built YOLO-based object detection across <strong>5+ object classes</strong>.</li>
+<li>Developed a multi-turn NLP chatbot to streamline query resolution.</li>
+<li>Optimised model inference and fine-tuned <strong>three</strong> pre-trained models.</li>
 </ul>
 <div class="tag-row">
 <span><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-g-target"/></svg>YOLOv8</span><span><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-g-ml"/></svg>BERT</span><span><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-g-ml"/></svg>GPT-2</span><span><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fastapi"/></svg>FastAPI</span><span><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-docker"/></svg>Docker</span>
@@ -3229,10 +3276,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 <span class="timeline-index">02</span>
 </div>
 <ul>
-<li>
-                    Automated three data-processing workflows, cutting manual
-                    effort by about <strong>40%</strong>.
-                  </li>
+<li>Automated <strong>three</strong> data-processing workflows with Python.</li>
 <li>
                     Built reusable object-oriented Python modules across two
                     projects and debugged 5+ production scripts.
@@ -3256,10 +3300,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 <span class="timeline-index">03</span>
 </div>
 <ul>
-<li>
-                    Built 3+ responsive React modules, improving page load by
-                    about <strong>20%</strong>.
-                  </li>
+<li>Built <strong>3+</strong> responsive React modules.</li>
 <li>
                     Connected React and Node.js with 5+ REST APIs; refactored
                     legacy components and resolved 10+ bugs over five agile
@@ -3285,17 +3326,17 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 <div class="lead-grid">
 <article class="lead-card lead-card-feature reveal">
 <div aria-hidden="true" class="lead-big">10.0</div>
-<p class="project-type">PROJECT MANAGER · DEPARTMENT TECH FEST</p>
+<p class="project-type">MAIN PROJECT COORDINATOR · DEPARTMENT TECH FEST</p>
 <h3>Samyuktha 10.0</h3>
-<p>Project manager for our department’s technical fest — planning the edition, coordinating teams and schedules, and keeping every event moving from the first meeting to the final day.</p>
-<div class="tag-row"><span>Project management</span><span>Team coordination</span><span>Event operations</span><span>Planning</span></div>
+<p>Coordinated the main project alongside three other team members, contributing to the organisation of 12 technical events for an audience of 250+ participants.</p>
+<ul class="lead-stats"><li><strong>250+</strong><span>participants</span></li><li><strong>12</strong><span>technical events</span></li><li><strong>4</strong><span>person core team</span></li></ul>
 </article>
 <article class="lead-card reveal">
 <div aria-hidden="true" class="lead-big lead-acm">ACM</div>
-<p class="project-type">BOARD MEMBER · SAINTGITS</p>
-<h3>ACM board</h3>
-<p>Serving on the board of the Association for Computing Machinery at Saintgits College of Engineering, supporting the student computing community.</p>
-<div class="tag-row"><span>Community</span><span>Leadership</span><span>Communication</span></div>
+<p class="project-type">STUDENT MEMBER · 2026 — PRESENT</p>
+<h3>ACM student member</h3>
+<p>Student member of the Association for Computing Machinery at Saintgits College of Engineering.</p>
+<div class="tag-row"><span>Community</span><span>Continuous learning</span></div>
 </article>
 </div>
 </section>
@@ -3309,17 +3350,9 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 </div>
 <div class="about-grid">
 <div class="about-story reveal">
-<p class="about-lede">
-              Final-year Integrated MCA student at Saintgits College of
-              Engineering (KTU), focused on full-stack systems and applied ML.
-            </p>
-<p>
-              My work spans React interfaces, Python APIs, computer-vision
-              pipelines, and deployment. I’m currently building an AI Traffic
-              Analytics Platform with YOLOv8, FastAPI, OpenCV, React, and
-              Tailwind, while learning Docker and Kubernetes, CI/CD, and cloud
-              architecture.
-            </p>
+<p class="about-lede">I’m a final-year Integrated MCA student at Saintgits College of Engineering with a CGPA of 8.69/10 and hands-on experience across three internships.</p>
+<p>I enjoy taking ideas from concept to deployment — building full-stack applications, integrating machine learning into practical workflows, and automating development and deployment processes.</p>
+<p>My projects span AI-powered hiring, facial-recognition attendance, video transcription and MLOps pipelines. I’m continuing to develop my skills in cloud architecture, containerisation, Kubernetes and CI/CD, with the goal of building reliable, production-ready software.</p>
 <div class="about-signature">
 <span class="signature-mark">SP</span><span>Sanjay Philip<small>FULL-STACK &amp; ML ENGINEER</small></span>
 </div>
@@ -3398,7 +3431,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 </div>
 <span class="cert-count">08 ITEMS<br/>2023 — 2024</span>
 </div>
-<div class="cert-list reveal">
+<details class="cert-details reveal"><summary>View all 8 courses <span aria-hidden="true">+</span></summary><div class="cert-list">
 <div>
 <span>2024</span>
 <p>Introduction to Robotic Process Automation</p>
@@ -3439,7 +3472,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 <p>Bootstrap</p>
 <small>IIT Bombay · Spoken Tutorial</small>
 </div>
-</div>
+</div></details>
 </section>
 <section aria-labelledby="contact-title" class="contact-section" id="contact">
 <div class="contact-inner section-shell">
@@ -3912,7 +3945,7 @@ if (
     "DEVOPS": { stack: "Docker · GitHub Actions · CI/CD", note: "Ship it, then ship it again.", works: ["MLOps Pipeline"] },
     "DATA": { stack: "PostgreSQL · MySQL · MongoDB", note: "Schemas, queries and persistence.", works: ["Synapse", "E Blood Connect", "React Task Manager"] },
     "CONTAINERS": { stack: "Docker · learning Kubernetes", note: "Currently levelling up orchestration.", works: ["MLOps Pipeline"] },
-    "ML": { stack: "YOLOv8 · NLP · OpenCV", note: "90%+ detection accuracy at NextgenPro.", works: ["AI Traffic Analytics", "Smart Attendance System", "Synapse"] },
+    "ML": { stack: "YOLOv8 · NLP · OpenCV", note: "YOLO detection and an NLP chatbot from my NextgenPro internship.", works: ["AI Traffic Analytics", "Smart Attendance System", "Synapse"] },
     "API CORE": { stack: "FastAPI · Node.js · Flask", note: "The service layer everything talks to.", works: ["Synapse", "AI Video Subtitle Generator", "AI Traffic Analytics"] },
   };
   const proxyMat = new THREE.MeshBasicMaterial({ visible: false });
@@ -3941,11 +3974,14 @@ if (
   /* ---------- environment: polar grid + star dust ---------- */
   const grid = new THREE.PolarGridHelper(5.4, 12, 7, 96, 0x000000, 0x000000); grid.position.y = -3.35; root.add(grid);
   grid.material = new THREE.LineBasicMaterial({ transparent: true, opacity: 0.22, vertexColors: false }); lines.push({ m: grid.material, key: "gold" });
-  const DN = 260, dPos = new Float32Array(DN * 3);
-  for (let k = 0; k < DN; k++) { const r = 4.2 + Math.random() * 4.5, a = Math.random() * 6.28, y = (Math.random() - .5) * 8; dPos[k * 3] = Math.cos(a) * r; dPos[k * 3 + 1] = y; dPos[k * 3 + 2] = Math.sin(a) * r; }
-  const dGeo = new THREE.BufferGeometry(); dGeo.setAttribute("position", new THREE.BufferAttribute(dPos, 3));
-  const dMat = new THREE.PointsMaterial({ size: 0.075, map: glowTex, transparent: true, opacity: 0.8, depthWrite: false });
-  const dust = new THREE.Points(dGeo, dMat); root.add(dust);
+  const soft = !!renderer.isSoft;
+  const stars = [[soft ? 160 : 520, 0.12, 0.85, 3.1], [soft ? 70 : 200, 0.2, 0.9, 2.3], [soft ? 24 : 60, 0.34, 1, 1.6]].map(([n, size, op, spd], li) => {
+    const pos = new Float32Array(n * 3);
+    for (let k = 0; k < n; k++) { const r = 3.5 + Math.random() * 8, a = Math.random() * 6.28, y = (Math.random() - .5) * 12; pos[k * 3] = Math.cos(a) * r; pos[k * 3 + 1] = y; pos[k * 3 + 2] = Math.sin(a) * r - 2; }
+    const geo = new THREE.BufferGeometry(); geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+    const mat = new THREE.PointsMaterial({ size, map: glowTex, transparent: true, opacity: op, depthWrite: false, sizeAttenuation: true });
+    const pts = new THREE.Points(geo, mat); root.add(pts); return { pts, mat, op, spd, ph: li * 2.1 };
+  });
 
   /* ---------- palette application ---------- */
   function applyPalette() {
@@ -3959,7 +3995,7 @@ if (
     cubeShell.material.color.set(dark ? C.surf2 : C.surface);
     dbBody.forEach((b, i) => { b.material.color.set(C.gold).lerp(col(C.light), i * 0.25); b.material.emissive.set(C.light).multiplyScalar(dark ? 0.2 : 0.08); });
     pMat.blending = dark ? THREE.AdditiveBlending : THREE.NormalBlending; pMat.needsUpdate = true;
-    dMat.color.set(C.gold);
+    stars.forEach((st, i) => { st.mat.color.set(dark ? C.light : (i === 2 ? C.gold : C.strong)); st.mat.blending = dark ? THREE.AdditiveBlending : THREE.NormalBlending; st.mat.needsUpdate = true; });
     drawBrowser(); drawTerm();
   }
   new MutationObserver(applyPalette).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
@@ -4038,7 +4074,7 @@ if (
     core.rotation.y = t * (.25 + .6 * coreHit.hot); shellA.rotation.set(t * .2, -t * .3, 0); shellB.rotation.set(-t * .12, t * .17, 0);
     const pulse = 1 + Math.sin(t * 2.2) * .06 + .18 * coreHit.hot; coreHit.glow.material.opacity = coreHit.hot * (dark ? .6 : .55); coreHit.glow.material.color.set(C.light); coreBall.scale.setScalar(pulse * (0.3 + .7 * e)); halo.scale.setScalar((6 + Math.sin(t * 2.2) * .35) * e);
     sats.forEach((s) => { s.a += s.sp * dt; s.s.position.set(Math.cos(s.a) * s.r, 0, Math.sin(s.a) * s.r); });
-    grid.rotation.y = t * .05; dust.rotation.y = t * .02;
+    grid.rotation.y = t * .05; stars.forEach((st, i) => { st.pts.rotation.y = t * (.012 + i * .008); st.mat.opacity = st.op * (dark ? 1 : .8) * (0.65 + 0.35 * Math.sin(t * st.spd + st.ph)); });
 
     mods.forEach((m, i) => {
       const k = Math.min(1, Math.max(0, e * 1.4 - i * 0.09));
@@ -4081,4 +4117,3 @@ if (
 })();
 </script></body>
 </html>
-
